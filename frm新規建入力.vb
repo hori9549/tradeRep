@@ -352,11 +352,6 @@ Public Class frm新規建入力
     '    ' txt取得単価.Select()
     'End Sub
 
-    Private Sub btn銘柄名検索_Click(sender As Object, e As EventArgs)
-
-
-    End Sub
-
     Private Sub btn銘柄名検索_Click_1(sender As Object, e As EventArgs) Handles btn銘柄名検索.Click
         Dim cDB As New clsDB
         Dim msSQL As String
@@ -386,6 +381,12 @@ Public Class frm新規建入力
                 txt取得株数.Select()
             End With
         End If
+
+    End Sub
+
+
+    Private Sub txt銘柄コード_Leave(sender As Object, e As EventArgs) Handles txt銘柄コード.Leave
+        btn銘柄名検索.PerformClick()
 
     End Sub
 

@@ -289,7 +289,7 @@ Partial Class frm新規建入力
         '
         Me.dgv新規一覧.AllowUserToAddRows = False
         Me.dgv新規一覧.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv新規一覧.Location = New System.Drawing.Point(14, 414)
+        Me.dgv新規一覧.Location = New System.Drawing.Point(14, 402)
         Me.dgv新規一覧.Margin = New System.Windows.Forms.Padding(5)
         Me.dgv新規一覧.Name = "dgv新規一覧"
         Me.dgv新規一覧.RowHeadersWidth = 51
@@ -339,7 +339,7 @@ Partial Class frm新規建入力
         Me.btn登録.Name = "btn登録"
         Me.btn登録.Size = New System.Drawing.Size(125, 45)
         Me.btn登録.TabIndex = 22
-        Me.btn登録.Text = "登録(&U)"
+        Me.btn登録.Text = "確認(&U)"
         Me.btn登録.UseVisualStyleBackColor = True
         '
         'txt入力ID

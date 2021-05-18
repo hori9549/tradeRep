@@ -227,33 +227,35 @@ Public Class frm返済
 
             Case 1  'エラーなし
                 '入力項目を確認させる
-                Dim int返済株数 As Integer
-                Dim int残株数 As Integer = Integer.Parse(txt残株数.Text)
-                Dim d取得単価 As Single
+                'Dim int返済株数 As Integer
+                'Dim int残株数 As Integer = Integer.Parse(txt残株数.Text)
+                'Dim d取得単価 As Single
                 'txt返済株数が””の場合、入力を促す
                 Select Case txt返済株数.Text
                     Case ""
                         txt返済株数.Select()
-                    Case Else
-                        int返済株数 = Integer.Parse(txt返済株数.Text)
+                        Exit Sub
+                        'Case Else
+                        '    int返済株数 = Integer.Parse(txt返済株数.Text)
                 End Select
 
                 'txt取得単価””の場合、入力を促す
                 Select Case txt取得単価.Text
                     Case ""
                         txt取得単価.Select()
-                    Case Else
+                        Exit Sub
+                        'Case Else
 
-                        d取得単価 = Double.Parse(txt取得単価.Text)
+                        '    d取得単価 = Double.Parse(txt取得単価.Text)
                 End Select
 
 
-                '  Dim d取得単価 As Single = Double.Parse(txt取得単価.Text)
+                ''  Dim d取得単価 As Single = Double.Parse(txt取得単価.Text)
 
-                Dim d返済単価 As Single = Double.Parse(txt返済単価.Text)
+                'Dim d返済単価 As Single = Double.Parse(txt返済単価.Text)
 
-                txt返済後残株数.Text = (int残株数 - int返済株数).ToString
-                txt売買差額.Text = (int返済株数 * (d返済単価 - d取得単価))
+                'txt返済後残株数.Text = (int残株数 - int返済株数).ToString
+                'txt売買差額.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
 
 
                 'ほんとうに登録しますか？
@@ -378,7 +380,7 @@ Public Class frm返済
         Dim d返済単価 As Single = Double.Parse(txt返済単価.Text)
 
         txt返済後残株数.Text = (int残株数 - int返済株数).ToString
-        txt売買差額.Text = (int返済株数 * (d返済単価 - d取得単価))
+        txt売買差額.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
         btn登録.Select()
     End Sub
 
