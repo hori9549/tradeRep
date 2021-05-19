@@ -169,11 +169,12 @@ Public Class frm新規建入力
 
             mCommand = cDB.getsqlComand(msSQL)
             Call mCommand.ExecuteNonQuery()
-
+            btn続けて入力.Select()
 
         Catch ex As Exception
             OorN = False      '失敗
             MsgBox("新規登録は、失敗！")
+            btn閉じる.Select()
         End Try
 
         ' Call msgOut(msg入力ID, UorI, OorN)
@@ -186,17 +187,8 @@ Public Class frm新規建入力
 
         '    txt入力ID.Text = 入力ID最大取得()
 
-        Call cDB.Close()
+        '   Call cDB.Close()
 
-        '-----------------TESTデータ----------------------
-        ' Call Sub() SampleData()
-
-
-        Call txt入力ID.Focus()
-        '    Case Else
-
-        'End Select
-        '    btn登録.Enabled = False
     End Sub
     Private Function ErrorCheck() As Integer
         ErrorCheck = 1
