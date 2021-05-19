@@ -1,4 +1,5 @@
 ﻿'210509 MaxID取得をClassからPublicFunctionに変更    
+'fetch と Pull用に掃除0519 on fujitsu
 Imports System.Data
 Imports System.Data.SqlClient
 Public Class frm新規建入力
@@ -257,75 +258,6 @@ Public Class frm新規建入力
         Me.Close()
     End Sub
 
-    'Case ""
-    '                MessageBox.Show("入社月日は必須項目です", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Call .Focus()
-    'Exit Sub
-    'Case Else
-    'Dim str As String = .Text
-    'Dim dt As DateTime
-
-    '------------テスト ツール  終了-------------
-    ''
-    '入力に関する研究
-    '
-    'Private Sub txt氏名_MouseClick(sender As Object, e As MouseEventArgs) Handles txt氏名.MouseClick, txtパスワード.MouseClick,
-    '                                txtフリガナ.MouseClick, txtメールアドレス.MouseClick, txt入力ID.MouseClick, txt住所.MouseClick,
-    '     txt口座名義.MouseClick, txt口座番号.MouseClick, txt支店名.MouseClick, txt生年月日.MouseClick, txt補足情報.MouseClick,
-    '          txt補足情報.MouseClick, txt郵便番号.MouseClick, txt金融機関.MouseClick, txt電話番号.MouseClick
-    '    contNam = sender.name.ToString   'Control "Name"
-    '    sendSav = sender.text
-
-    '    sender.SelectAll()　　　　　　'MouseClickでText全選択
-    'End Sub
-
-    'Private Sub txt氏名_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt氏名.KeyPress, txtパスワード.KeyPress, txtフリガナ.KeyPress,
-    '    txtメールアドレス.KeyPress, txt入力ID.KeyPress, txt住所.KeyPress,
-    '     txt口座名義.KeyPress, txt口座番号.KeyPress, txt支店名.KeyPress, txt生年月日.KeyPress,
-    '          txt補足情報.KeyPress, txt郵便番号.KeyPress, txt金融機関.KeyPress, txt電話番号.KeyPress
-    '    If e.KeyChar = Chr(Keys.Enter) Then
-    '        Me.SelectNextControl(sender, True, True, True, True)
-    '        e.Handled = True
-
-    '    Else
-    '        If e.KeyChar = Chr(Keys.Escape) Then
-    '            Controls(contNam).Text = sendSav        'MouseClicされたControlの内容を戻す
-    '            ActiveControl = Nothing
-    '        End If
-    '    End If
-    '    Controls(contNam).ForeColor = Color.DarkBlue
-    'End Sub
-
-    ''
-    '入力に関する研究
-    '
-
-
-    ' <summary>
-    ' フォームKeyDownイベント
-    ' </summary>
-
-    'Private Sub frmEnterNext_KeyDown(ByVal sender As Object,
-    '                                 ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
-    '    If e.KeyCode = Keys.Enter Then
-    '        If e.Control = False Then
-    '            '[Enter]キーで次の TabIndex があるコントロールへフォーカスを移す
-    '            Me.SelectNextControl(Me.ActiveControl, Not e.Shift, True, True, True)
-    '        End If
-    '    End If
-    'End Sub
-
-    '' <summary>
-    '' フォームKeyPressイベント
-    '' </summary>
-
-    'Private Sub frmEnterNext_KeyPress(ByVal sender As Object,
-    '                                  ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
-    '    If e.KeyChar = ControlChars.Cr Then
-    '        '[Enter]キーで音が出るので、キーイベントが処理されたことにして音を消す
-    '        e.Handled = True
-    '    End If
-    '  End Sub
 
     Private Sub btn続けて入力_Click(sender As Object, e As EventArgs) Handles btn続けて入力.Click
         Call subクリア()
