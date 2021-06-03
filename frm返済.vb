@@ -353,30 +353,32 @@ Public Class frm返済
         cmb現況.Text = ""
 
     End Sub
-    Private Sub txt返済株数_Leave(sender As Object, e As EventArgs) Handles txt返済株数.Leave
+    'txt返済株数_Leave
+    '仮の売買差額を表示
+        Private Sub txt返済株数_Leave(sender As Object, e As EventArgs) Handles txt返済株数.Leave
         Dim int返済株数 As Integer
         Dim int残株数 As Integer = Integer.Parse(txt残株数.Text)
-        Dim d取得単価 As Single
+        '   Dim d取得単価 As Single
         'txt返済株数が””の場合、入力を促す
-        Select Case txt返済株数.Text
-            Case ""
-                txt返済株数.Select()
-            Case Else
-
-                int返済株数 = Integer.Parse(txt返済株数.Text)
-        End Select
-
+        With txt返済単価
+            Select Case (.Text <> "") And IsNumeric(.Text)
+                Case False
+                    txt返済単価.Select()
+                    'Case Else
+                    Exit Sub
+            End Select
+        End With
         'txt取得単価””の場合、入力を促す
-        Select Case txt取得単価.Text
-            Case ""
-                txt取得単価.Select()
-            Case Else
+        With txt返済株数
+            Select Case (.Text <> "") And IsNumeric(.Text)
+                Case False
+                    txt返済株数.Select()
+                    Exit Sub
+            End Select
+        End With
+        int返済株数 = Integer.Parse(txt返済株数.Text)
 
-                d取得単価 = Double.Parse(txt取得単価.Text)
-        End Select
-
-
-        '  Dim d取得単価 As Single = Double.Parse(txt取得単価.Text)
+        Dim d取得単価 As Single = Double.Parse(txt取得単価.Text)
 
         Dim d返済単価 As Single = Double.Parse(txt返済単価.Text)
 
