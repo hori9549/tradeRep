@@ -362,6 +362,7 @@ Public Class frm返済
             Case ""
                 txt返済株数.Select()
             Case Else
+
                 int返済株数 = Integer.Parse(txt返済株数.Text)
         End Select
 
