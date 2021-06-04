@@ -108,7 +108,7 @@ Public Class frm返済
         '  txt返済入力ID.Text = getMaxId()
         txt返済入力ID.Text = getMaxId.ToString
         txt返済日付.Text = get日付.ToString("yyyy/MM/dd")
-        dgv未返済一覧.DataSource = dtblGet()
+        dgv未返済一覧.DataSource = dtbl未返済()
 
         'ヘッダーとすべてのセルの内容に合わせて、列の幅を自動調整する
         dgv未返済一覧.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
@@ -125,7 +125,7 @@ Public Class frm返済
 
 
     End Sub
-    Private Function dtblGet()
+    Private Function dtbl未返済()
         Dim cDB As New clsDB
         Dim getデータ As New DataTable
         Dim mCommand As SqlCommand
@@ -304,7 +304,7 @@ Public Class frm返済
                 Call mCommand.ExecuteNonQuery()
                 '       MsgBox("返済手続きは、完了しました")
                 Call subクリアー()
-                dgv未返済一覧.DataSource = dtblGet()
+                dgv未返済一覧.DataSource = dtbl未返済()
                 ActiveControl = Nothing
 
                 btn登録.Enabled = False
@@ -440,16 +440,16 @@ Public Class frm返済
         Dim cDB As New clsDB
         Dim getデータ As New DataTable
 
-        msSQL = " select * from MST_取得 as A "
-        msSQL += " left join MST_返済 as B "
-        msSQL += " on A.入力ID = B.返済元ID "
-        msSQL += " order by A.入力ID desc "
-        mCommand = cDB.getsqlComand(msSQL)
-        mSDA.SelectCommand = mCommand
+        'msSQL = " select * from MST_取得 as A "
+        'msSQL += " left join MST_返済 as B "
+        'msSQL += " on A.入力ID = B.返済元ID "
+        'msSQL += " order by A.入力ID desc "
+        'mCommand = cDB.getsqlComand(msSQL)
+        'mSDA.SelectCommand = mCommand
 
-        Call mSDA.Fill(getデータ) ''データセット作成
-        dgv未返済一覧.DataSource = getデータ
-
+        'Call mSDA.Fill(getデータ) ''データセット作成
+        ' dgv未返済一覧.DataSource = getデータ
+        dgv未返済一覧.DataSource = dtbl未返済()
         txt返済入力ID.Text = getMaxId.ToString()
         btn登録.Enabled = True
         '   btn続ける.Enabled = False
