@@ -22,25 +22,25 @@ Partial Class frmベース
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn閉じる = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Button1
+        'btn閉じる
         '
-        Me.Button1.ForeColor = System.Drawing.Color.Red
-        Me.Button1.Location = New System.Drawing.Point(1069, 706)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(99, 34)
-        Me.Button1.TabIndex = 101
-        Me.Button1.Text = "閉じる"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn閉じる.ForeColor = System.Drawing.Color.Red
+        Me.btn閉じる.Location = New System.Drawing.Point(1069, 706)
+        Me.btn閉じる.Name = "btn閉じる"
+        Me.btn閉じる.Size = New System.Drawing.Size(99, 34)
+        Me.btn閉じる.TabIndex = 101
+        Me.btn閉じる.Text = "閉じる"
+        Me.btn閉じる.UseVisualStyleBackColor = True
         '
         'frmベース
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 761)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn閉じる)
         Me.Font = New System.Drawing.Font("MS UI Gothic", 14.0!)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmベース"
@@ -49,5 +49,5 @@ Partial Class frmベース
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn閉じる As Button
 End Class
