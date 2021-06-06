@@ -180,123 +180,126 @@ Public Class frmTradeRepo
                 '  Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("Sheet1")
                 '  Dim ws取引種別 As String = worksheet.Cell(1, "G")
 
-                Dim ws取引種別 = worksheet.Cell(1, "G")
-                MsgBox(ws取引種別.Value)
-                'Dim n行カウント As Integer = 9
-                'For Each get行 As DataRow In mdtbl会員.Rows
-                '    '位置を指定してセルを取得する
-                '    Dim cel役職名 = worksheet.Cell(n行カウント, 2) ' 行番号と列名でも指定可能
-                '    cel役職名.Value = get行("役職名").ToString
-
-                '    Dim cel氏名 = worksheet.Cell(n行カウント, 3) ' 行番号と列名でも指定可能
-                '    cel氏名.Value = get行("氏名").ToString
-
-                '    Dim cel郵便番号 = worksheet.Cell(n行カウント, 4) ' 行番号と列名でも指定可能
-                '    cel郵便番号.Value = get行("郵便番号").ToString
-
-                '    Dim cel住所 = worksheet.Cell(n行カウント, 5) ' 行番号と列名でも指定可能
-                '    cel住所.Value = get行("住所").ToString
-
-                '    Dim cel電話番号 = worksheet.Cell(n行カウント, 6) ' 行番号と列名でも指定可能
-                '    cel電話番号.Value = get行("電話番号").ToString
-
-                '    Dim cel担当理事 = worksheet.Cell(n行カウント, 7) ' 行番号と列名でも指定可能
-                '    cel担当理事.Value = get行("担当理事").ToString
-
-                '    Dim cel備考 = worksheet.Cell(n行カウント, 8) ' 行番号と列名でも指定可能
-                '    cel備考.Value = get行("備考").ToString
-
-                '    n行カウント += 1
-                'Next
-
-                Dim 銘柄コードText As String = worksheet.Cell(1, "I")
-                Dim 銘柄名Text As String = worksheet.Cell(1, "J")          '"株数:100
+                Dim ws取引種別 As String = (worksheet.Cell(1, "G").Value).substring(0, 5)
+                If ws取引種別 = "信用新規買" Then
 
 
-                Dim dt As String = worksheet.Cell(1, "L")
-                Dim 取得株数Text As String = worksheet.Cell(1, "")
-                Dim 取得単価Text As String = worksheet.Cell(1, "I")
+                    'Dim n行カウント As Integer = 9
+                    'For Each get行 As DataRow In mdtbl会員.Rows
+                    '    '位置を指定してセルを取得する
+                    '    Dim cel役職名 = worksheet.Cell(n行カウント, 2) ' 行番号と列名でも指定可能
+                    '    cel役職名.Value = get行("役職名").ToString
 
-                ' Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
-                ' & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
-                '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    '    Dim cel氏名 = worksheet.Cell(n行カウント, 3) ' 行番号と列名でも指定可能
+                    '    cel氏名.Value = get行("氏名").ToString
 
-                '     Case Windows.Forms.DialogResult.Yes
-                '     Case Else
-                '         txt銘柄コード.Select()
-                '         Exit Sub
-                ' End Select
-                ' txt残株数.Text = 取得株数Text
-                Dim cDB As New clsDB
-                Dim msSQL As String
-                Dim myTable As New DataTable
-                'msSQL = " SELECT * FROM MST_取得"
-                'msSQL += " WHERE 入力ID = " & txt入力ID.Text
+                    '    Dim cel郵便番号 = worksheet.Cell(n行カウント, 4) ' 行番号と列名でも指定可能
+                    '    cel郵便番号.Value = get行("郵便番号").ToString
 
-                'mCommand = cDB.getsqlComand(msSQL)
-                'mSDA.SelectCommand = mCommand
+                    '    Dim cel住所 = worksheet.Cell(n行カウント, 5) ' 行番号と列名でも指定可能
+                    '    cel住所.Value = get行("住所").ToString
 
-                'Call mSDA.Fill(myTable) ''データセット作成
+                    '    Dim cel電話番号 = worksheet.Cell(n行カウント, 6) ' 行番号と列名でも指定可能
+                    '    cel電話番号.Value = get行("電話番号").ToString
 
-                '   If myTable.Rows.Count = 0 Then
+                    '    Dim cel担当理事 = worksheet.Cell(n行カウント, 7) ' 行番号と列名でも指定可能
+                    '    cel担当理事.Value = get行("担当理事").ToString
 
-                ''新規追加
-                'messagebox用語句登録
-                'msg入力ID = txt入力ID.Text
-                'UorI = True  '新規追加
+                    '    Dim cel備考 = worksheet.Cell(n行カウント, 8) ' 行番号と列名でも指定可能
+                    '    cel備考.Value = get行("備考").ToString
 
-                ''追加Dataのセット
-                'msSQL = " INSERT INTO MST_取得 ( "
-                'msSQL += " [入力ID]"
-                'msSQL += " ,[銘柄コード]"
-                'msSQL += " ,[銘柄名]"
-                'msSQL += " ,[取引種別]"
-                'msSQL += " ,[取引区分]"
-                'msSQL += " ,[取引株数]"
-                'msSQL += " ,[取得単価]"
-                'msSQL += " ,[取得日付]"
-                'msSQL += " ,[残株数]"
-                'msSQL += " )"
-
-                'msSQL += "  VALUES "
-                'msSQL += " ('" & Trim(txt入力ID.Text) & "'"                        ' <入力ID, nvarchar(10),>
-                'msSQL += ",'" & txt銘柄コード.Text.Trim & "'"
-
-                'msSQL += ",'" & txt銘柄名.Text.Trim & " '"
-                'msSQL += ",'" & txt取引種別.Text.Trim & " '"
-
-                'msSQL += ",'" & txt取引区分.Text.Trim & "'"
-                'msSQL += ",'" & txt取得株数.Text.Trim & "'"  '
-                'msSQL += ",'" & txt取得単価.Text.Trim & "'"  '
-                ''Select Case txt取得日付.Text.Length
-                ''    Case 0
-                ''        msSQL += ",null"
-                ''    Case Else
-                'msSQL += ",'" & get日付 + "'"   '取得日付
-                'msSQL += ",'" & txt残株数.Text + "'"
-
-                msSQL += ")"
-
-                Try
-
-                    mCommand = cDB.getsqlComand(msSQL)
-                    Call mCommand.ExecuteNonQuery()
-                    '  btn続けて入力.Select()
-
-                Catch ex As Exception
-                    '   OorN = False      '失敗
-                    MsgBox("新規登録は、失敗！")
-                    btn閉じる.Select()
-                End Try
-
-                ' Call msgOut(msg入力ID, UorI, OorN)
-
-                ''クリア
-                '   Call subクリア()
-
-                ''再表示
+                    '    n行カウント += 1
+                    'Next
+                    Dim dt As String
+                    Dim 銘柄コードText As String = worksheet.Cell(1, "I").Value
+                    dt = worksheet.Cell(1, "J").Value
+                    Dim 銘柄名Text As String = dt.Substring(0, (dt.Length - 1))
 
 
+                    dt = worksheet.Cell(1, "L").Value        '"株数:100
+                    Dim 取得株数Text As String = dt.Substring(3)
+                    Dim 取得単価Text As String = (worksheet.Cell(1, "m").Value).substring(3)
+
+                    ' Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
+                    ' & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
+                    '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                    '     Case Windows.Forms.DialogResult.Yes
+                    '     Case Else
+                    '         txt銘柄コード.Select()
+                    '         Exit Sub
+                    ' End Select
+                    ' txt残株数.Text = 取得株数Text
+                    Dim cDB As New clsDB
+                    Dim msSQL As String
+                    Dim myTable As New DataTable
+                    'msSQL = " SELECT * FROM MST_取得"
+                    'msSQL += " WHERE 入力ID = " & txt入力ID.Text
+
+                    'mCommand = cDB.getsqlComand(msSQL)
+                    'mSDA.SelectCommand = mCommand
+
+                    'Call mSDA.Fill(myTable) ''データセット作成
+
+                    '   If myTable.Rows.Count = 0 Then
+
+                    ''新規追加
+                    'messagebox用語句登録
+                    'msg入力ID = txt入力ID.Text
+                    'UorI = True  '新規追加
+
+                    ''追加Dataのセット
+                    'msSQL = " INSERT INTO MST_取得 ( "
+                    'msSQL += " [入力ID]"
+                    'msSQL += " ,[銘柄コード]"
+                    'msSQL += " ,[銘柄名]"
+                    'msSQL += " ,[取引種別]"
+                    'msSQL += " ,[取引区分]"
+                    'msSQL += " ,[取引株数]"
+                    'msSQL += " ,[取得単価]"
+                    'msSQL += " ,[取得日付]"
+                    'msSQL += " ,[残株数]"
+                    'msSQL += " )"
+
+                    'msSQL += "  VALUES "
+                    'msSQL += " ('" & Trim(txt入力ID.Text) & "'"                        ' <入力ID, nvarchar(10),>
+                    'msSQL += ",'" & txt銘柄コード.Text.Trim & "'"
+
+                    'msSQL += ",'" & txt銘柄名.Text.Trim & " '"
+                    'msSQL += ",'" & txt取引種別.Text.Trim & " '"
+
+                    'msSQL += ",'" & txt取引区分.Text.Trim & "'"
+                    'msSQL += ",'" & txt取得株数.Text.Trim & "'"  '
+                    'msSQL += ",'" & txt取得単価.Text.Trim & "'"  '
+                    ''Select Case txt取得日付.Text.Length
+                    ''    Case 0
+                    ''        msSQL += ",null"
+                    ''    Case Else
+                    'msSQL += ",'" & get日付 + "'"   '取得日付
+                    'msSQL += ",'" & txt残株数.Text + "'"
+
+                    msSQL += ")"
+
+                    Try
+
+                        mCommand = cDB.getsqlComand(msSQL)
+                        Call mCommand.ExecuteNonQuery()
+                        '  btn続けて入力.Select()
+
+                    Catch ex As Exception
+                        '   OorN = False      '失敗
+                        MsgBox("新規登録は、失敗！")
+                        btn閉じる.Select()
+                    End Try
+
+                    ' Call msgOut(msg入力ID, UorI, OorN)
+
+                    ''クリア
+                    '   Call subクリア()
+
+                    ''再表示
+
+                End If
 
 
                 ''ワークブックを保存する
