@@ -165,9 +165,10 @@ Public Class frmTradeRepo
         ActiveControl = Nothing
     End Sub
 
-
     Private Sub btnCallExcel_Click(sender As Object, e As EventArgs) Handles btnCallExcel.Click
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント/getMailTest.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\getMailTest.xlsx"
+
+        '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         Dim getExcelファイル As String
 
         Try
@@ -175,8 +176,12 @@ Public Class frmTradeRepo
             Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
                 'ワークシートを取得する
                 Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
-                Dim cel取引種別 = worksheet.Cell(1, "G") ' 行番号と列名でも指定可能
-                MsgBox(cel取引種別)
+
+                '  Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("Sheet1")
+                '  Dim ws取引種別 As String = worksheet.Cell(1, "G")
+
+                Dim ws取引種別 = worksheet.Cell(1, "G")
+                MsgBox(ws取引種別.Value)
                 'Dim n行カウント As Integer = 9
                 'For Each get行 As DataRow In mdtbl会員.Rows
                 '    '位置を指定してセルを取得する
@@ -204,21 +209,24 @@ Public Class frmTradeRepo
                 '    n行カウント += 1
                 'Next
 
-                Dim 銘柄コードText As String = txt銘柄コード.Text
-                Dim 銘柄名Text As String = txt銘柄名.Text
-                Dim 取得株数Text As String = txt取得株数.Text   'msg出力用
-                Dim 取得単価Text As String = txt取得単価.Text   'msg出力用
+                Dim 銘柄コードText As String = worksheet.Cell(1, "I")
+                Dim 銘柄名Text As String = worksheet.Cell(1, "J")          '"株数:100
 
-                Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
-                & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
-               "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                    Case Windows.Forms.DialogResult.Yes
-                    Case Else
-                        txt銘柄コード.Select()
-                        Exit Sub
-                End Select
-                txt残株数.Text = 取得株数Text
+                Dim dt As String = worksheet.Cell(1, "L")
+                Dim 取得株数Text As String = worksheet.Cell(1, "")
+                Dim 取得単価Text As String = worksheet.Cell(1, "I")
+
+                ' Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
+                ' & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
+                '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                '     Case Windows.Forms.DialogResult.Yes
+                '     Case Else
+                '         txt銘柄コード.Select()
+                '         Exit Sub
+                ' End Select
+                ' txt残株数.Text = 取得株数Text
                 Dim cDB As New clsDB
                 Dim msSQL As String
                 Dim myTable As New DataTable
@@ -234,38 +242,38 @@ Public Class frmTradeRepo
 
                 ''新規追加
                 'messagebox用語句登録
-                msg入力ID = txt入力ID.Text
-                UorI = True  '新規追加
+                'msg入力ID = txt入力ID.Text
+                'UorI = True  '新規追加
 
-                '追加Dataのセット
-                msSQL = " INSERT INTO MST_取得 ( "
-                msSQL += " [入力ID]"
-                msSQL += " ,[銘柄コード]"
-                msSQL += " ,[銘柄名]"
-                msSQL += " ,[取引種別]"
-                msSQL += " ,[取引区分]"
-                msSQL += " ,[取引株数]"
-                msSQL += " ,[取得単価]"
-                msSQL += " ,[取得日付]"
-                msSQL += " ,[残株数]"
-                msSQL += " )"
+                ''追加Dataのセット
+                'msSQL = " INSERT INTO MST_取得 ( "
+                'msSQL += " [入力ID]"
+                'msSQL += " ,[銘柄コード]"
+                'msSQL += " ,[銘柄名]"
+                'msSQL += " ,[取引種別]"
+                'msSQL += " ,[取引区分]"
+                'msSQL += " ,[取引株数]"
+                'msSQL += " ,[取得単価]"
+                'msSQL += " ,[取得日付]"
+                'msSQL += " ,[残株数]"
+                'msSQL += " )"
 
-                msSQL += "  VALUES "
-                msSQL += " ('" & Trim(txt入力ID.Text) & "'"                        ' <入力ID, nvarchar(10),>
-                msSQL += ",'" & txt銘柄コード.Text.Trim & "'"
+                'msSQL += "  VALUES "
+                'msSQL += " ('" & Trim(txt入力ID.Text) & "'"                        ' <入力ID, nvarchar(10),>
+                'msSQL += ",'" & txt銘柄コード.Text.Trim & "'"
 
-                msSQL += ",'" & txt銘柄名.Text.Trim & " '"
-                msSQL += ",'" & txt取引種別.Text.Trim & " '"
+                'msSQL += ",'" & txt銘柄名.Text.Trim & " '"
+                'msSQL += ",'" & txt取引種別.Text.Trim & " '"
 
-                msSQL += ",'" & txt取引区分.Text.Trim & "'"
-                msSQL += ",'" & txt取得株数.Text.Trim & "'"  '
-                msSQL += ",'" & txt取得単価.Text.Trim & "'"  '
-                'Select Case txt取得日付.Text.Length
-                '    Case 0
-                '        msSQL += ",null"
-                '    Case Else
-                msSQL += ",'" & get日付 + "'"   '取得日付
-                msSQL += ",'" & txt残株数.Text + "'"
+                'msSQL += ",'" & txt取引区分.Text.Trim & "'"
+                'msSQL += ",'" & txt取得株数.Text.Trim & "'"  '
+                'msSQL += ",'" & txt取得単価.Text.Trim & "'"  '
+                ''Select Case txt取得日付.Text.Length
+                ''    Case 0
+                ''        msSQL += ",null"
+                ''    Case Else
+                'msSQL += ",'" & get日付 + "'"   '取得日付
+                'msSQL += ",'" & txt残株数.Text + "'"
 
                 msSQL += ")"
 
@@ -273,10 +281,10 @@ Public Class frmTradeRepo
 
                     mCommand = cDB.getsqlComand(msSQL)
                     Call mCommand.ExecuteNonQuery()
-                    btn続けて入力.Select()
+                    '  btn続けて入力.Select()
 
                 Catch ex As Exception
-                    OorN = False      '失敗
+                    '   OorN = False      '失敗
                     MsgBox("新規登録は、失敗！")
                     btn閉じる.Select()
                 End Try
@@ -284,7 +292,7 @@ Public Class frmTradeRepo
                 ' Call msgOut(msg入力ID, UorI, OorN)
 
                 ''クリア
-                Call subクリア()
+                '   Call subクリア()
 
                 ''再表示
 
