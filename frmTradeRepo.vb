@@ -178,8 +178,8 @@ Public Class frmTradeRepo
         'Try
         'Excelファイルを開く
         Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
-                'ワークシートを取得する
-                Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
+            'ワークシートを取得する
+            Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
 
             '  Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("Sheet1")
             '  Dim ws取引種別 As String = worksheet.Cell(1, "G")
@@ -209,15 +209,16 @@ Public Class frmTradeRepo
 
                     dt = worksheet.Cell(i, "d").Value        '取得日付
                     Dim 取得日付 As String = dt.Substring(0, 10)
-                    ' Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
-                    ' & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
-                    '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                    '     Case Windows.Forms.DialogResult.Yes
-                    '     Case Else
-                    '         txt銘柄コード.Select()
-                    '         Exit Sub
-                    ' End Select
+                    Select Case MessageBox.Show($"{ 銘柄コードText}{ 銘柄名Text}を _
+                    { 取得株数Text} { 取得単価Text} '新規買'で、登録しますか？",
+                   "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                        Case Windows.Forms.DialogResult.Yes
+                        Case Else
+
+                            Exit Sub
+                    End Select
                     ' txt残株数.Text = 取得株数Text
                     Dim cDB As New clsDB
                     Dim msSQL As String
