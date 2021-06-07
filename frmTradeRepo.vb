@@ -166,6 +166,12 @@ Public Class frmTradeRepo
     End Sub
 
     Private Sub btnCallExcel_Click(sender As Object, e As EventArgs) Handles btnCallExcel.Click
+        ' Call subクリア()
+        '  Call 入力ID最大取得.getMaxId()
+
+        '  txt入力ID.Text = 入力ID最大取得.maxID
+        Dim 入力ID As String = getMaxId().ToString
+
         Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\getMailTest.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
@@ -217,9 +223,14 @@ Public Class frmTradeRepo
 
 
                     dt = worksheet.Cell(1, "L").Value        '"株数:100
-                    Dim 取得株数Text As String = dt.Substring(3)
-                    Dim 取得単価Text As String = (worksheet.Cell(1, "m").Value).substring(3)
+                    dt = dt.Substring(3)
+                    Dim 取得株数Text As String = dt.Substring(0, dt.Length - 1)
+                    dt = (worksheet.Cell(1, "m").Value).substring(3)
+                    dt = dt.Substring(0, dt.Length - 1)
+                    Dim 取得単価Text As String = dt.Replace(",", "") '","をのぞく
 
+                    dt = worksheet.Cell(1, "d").Value        '取得日付
+                    Dim 取得日付 As String = dt.Substring(0, 10)
                     ' Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
                     ' & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
                     '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -243,40 +254,39 @@ Public Class frmTradeRepo
 
                     '   If myTable.Rows.Count = 0 Then
 
-                    ''新規追加
-                    'messagebox用語句登録
-                    'msg入力ID = txt入力ID.Text
-                    'UorI = True  '新規追加
+                    '新規追加
+                    '    messagebox用語句登録
+                    ' msg入力ID = 入力ID
 
-                    ''追加Dataのセット
-                    'msSQL = " INSERT INTO MST_取得 ( "
-                    'msSQL += " [入力ID]"
-                    'msSQL += " ,[銘柄コード]"
-                    'msSQL += " ,[銘柄名]"
-                    'msSQL += " ,[取引種別]"
-                    'msSQL += " ,[取引区分]"
-                    'msSQL += " ,[取引株数]"
-                    'msSQL += " ,[取得単価]"
-                    'msSQL += " ,[取得日付]"
-                    'msSQL += " ,[残株数]"
-                    'msSQL += " )"
+                    '追加Dataのセット
+                    msSQL = " INSERT INTO MST_取得 ( "
+                    msSQL += " [入力ID]"
+                    msSQL += " ,[銘柄コード]"
+                    msSQL += " ,[銘柄名]"
+                    msSQL += " ,[取引種別]"
+                    msSQL += " ,[取引区分]"
+                    msSQL += " ,[取引株数]"
+                    msSQL += " ,[取得単価]"
+                    msSQL += " ,[取得日付]"
+                    msSQL += " ,[残株数]"
+                    msSQL += " )"
 
-                    'msSQL += "  VALUES "
-                    'msSQL += " ('" & Trim(txt入力ID.Text) & "'"                        ' <入力ID, nvarchar(10),>
-                    'msSQL += ",'" & txt銘柄コード.Text.Trim & "'"
+                    msSQL += "  VALUES "
+                    msSQL += " ('" & 入力ID & "'"                        ' <入力ID, nvarchar(10),>
+                    msSQL += ",'" & 銘柄コードText & "'"
 
-                    'msSQL += ",'" & txt銘柄名.Text.Trim & " '"
-                    'msSQL += ",'" & txt取引種別.Text.Trim & " '"
+                    msSQL += ",'" & 銘柄名Text & "'"
+                    msSQL += ",'制度信用'"
 
-                    'msSQL += ",'" & txt取引区分.Text.Trim & "'"
-                    'msSQL += ",'" & txt取得株数.Text.Trim & "'"  '
-                    'msSQL += ",'" & txt取得単価.Text.Trim & "'"  '
-                    ''Select Case txt取得日付.Text.Length
-                    ''    Case 0
-                    ''        msSQL += ",null"
-                    ''    Case Else
-                    'msSQL += ",'" & get日付 + "'"   '取得日付
-                    'msSQL += ",'" & txt残株数.Text + "'"
+                    msSQL += ",'信新規買'"
+                    msSQL += ",'" & 取得株数Text & "'"
+                    msSQL += ",'" & 取得単価Text & "'"
+                    'Select Case txt取得日付.Text.Length
+                    '    Case 0
+                    '        msSQL += ",null"
+                    '    Case Else
+                    msSQL += ",'" & 取得日付 & "'"   '取得日付
+                    msSQL += ",'" & 取得株数Text & "'"
 
                     msSQL += ")"
 
