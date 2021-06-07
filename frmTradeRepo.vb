@@ -169,67 +169,45 @@ Public Class frmTradeRepo
         ' Call subクリア()
         '  Call 入力ID最大取得.getMaxId()
 
-        '  txt入力ID.Text = 入力ID最大取得.maxID
-        Dim 入力ID As String = getMaxId().ToString
 
         Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\getMailTest.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
-        Dim getExcelファイル As String
+        '  Dim getExcelファイル As String
 
-        Try
-            'Excelファイルを開く
-            Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
+        'Try
+        'Excelファイルを開く
+        Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
                 'ワークシートを取得する
                 Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
 
-                '  Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("Sheet1")
-                '  Dim ws取引種別 As String = worksheet.Cell(1, "G")
+            '  Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("Sheet1")
+            '  Dim ws取引種別 As String = worksheet.Cell(1, "G")
+            Dim i As Integer = 1
 
-                Dim ws取引種別 As String = (worksheet.Cell(1, "G").Value).substring(0, 5)
+            Do While (worksheet.Cell(i, "A").Value) <> ""
+
+                Dim ws取引種別 As String = (worksheet.Cell(i, "G").Value).substring(0, 5)
                 If ws取引種別 = "信用新規買" Then
+                    ''信用新規買 登録
+                    '  txt入力ID.Text = 入力ID最大取得.maxID
+                    Dim 入力ID As String = getMaxId().ToString
 
 
-                    'Dim n行カウント As Integer = 9
-                    'For Each get行 As DataRow In mdtbl会員.Rows
-                    '    '位置を指定してセルを取得する
-                    '    Dim cel役職名 = worksheet.Cell(n行カウント, 2) ' 行番号と列名でも指定可能
-                    '    cel役職名.Value = get行("役職名").ToString
-
-                    '    Dim cel氏名 = worksheet.Cell(n行カウント, 3) ' 行番号と列名でも指定可能
-                    '    cel氏名.Value = get行("氏名").ToString
-
-                    '    Dim cel郵便番号 = worksheet.Cell(n行カウント, 4) ' 行番号と列名でも指定可能
-                    '    cel郵便番号.Value = get行("郵便番号").ToString
-
-                    '    Dim cel住所 = worksheet.Cell(n行カウント, 5) ' 行番号と列名でも指定可能
-                    '    cel住所.Value = get行("住所").ToString
-
-                    '    Dim cel電話番号 = worksheet.Cell(n行カウント, 6) ' 行番号と列名でも指定可能
-                    '    cel電話番号.Value = get行("電話番号").ToString
-
-                    '    Dim cel担当理事 = worksheet.Cell(n行カウント, 7) ' 行番号と列名でも指定可能
-                    '    cel担当理事.Value = get行("担当理事").ToString
-
-                    '    Dim cel備考 = worksheet.Cell(n行カウント, 8) ' 行番号と列名でも指定可能
-                    '    cel備考.Value = get行("備考").ToString
-
-                    '    n行カウント += 1
-                    'Next
                     Dim dt As String
-                    Dim 銘柄コードText As String = worksheet.Cell(1, "I").Value
-                    dt = worksheet.Cell(1, "J").Value
+                    Dim 銘柄コードText As String = worksheet.Cell(i, "I").Value
+                    dt = worksheet.Cell(i, "J").Value
                     Dim 銘柄名Text As String = dt.Substring(0, (dt.Length - 1))
 
 
-                    dt = worksheet.Cell(1, "L").Value        '"株数:100
+                    dt = worksheet.Cell(i, "L").Value        '"株数:100
                     dt = dt.Substring(3)
                     Dim 取得株数Text As String = dt.Substring(0, dt.Length - 1)
-                    dt = (worksheet.Cell(1, "m").Value).substring(3)
+                    dt = (worksheet.Cell(i, "m").Value).substring(3)
                     dt = dt.Substring(0, dt.Length - 1)
                     Dim 取得単価Text As String = dt.Replace(",", "") '","をのぞく
 
-                    dt = worksheet.Cell(1, "d").Value        '取得日付
+                    dt = worksheet.Cell(i, "d").Value        '取得日付
                     Dim 取得日付 As String = dt.Substring(0, 10)
                     ' Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
                     ' & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
@@ -310,42 +288,42 @@ Public Class frmTradeRepo
                     ''再表示
 
                 End If
+                i += 1
+            Loop
+            ''ワークブックを保存する
+            'Using sfd As SaveFileDialog = New SaveFileDialog
+            '    'デフォルトのファイル名を指定します
+            '    sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
+            '    sfd.FileName = "会員名簿"
+            '    sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel"
+
+            '    If sfd.ShowDialog() = DialogResult.OK Then
+            '        getExcelファイル = sfd.FileName
+            '        workbook.SaveAs(getExcelファイル)     ''別ブックで保存
+
+            '        ''作成ファイルオープン
+            '        '  Select Case sfrmメッセージ.ShowDialog("フィルが作成されました。" & vbCrLf _
+            '        '                            & "作成ファイルを開きますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+            '        '    Case vbOK
+            '        '        Dim execProc As New Process
+            '        '        With execProc
+            '        '            .StartInfo.FileName = getExcelファイル
+            '        '            .Start()
+            '        '        End With
+            '        'End Select
+
+            '    End If
+            'End Using
+        End Using
 
 
-                ''ワークブックを保存する
-                'Using sfd As SaveFileDialog = New SaveFileDialog
-                '    'デフォルトのファイル名を指定します
-                '    sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
-                '    sfd.FileName = "会員名簿"
-                '    sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel"
 
-                '    If sfd.ShowDialog() = DialogResult.OK Then
-                '        getExcelファイル = sfd.FileName
-                '        workbook.SaveAs(getExcelファイル)     ''別ブックで保存
+        ' Catch ex As Exception
 
-                '        ''作成ファイルオープン
-                '        '  Select Case sfrmメッセージ.ShowDialog("フィルが作成されました。" & vbCrLf _
-                '        '                            & "作成ファイルを開きますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-                '        '    Case vbOK
-                '        '        Dim execProc As New Process
-                '        '        With execProc
-                '        '            .StartInfo.FileName = getExcelファイル
-                '        '            .Start()
-                '        '        End With
-                '        'End Select
+        'パスD:\カシオペイア\カシオペイア-Work\bin\Debug\Temp\会員名簿.xlsx' の一部が見つかりませんでした。
+        ' sfrmメッセージ.ShowDialog(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-                '    End If
-                'End Using
-            End Using
-
-
-
-        Catch ex As Exception
-
-            'パスD:\カシオペイア\カシオペイア-Work\bin\Debug\Temp\会員名簿.xlsx' の一部が見つかりませんでした。
-            ' sfrmメッセージ.ShowDialog(ex.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        End Try
+        ' End Try
 
 
 
