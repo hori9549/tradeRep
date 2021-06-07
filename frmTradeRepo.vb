@@ -170,7 +170,7 @@ Public Class frmTradeRepo
         '  Call 入力ID最大取得.getMaxId()
 
 
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\getMailTest.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知200329_210604.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
@@ -187,31 +187,38 @@ Public Class frmTradeRepo
 
             Do While (worksheet.Cell(i, "A").Value) <> ""
 
-                Dim ws取引種別 As String = (worksheet.Cell(i, "G").Value).substring(0, 5)
+                Dim dt As String
+
+                dt = (worksheet.Cell(i, "G").Value)   '取引種別&vbLF
+                Dim ws取引種別 As String = dt.Substring(0, (dt.Length - 1))
+
                 If ws取引種別 = "信用新規買" Then
+
                     ''信用新規買 登録
                     '  txt入力ID.Text = 入力ID最大取得.maxID
                     Dim 入力ID As String = getMaxId().ToString
 
-
-                    Dim dt As String
                     Dim 銘柄コードText As String = worksheet.Cell(i, "I").Value
-                    dt = worksheet.Cell(i, "J").Value
+
+                    dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
                     Dim 銘柄名Text As String = dt.Substring(0, (dt.Length - 1))
 
 
-                    dt = worksheet.Cell(i, "L").Value        '"株数:100
+                    dt = worksheet.Cell(i, "L").Value        '"株数:100 &vbLF
                     dt = dt.Substring(3)
                     Dim 取得株数Text As String = dt.Substring(0, dt.Length - 1)
-                    dt = (worksheet.Cell(i, "m").Value).substring(3)
+
+                    dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
                     dt = dt.Substring(0, dt.Length - 1)
                     Dim 取得単価Text As String = dt.Replace(",", "") '","をのぞく
 
                     dt = worksheet.Cell(i, "d").Value        '取得日付
                     Dim 取得日付 As String = dt.Substring(0, 10)
 
-                    Select Case MessageBox.Show($"{ 銘柄コードText}{ 銘柄名Text}を _
-                    { 取得株数Text} { 取得単価Text} '新規買'で、登録しますか？",
+                    Select Case MessageBox.Show($"{取得日付} に
+ { 銘柄コードText}　{ 銘柄名Text}を _
+ { 取得株数Text}　{ 取得単価Text} で
+ '信用新規買'で、登録しますか？",
                    "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
                         Case Windows.Forms.DialogResult.Yes
@@ -257,7 +264,7 @@ Public Class frmTradeRepo
                     msSQL += ",'" & 銘柄名Text & "'"
                     msSQL += ",'制度信用'"
 
-                    msSQL += ",'信新規買'"
+                    msSQL += ",'信用新規買'"
                     msSQL += ",'" & 取得株数Text & "'"
                     msSQL += ",'" & 取得単価Text & "'"
                     'Select Case txt取得日付.Text.Length
