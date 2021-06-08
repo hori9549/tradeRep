@@ -170,7 +170,7 @@ Public Class frmTradeRepo
         '  Call 入力ID最大取得.getMaxId()
 
 
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知200329_210604.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知0329_0331.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
