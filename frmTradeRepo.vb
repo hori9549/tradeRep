@@ -167,9 +167,14 @@ Public Class frmTradeRepo
 
     Private Sub btnCallExcel_Click(sender As Object, e As EventArgs) Handles btnCallExcel.Click
         ' Call subクリア()
-        '  Call 入力ID最大取得.getMaxId()
-
-
+        Dim cDB As New clsDB
+        Dim msSQL As String
+        Dim myTable As New DataTable
+        Dim 銘柄コードText As String
+        Dim 銘柄名Text As String
+        Dim 株数Text As String
+        Dim 価格Text As String
+        Dim 決済日付 As String
         Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知0329_0331.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
@@ -191,112 +196,166 @@ Public Class frmTradeRepo
 
                 dt = (worksheet.Cell(i, "G").Value)   '取引種別&vbLF
                 Dim ws取引種別 As String = dt.Substring(0, (dt.Length - 1))
+                Select Case ws取引種別
+                    Case "信用新規買"
+                        '  If ws取引種別 = "信用新規買" Then
 
-                If ws取引種別 = "信用新規買" Then
+                        ''信用新規買 登録
+                        '  txt入力ID.Text = 入力ID最大取得.maxID
+                        Dim 入力ID As String = getMaxId().ToString
 
-                    ''信用新規買 登録
-                    '  txt入力ID.Text = 入力ID最大取得.maxID
-                    Dim 入力ID As String = getMaxId().ToString
+                        銘柄コードText = worksheet.Cell(i, "I").Value
 
-                    Dim 銘柄コードText As String = worksheet.Cell(i, "I").Value
-
-                    dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
-                    Dim 銘柄名Text As String = dt.Substring(0, (dt.Length - 1))
+                        dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
+                        銘柄名Text = dt.Substring(0, (dt.Length - 1))
 
 
-                    dt = worksheet.Cell(i, "L").Value        '"株数:100 &vbLF
-                    dt = dt.Substring(3)
-                    Dim 取得株数Text As String = dt.Substring(0, dt.Length - 1)
+                        dt = worksheet.Cell(i, "L").Value        '"株数:100 &vbLF
+                        dt = dt.Substring(3)
+                        株数Text = dt.Substring(0, dt.Length - 1)
 
-                    dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
-                    dt = dt.Substring(0, dt.Length - 1)
-                    Dim 取得単価Text As String = dt.Replace(",", "") '","をのぞく
+                        dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
+                        dt = dt.Substring(0, dt.Length - 1)
+                        価格Text = dt.Replace(",", "") '","をのぞく
 
-                    dt = worksheet.Cell(i, "d").Value        '取得日付
-                    Dim 取得日付 As String = dt.Substring(0, 10)
+                        dt = worksheet.Cell(i, "d").Value        '決済日付
+                        決済日付 = dt.Substring(0, 10)
 
-                    Select Case MessageBox.Show($"{取得日付} に
+                        Select Case MessageBox.Show($"{決済日付} に
  { 銘柄コードText}　{ 銘柄名Text}を _
- { 取得株数Text}　{ 取得単価Text} で
+ { 株数Text}　{ 価格Text} で
  '信用新規買'で、登録しますか？",
-                   "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                       "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                        Case Windows.Forms.DialogResult.Yes
-                        Case Else
+                            Case Windows.Forms.DialogResult.Yes
+                            Case Else
 
-                            Exit Sub
-                    End Select
-                    ' txt残株数.Text = 取得株数Text
-                    Dim cDB As New clsDB
-                    Dim msSQL As String
-                    Dim myTable As New DataTable
-                    'msSQL = " SELECT * FROM MST_取得"
-                    'msSQL += " WHERE 入力ID = " & txt入力ID.Text
+                                GoTo nextRec
+                        End Select
+                        ' txt残株数.Text = 株数Text
+                        'msSQL = " SELECT * FROM MST_取得"
+                        'msSQL += " WHERE 入力ID = " & txt入力ID.Text
 
-                    'mCommand = cDB.getsqlComand(msSQL)
-                    'mSDA.SelectCommand = mCommand
+                        'mCommand = cDB.getsqlComand(msSQL)
+                        'mSDA.SelectCommand = mCommand
 
-                    'Call mSDA.Fill(myTable) ''データセット作成
+                        'Call mSDA.Fill(myTable) ''データセット作成
 
-                    '   If myTable.Rows.Count = 0 Then
+                        '   If myTable.Rows.Count = 0 Then
 
-                    '新規追加
-                    '    messagebox用語句登録
-                    ' msg入力ID = 入力ID
+                        '新規追加
+                        '    messagebox用語句登録
+                        ' msg入力ID = 入力ID
 
-                    '追加Dataのセット
-                    msSQL = " INSERT INTO MST_取得 ( "
-                    msSQL += " [入力ID]"
-                    msSQL += " ,[銘柄コード]"
-                    msSQL += " ,[銘柄名]"
-                    msSQL += " ,[取引種別]"
-                    msSQL += " ,[取引区分]"
-                    msSQL += " ,[取引株数]"
-                    msSQL += " ,[取得単価]"
-                    msSQL += " ,[取得日付]"
-                    msSQL += " ,[残株数]"
-                    msSQL += " )"
+                        '追加Dataのセット
+                        msSQL = " INSERT INTO MST_取得 ( "
+                        msSQL += " [入力ID]"
+                        msSQL += " ,[銘柄コード]"
+                        msSQL += " ,[銘柄名]"
+                        msSQL += " ,[取引種別]"
+                        msSQL += " ,[取引区分]"
+                        msSQL += " ,[取引株数]"
+                        msSQL += " ,[取得単価]"
+                        msSQL += " ,[取得日付]"
+                        msSQL += " ,[残株数]"
+                        msSQL += " )"
 
-                    msSQL += "  VALUES "
-                    msSQL += " ('" & 入力ID & "'"                        ' <入力ID, nvarchar(10),>
-                    msSQL += ",'" & 銘柄コードText & "'"
+                        msSQL += "  VALUES "
+                        msSQL += " ('" & 入力ID & "'"                        ' <入力ID, nvarchar(10),>
+                        msSQL += ",'" & 銘柄コードText & "'"
 
-                    msSQL += ",'" & 銘柄名Text & "'"
-                    msSQL += ",'制度信用'"
+                        msSQL += ",'" & 銘柄名Text & "'"
+                        msSQL += ",'制度信用'"
 
-                    msSQL += ",'信用新規買'"
-                    msSQL += ",'" & 取得株数Text & "'"
-                    msSQL += ",'" & 取得単価Text & "'"
-                    'Select Case txt取得日付.Text.Length
-                    '    Case 0
-                    '        msSQL += ",null"
-                    '    Case Else
-                    msSQL += ",'" & 取得日付 & "'"   '取得日付
-                    msSQL += ",'" & 取得株数Text & "'"
+                        msSQL += ",'信用新規買'"
+                        msSQL += ",'" & 株数Text & "'"
+                        msSQL += ",'" & 価格Text & "'"
+                        'Select Case txt決済日付.Text.Length
+                        '    Case 0
+                        '        msSQL += ",null"
+                        '    Case Else
+                        msSQL += ",'" & 決済日付 & "'"   '決済日付
+                        msSQL += ",'" & 株数Text & "'"
 
-                    msSQL += ")"
+                        msSQL += ")"
 
-                    Try
+                        Try
 
-                        mCommand = cDB.getsqlComand(msSQL)
-                        Call mCommand.ExecuteNonQuery()
-                        '  btn続けて入力.Select()
+                            mCommand = cDB.getsqlComand(msSQL)
+                            Call mCommand.ExecuteNonQuery()
+                            '  btn続けて入力.Select()
 
-                    Catch ex As Exception
-                        '   OorN = False      '失敗
-                        MsgBox("新規登録は、失敗！")
-                        btn閉じる.Select()
-                    End Try
+                        Catch ex As Exception
+                            '   OorN = False      '失敗
+                            MsgBox("新規登録は、失敗！")
+                            btn閉じる.Select()
+                        End Try
 
                     ' Call msgOut(msg入力ID, UorI, OorN)
 
-                    ''クリア
-                    '   Call subクリア()
+                    ' 
+                    ''信用返済売 
+                    '------------------------------
+                    Case "信用返済売"
+                        Dim 入力ID As String = getMaxId().ToString
 
-                    ''再表示
+                        銘柄コードText = worksheet.Cell(i, "I").Value
 
-                End If
-                i += 1
+                        dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
+                        銘柄名Text = dt.Substring(0, (dt.Length - 1))
+
+
+                        dt = worksheet.Cell(i, "L").Value        '"株数:100 &vbLF
+                        dt = dt.Substring(3)
+                        株数Text = dt.Substring(0, dt.Length - 1)
+
+                        dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
+                        dt = dt.Substring(0, dt.Length - 1)
+                        価格Text = dt.Replace(",", "") '","をのぞく
+
+                        dt = worksheet.Cell(i, "d").Value        '決済日付
+                        決済日付 = dt.Substring(0, 10)
+
+
+                        Dim sfrm As New sfrmExcel返済
+                        sfrm.txt銘柄コード.Text = 銘柄コードText
+                        sfrm.txt銘柄名.Text = 銘柄名Text
+                        sfrm.txt株数.Text = 株数Text
+                        sfrm.txt価格.Text = 価格Text
+                        sfrm.txt決済日付.Text = 決済日付
+
+                        Call sfrm.ShowDialog()
+
+
+
+                        Dim 銘柄コード As String = worksheet.Cell(i, "I").Value
+                        msSQL = " select *"
+                        msSQL += " from MST_取得 "
+                        msSQL += " where [銘柄コード]= "
+                        msSQL += "'" & 銘柄コード & "'"
+                        msSQL += " and 残株数 <> 0"
+                        mCommand = cDB.getsqlComand(msSQL)
+                        mSDA.SelectCommand = mCommand
+
+                        Call mSDA.Fill(myTable) ''データセット作成
+
+                        If myTable.Rows.Count = 0 Then
+                            MsgBox("返済'玉'がありません")
+                        Else
+                            dgv直近一覧.DataSource = myTable
+                            MsgBox("konosakiha仮処理です")
+                            Exit Sub
+                        End If
+
+
+
+
+
+
+                    Case Else
+                        MsgBox($"{ws取引種別}は、未完成です")
+                End Select
+nextRec:        i += 1
             Loop
             ''ワークブックを保存する
             'Using sfd As SaveFileDialog = New SaveFileDialog
@@ -338,5 +397,45 @@ Public Class frmTradeRepo
 
 
         ' Call excel読込み()
+    End Sub
+
+    Private Sub dgv直近一覧_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv直近一覧.CellClick
+
+        If e.RowIndex < 0 Then Exit Sub
+        If e.ColumnIndex < 0 Then Exit Sub
+
+        'IDを取得
+        ' colNam = dgv一覧.Columns(0).Name    '先頭の列名（ここでは”ID”）を取得
+
+        Dim selID As String
+        '  selID = dgv一覧.Rows(e.RowIndex).Cells(colNam).Value.ToString
+        selID = dgv直近一覧.Rows(e.RowIndex).Cells("入力ID").Value.ToString
+
+        '取得したIDを持つレコードを取り出す
+        Dim cDB As New clsDB
+        Dim dtblSelectData As New DataTable
+        Dim mCommand As SqlCommand
+        Dim mSDA As New SqlDataAdapter
+
+        msSQL = "select * FROM MST_取得 "
+        msSQL += "where 入力ID =　" & "'" & selID & "'"
+
+        mCommand = cDB.getsqlComand(msSQL)
+        mSDA.SelectCommand = mCommand
+
+        Call mSDA.Fill(dtblSelectData) ''データセット作成
+        With dtblSelectData.Rows(0)
+            Dim txtIDText As String = Trim(.Item("ID").ToString)
+            Dim txt返済玉IDText As String = Trim(.Item("入力ID").ToString)
+            Dim txt銘柄コードText As String = Trim(.Item("銘柄コード").ToString)
+            Dim txt銘柄名Tex As String = Trim(.Item("銘柄名").ToString)
+            Dim txt取引種別Text As String = Trim(.Item("取引種別").ToString)
+
+            'txt取引区分.Text = Trim(.Item("取引区分").ToString)
+            'txt返済株数.Text = Trim(.Item("取引株数").ToString)
+            Dim txt残株数Text As String = Trim(.Item("残株数").ToString)
+            Dim txt価格Text As String = Trim(.Item("取得単価").ToString)
+            Dim txt取得日Text As String = Trim(.Item("取得日付").ToString)
+        End With
     End Sub
 End Class
