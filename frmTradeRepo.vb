@@ -328,24 +328,6 @@ Public Class frmTradeRepo
 
 
 
-                        Dim 銘柄コード As String = worksheet.Cell(i, "I").Value
-                        msSQL = " select *"
-                        msSQL += " from MST_取得 "
-                        msSQL += " where [銘柄コード]= "
-                        msSQL += "'" & 銘柄コード & "'"
-                        msSQL += " and 残株数 <> 0"
-                        mCommand = cDB.getsqlComand(msSQL)
-                        mSDA.SelectCommand = mCommand
-
-                        Call mSDA.Fill(myTable) ''データセット作成
-
-                        If myTable.Rows.Count = 0 Then
-                            MsgBox("返済'玉'がありません")
-                        Else
-                            dgv直近一覧.DataSource = myTable
-                            MsgBox("konosakiha仮処理です")
-                            Exit Sub
-                        End If
 
 
 

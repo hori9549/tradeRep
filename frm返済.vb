@@ -170,9 +170,6 @@ Public Class frm返済
         Call Me.Close()
     End Sub
 
-    Private Sub cmb定休日_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
 
 
 
