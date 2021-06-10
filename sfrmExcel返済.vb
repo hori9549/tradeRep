@@ -3,7 +3,7 @@
 Public Class sfrmExcel返済
     Private mCommand As SqlCommand
     Private mSDA As New SqlDataAdapter
-
+    Private 返済後残株数 As Integer = 0
     'Dim 銘柄コードText As String
     'Dim 銘柄名Text As String
     'Dim 株数Text As String
@@ -12,6 +12,10 @@ Public Class sfrmExcel返済
 
     Private Sub sfrmExcel返済_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txt返済ID.Text = getMaxId.ToString
+        Call 返済玉表示()
+
+    End Sub
+    Private Sub 返済玉表示()
         Dim cDB As New clsDB
         Dim msSQL As String
         Dim myTable As New DataTable
@@ -32,6 +36,8 @@ Public Class sfrmExcel返済
         Else
             dgv返済玉.DataSource = myTable
         End If
+
+
     End Sub
     Private Sub dgv返済玉_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv返済玉.CellClick
 
@@ -81,14 +87,14 @@ Public Class sfrmExcel返済
                 Dim int残株数 As Integer = Integer.Parse(txt返済玉残株数.Text)
                 '   Dim d取得単価 As Single
                 'txt返済株数が””の場合、入力を促す
-                With txt価格
-                    'Select Case (.Text <> "") And IsNumeric(.Text)
-                    '    Case False
-                    '        txt返済単価.Select()
-                    '        'Case Else
-                    '        Exit Sub
-                    'End Select
-                End With
+                'With txt価格
+                '    'Select Case (.Text <> "") And IsNumeric(.Text)
+                '    '    Case False
+                '    '        txt返済単価.Select()
+                '    '        'Case Else
+                '    '        Exit Sub
+                '    'End Select
+                'End With
                 ''txt取得単価””の場合、入力を促す
                 'With txt価格
                 '    Select Case (.Text <> "") And IsNumeric(.Text)
@@ -102,8 +108,9 @@ Public Class sfrmExcel返済
                 Dim d取得単価 As Single = Double.Parse(txt返済玉価格.Text)
 
                 Dim d返済単価 As Single = Double.Parse(txt価格.Text)
-
-                txt返済後残株数.Text = (int残株数 - int返済株数).ToString
+                返済後残株数 = (int残株数 - int返済株数)
+                txt返済後残株数.Text = 返済後残株数.ToString
+                txt株数.Text = 返済後残株数.ToString
                 txt概算損益.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
 
             Case Else
@@ -144,7 +151,17 @@ Public Class sfrmExcel返済
 
         mCommand = cDB.getsqlComand(msSQL)
         Call mCommand.ExecuteNonQuery()
-        '       MsgBox("返済手続きは、完了しました")
-        Me.Close()
+
+        ''複数回の返済を1回で通知された場合
+        If 返済後残株数 > 0 Then
+            MsgBox("nokorinogyokuno処理を続けます")
+            txt返済ID.Text = getMaxId.ToString
+            Call 返済玉表示()
+
+
+        End If
+
+        MsgBox("返済手続きは、完了しました")
+
     End Sub
 End Class
