@@ -176,7 +176,6 @@ Public Class frmTradeRepo
         Dim 価格Text As String
         Dim 決済日付 As String
         Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知0411_0417.xlsx"
->>>>>>> ff0c0b326eff92b6d95a018d15efe6f3ee946a0d
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
