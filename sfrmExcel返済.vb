@@ -135,7 +135,7 @@ Public Class sfrmExcel返済
         msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
         msSQL += ",'制度信用'"          ' ,<取引種別, nvarchar(4),>
         msSQL += ",'信用返済売'"          ' ,<取引区分, nvarchar(5),>
-        msSQL += ",'" + txt株数.Text + "'"          ' ,<返済株数, int,>
+        msSQL += ",'" + txt返済株数.Text + "'"          ' ,<返済株数, int,>
         msSQL += ",'" + txt価格.Text + "'"          ' ,<返済単価, int,>)
         msSQL += ") "
 
@@ -158,8 +158,9 @@ Public Class sfrmExcel返済
             txt返済ID.Text = getMaxId.ToString
             Call 返済玉表示()
 
+        Else
+            ' MsgBox("返済手続きは、完了しました")
+            Me.Close()
         End If
-        ' MsgBox("返済手続きは、完了しました")
-        Me.Close()
     End Sub
 End Class

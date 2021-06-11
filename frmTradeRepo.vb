@@ -175,7 +175,7 @@ Public Class frmTradeRepo
         Dim 株数Text As String
         Dim 価格Text As String
         Dim 決済日付 As String
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知0420_0424.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知0610.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
@@ -324,14 +324,6 @@ Public Class frmTradeRepo
                         sfrm.txt価格.Text = 価格Text
                         sfrm.txt決済日付.Text = 決済日付
                         Call sfrm.ShowDialog()
-
-
-
-
-
-
-
-
 
                     Case Else
                         MsgBox($"{ws取引種別}は、未完成です")
