@@ -71,20 +71,20 @@ Public Class sfrmExcel返済
             txt返済玉銘柄コード.text = Trim(.Item("銘柄コード").ToString)
             txt返済玉銘柄名.Text = Trim(.Item("銘柄名").ToString)
             txt返済玉取引種別.text = Trim(.Item("取引種別").ToString)
-            txt返済玉残株数.text = Trim(.Item("残株数").ToString)
+            txt返済株数.Text = Trim(.Item("取引株数").ToString)
             txt返済玉価格.text = Trim(.Item("取得単価").ToString)
             txt返済玉取得日.text = Trim(.Item("取得日付").ToString)
         End With
 
         'ほんとうに登録しますか？
         Select Case MessageBox.Show("" & txt銘柄コード.Text & txt銘柄名.Text & "を" _
-                & txt株数.Text & " " & txt価格.Text & "'返済売'で、登録しますか？",
+                & txt返済株数.Text & " " & txt価格.Text & "'返済売'で、登録しますか？",
                "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             Case Windows.Forms.DialogResult.Yes
                 '仮の売買差額を表示
                 Dim int返済株数 As Integer
-                Dim int残株数 As Integer = Integer.Parse(txt返済玉残株数.Text)
+                Dim int残株数 As Integer = Integer.Parse(txt株数.Text)
                 '   Dim d取得単価 As Single
                 'txt返済株数が””の場合、入力を促す
                 'With txt価格
@@ -103,7 +103,7 @@ Public Class sfrmExcel返済
                 '            Exit Sub
                 '    End Select
                 'End With
-                int返済株数 = Integer.Parse(txt株数.Text)
+                int返済株数 = Integer.Parse(txt返済株数.Text)
 
                 Dim d取得単価 As Single = Double.Parse(txt返済玉価格.Text)
 
@@ -143,7 +143,7 @@ Public Class sfrmExcel返済
         msSQL += "set 残株数= "
         'toInt = Integer.Parse(txt残株数.Text)
         'mssql += "'" + toInt + "'"
-        msSQL += "'" + txt返済後残株数.Text + "' "
+        msSQL += "'0'"
         msSQL += ", 現況 = "
         msSQL += "'" + cmb現況.Text + "'"
         msSQL += " where ID = "
@@ -154,14 +154,12 @@ Public Class sfrmExcel返済
 
         ''複数回の返済を1回で通知された場合
         If 返済後残株数 > 0 Then
-            MsgBox("nokorinogyokuno処理を続けます")
+            MsgBox("残りの玉の返済を続けます")
             txt返済ID.Text = getMaxId.ToString
             Call 返済玉表示()
 
-
         End If
-
-        MsgBox("返済手続きは、完了しました")
-
+        ' MsgBox("返済手続きは、完了しました")
+        Me.Close()
     End Sub
 End Class

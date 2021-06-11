@@ -49,7 +49,7 @@ Partial Class sfrmExcel返済
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txt返済玉価格 = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.txt返済玉残株数 = New System.Windows.Forms.TextBox()
+        Me.txt返済株数 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txt概算損益 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -288,17 +288,17 @@ Partial Class sfrmExcel返済
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(38, 171)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(146, 19)
+        Me.Label14.Size = New System.Drawing.Size(108, 19)
         Me.Label14.TabIndex = 23
-        Me.Label14.Text = "txt返済玉残株数"
+        Me.Label14.Text = "txt返済株数"
         '
-        'txt返済玉残株数
+        'txt返済株数
         '
-        Me.txt返済玉残株数.Location = New System.Drawing.Point(190, 164)
-        Me.txt返済玉残株数.Name = "txt返済玉残株数"
-        Me.txt返済玉残株数.Size = New System.Drawing.Size(146, 26)
-        Me.txt返済玉残株数.TabIndex = 22
-        Me.txt返済玉残株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt返済株数.Location = New System.Drawing.Point(190, 164)
+        Me.txt返済株数.Name = "txt返済株数"
+        Me.txt返済株数.Size = New System.Drawing.Size(146, 26)
+        Me.txt返済株数.TabIndex = 22
+        Me.txt返済株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label15
         '
@@ -345,7 +345,7 @@ Partial Class sfrmExcel返済
         '
         'txt返済後残株数
         '
-        Me.txt返済後残株数.Location = New System.Drawing.Point(471, 160)
+        Me.txt返済後残株数.Location = New System.Drawing.Point(471, 164)
         Me.txt返済後残株数.Name = "txt返済後残株数"
         Me.txt返済後残株数.Size = New System.Drawing.Size(146, 26)
         Me.txt返済後残株数.TabIndex = 32
@@ -388,7 +388,7 @@ Partial Class sfrmExcel返済
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.txt返済玉価格)
         Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.txt返済玉残株数)
+        Me.Controls.Add(Me.txt返済株数)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt返済玉取引種別)
         Me.Controls.Add(Me.Label8)
@@ -446,7 +446,7 @@ Partial Class sfrmExcel返済
     Friend WithEvents Label13 As Label
     Friend WithEvents txt返済玉価格 As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents txt返済玉残株数 As TextBox
+    Friend WithEvents txt返済株数 As TextBox
     Friend WithEvents Label15 As Label
     Friend WithEvents txt概算損益 As TextBox
     Friend WithEvents Label16 As Label
