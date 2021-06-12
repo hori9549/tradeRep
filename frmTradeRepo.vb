@@ -175,7 +175,7 @@ Public Class frmTradeRepo
         Dim 株数Text As String
         Dim 価格Text As String
         Dim 決済日付 As String
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知201228_210612_work.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知201228_210612_work_2.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
@@ -210,9 +210,10 @@ Public Class frmTradeRepo
                         銘柄名Text = dt.Substring(0, (dt.Length - 1))
 
 
-                        dt = worksheet.Cell(i, "L").Value        '"株数:100 &vbLF
+                        dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
                         dt = dt.Substring(3)
-                        株数Text = dt.Substring(0, dt.Length - 1)
+                        dt = dt.Substring(0, dt.Length - 1)
+                        株数Text = dt.Replace(",", "") '","をのぞく
 
                         dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
                         dt = dt.Substring(0, dt.Length - 1)
@@ -220,32 +221,6 @@ Public Class frmTradeRepo
 
                         dt = worksheet.Cell(i, "d").Value        '決済日付
                         決済日付 = dt.Substring(0, 10)
-
-                        '                       Select Case MessageBox.Show($"{決済日付} に
-                        '{ 銘柄コードText}　{ 銘柄名Text}を _
-                        '{ 株数Text}　{ 価格Text} で
-                        ''信用新規買'で、登録しますか？",
-                        '                      "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-                        '                           Case Windows.Forms.DialogResult.Yes
-                        '                           Case Else
-
-                        '                               GoTo nextRec
-                        '                       End Select
-                        ' txt残株数.Text = 株数Text
-                        'msSQL = " SELECT * FROM MST_取得"
-                        'msSQL += " WHERE 入力ID = " & txt入力ID.Text
-
-                        'mCommand = cDB.getsqlComand(msSQL)
-                        'mSDA.SelectCommand = mCommand
-
-                        'Call mSDA.Fill(myTable) ''データセット作成
-
-                        '   If myTable.Rows.Count = 0 Then
-
-                        '新規追加
-                        '    messagebox用語句登録
-                        ' msg入力ID = 入力ID
 
                         '追加Dataのセット
                         msSQL = " INSERT INTO MST_取得 ( "
@@ -270,10 +245,6 @@ Public Class frmTradeRepo
                         msSQL += ",'信用新規買'"
                         msSQL += ",'" & 株数Text & "'"
                         msSQL += ",'" & 価格Text & "'"
-                        'Select Case txt決済日付.Text.Length
-                        '    Case 0
-                        '        msSQL += ",null"
-                        '    Case Else
                         msSQL += ",'" & 決済日付 & "'"   '決済日付
                         msSQL += ",'" & 株数Text & "'"
 
@@ -304,10 +275,10 @@ Public Class frmTradeRepo
                         dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
                         銘柄名Text = dt.Substring(0, (dt.Length - 1))
 
-
-                        dt = worksheet.Cell(i, "L").Value        '"株数:100 &vbLF
+                        dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
                         dt = dt.Substring(3)
-                        株数Text = dt.Substring(0, dt.Length - 1)
+                        dt = dt.Substring(0, dt.Length - 1)
+                        株数Text = dt.Replace(",", "") '","をのぞく
 
                         dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
                         dt = dt.Substring(0, dt.Length - 1)

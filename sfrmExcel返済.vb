@@ -39,7 +39,7 @@ Public Class sfrmExcel返済
 
 
     End Sub
-    Private Sub dgv返済玉_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv返済玉.CellClick
+    Private Sub dgv返済玉_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv返済玉.CellMouseClick
 
         If e.RowIndex < 0 Then Exit Sub
         If e.ColumnIndex < 0 Then Exit Sub
@@ -84,18 +84,18 @@ Public Class sfrmExcel返済
         '        Case Windows.Forms.DialogResult.Yes
         '仮の売買差額を表示
         Dim int返済株数 As Integer
-                Dim int残株数 As Integer = Integer.Parse(txt決済総株数.Text)
+        Dim int残株数 As Integer = Integer.Parse(txt決済総株数.Text)
 
-                int返済株数 = Integer.Parse(txt返済株数.Text)
+        int返済株数 = Integer.Parse(txt返済株数.Text)
 
-                Dim d取得単価 As Single = Double.Parse(txt返済玉価格.Text)
+        Dim d取得単価 As Single = Double.Parse(txt返済玉価格.Text)
 
-                Dim d返済単価 As Single = Double.Parse(txt価格.Text)
-                返済後残株数 = (int残株数 - int返済株数)
-                txt返済後残株数.Text = 返済後残株数.ToString
+        Dim d返済単価 As Single = Double.Parse(txt価格.Text)
+        返済後残株数 = (int残株数 - int返済株数)
+        txt返済後残株数.Text = 返済後残株数.ToString
 
-                txt決済総株数.Text = 返済後残株数.ToString
-                txt概算損益.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
+        txt決済総株数.Text = 返済後残株数.ToString
+        txt概算損益.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
 
         'Case Else
 
@@ -147,4 +147,5 @@ Public Class sfrmExcel返済
             Me.Close()
         End If
     End Sub
+
 End Class

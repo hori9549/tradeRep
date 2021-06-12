@@ -34,7 +34,7 @@ Module mdlTradeRep
 
                 Case >= IdBase
 
-                    取得tabMaxId = mytable.Rows(0).Item("入力ID") + 10
+                    取得tabMaxId = mytable.Rows(0).Item("入力ID") + 1
                 Case Else
                     取得tabMaxId = IdBase
 
@@ -62,7 +62,7 @@ Module mdlTradeRep
 
                 Case >= IdBase
 
-                    返済tabMaxId = mytable.Rows(0).Item("入力ID") + 10
+                    返済tabMaxId = mytable.Rows(0).Item("入力ID") + 1
                 Case Else
                     返済tabMaxId = IdBase
 
