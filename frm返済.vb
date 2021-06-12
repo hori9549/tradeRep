@@ -255,16 +255,16 @@ Public Class frm返済
                 'txt売買差額.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
 
 
-                'ほんとうに登録しますか？
-                Select Case MessageBox.Show("" & txt銘柄コード.Text & txt銘柄名.Text & "を" _
-                & txt返済株数.Text & " " & txt返済単価.Text & "’約’" & txt売買差額.Text & "'返済売'で、登録しますか？",
-               "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+               ' 'ほんとうに登録しますか？
+               ' Select Case MessageBox.Show("" & txt銘柄コード.Text & txt銘柄名.Text & "を" _
+               ' & txt返済株数.Text & " " & txt返済単価.Text & "’約’" & txt売買差額.Text & "'返済売'で、登録しますか？",
+               '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                    Case Windows.Forms.DialogResult.Yes
-                    Case Else
-                        txt返済単価.Select()
-                        Exit Sub
-                End Select
+               '     Case Windows.Forms.DialogResult.Yes
+               '     Case Else
+               '         txt返済単価.Select()
+               '         Exit Sub
+               ' End Select
 
                 '   Dim toInt As Integer
                 mssql = "INSERT INTO [dbo].[MST_返済]"

@@ -27,7 +27,7 @@ Partial Class sfrmExcel返済
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt銘柄名 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txt株数 = New System.Windows.Forms.TextBox()
+        Me.txt決済総株数 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt価格 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -98,19 +98,19 @@ Partial Class sfrmExcel返済
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(700, 139)
+        Me.Label3.Location = New System.Drawing.Point(661, 136)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 19)
+        Me.Label3.Size = New System.Drawing.Size(104, 19)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "株数"
+        Me.Label3.Text = "決済総株数"
         '
-        'txt株数
+        'txt決済総株数
         '
-        Me.txt株数.Location = New System.Drawing.Point(767, 132)
-        Me.txt株数.Name = "txt株数"
-        Me.txt株数.Size = New System.Drawing.Size(146, 26)
-        Me.txt株数.TabIndex = 4
-        Me.txt株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt決済総株数.Location = New System.Drawing.Point(767, 132)
+        Me.txt決済総株数.Name = "txt決済総株数"
+        Me.txt決済総株数.Size = New System.Drawing.Size(146, 26)
+        Me.txt決済総株数.TabIndex = 4
+        Me.txt決済総株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
         '
@@ -151,6 +151,7 @@ Partial Class sfrmExcel返済
         Me.dgv返済玉.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv返済玉.Location = New System.Drawing.Point(12, 291)
         Me.dgv返済玉.Name = "dgv返済玉"
+        Me.dgv返済玉.RowHeadersWidth = 51
         Me.dgv返済玉.RowTemplate.Height = 21
         Me.dgv返済玉.Size = New System.Drawing.Size(901, 138)
         Me.dgv返済玉.TabIndex = 10
@@ -158,7 +159,7 @@ Partial Class sfrmExcel返済
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 252)
+        Me.Label6.Location = New System.Drawing.Point(14, 259)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(197, 19)
         Me.Label6.TabIndex = 11
@@ -337,7 +338,7 @@ Partial Class sfrmExcel返済
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(342, 167)
+        Me.Label17.Location = New System.Drawing.Point(382, 141)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(123, 19)
         Me.Label17.TabIndex = 33
@@ -345,7 +346,7 @@ Partial Class sfrmExcel返済
         '
         'txt返済後残株数
         '
-        Me.txt返済後残株数.Location = New System.Drawing.Point(471, 164)
+        Me.txt返済後残株数.Location = New System.Drawing.Point(511, 138)
         Me.txt返済後残株数.Name = "txt返済後残株数"
         Me.txt返済後残株数.Size = New System.Drawing.Size(146, 26)
         Me.txt返済後残株数.TabIndex = 32
@@ -356,7 +357,7 @@ Partial Class sfrmExcel返済
         Me.cmb現況.FormattingEnabled = True
         Me.cmb現況.Items.AddRange(New Object() {"", "一部返済", "　現引"})
         Me.cmb現況.Location = New System.Drawing.Point(454, 212)
-        Me.cmb現況.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmb現況.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cmb現況.Name = "cmb現況"
         Me.cmb現況.Size = New System.Drawing.Size(91, 27)
         Me.cmb現況.TabIndex = 52
@@ -406,7 +407,7 @@ Partial Class sfrmExcel返済
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txt価格)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txt株数)
+        Me.Controls.Add(Me.txt決済総株数)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txt銘柄名)
         Me.Controls.Add(Me.Label1)
@@ -424,7 +425,7 @@ Partial Class sfrmExcel返済
     Friend WithEvents Label2 As Label
     Friend WithEvents txt銘柄名 As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txt株数 As TextBox
+    Friend WithEvents txt決済総株数 As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txt価格 As TextBox
     Friend WithEvents Label5 As Label

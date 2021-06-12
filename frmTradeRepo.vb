@@ -175,7 +175,7 @@ Public Class frmTradeRepo
         Dim 株数Text As String
         Dim 価格Text As String
         Dim 決済日付 As String
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知0610.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知201228_210612_work.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
@@ -221,17 +221,17 @@ Public Class frmTradeRepo
                         dt = worksheet.Cell(i, "d").Value        '決済日付
                         決済日付 = dt.Substring(0, 10)
 
-                        Select Case MessageBox.Show($"{決済日付} に
- { 銘柄コードText}　{ 銘柄名Text}を _
- { 株数Text}　{ 価格Text} で
- '信用新規買'で、登録しますか？",
-                       "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        '                       Select Case MessageBox.Show($"{決済日付} に
+                        '{ 銘柄コードText}　{ 銘柄名Text}を _
+                        '{ 株数Text}　{ 価格Text} で
+                        ''信用新規買'で、登録しますか？",
+                        '                      "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                            Case Windows.Forms.DialogResult.Yes
-                            Case Else
+                        '                           Case Windows.Forms.DialogResult.Yes
+                        '                           Case Else
 
-                                GoTo nextRec
-                        End Select
+                        '                               GoTo nextRec
+                        '                       End Select
                         ' txt残株数.Text = 株数Text
                         'msSQL = " SELECT * FROM MST_取得"
                         'msSQL += " WHERE 入力ID = " & txt入力ID.Text
@@ -320,7 +320,7 @@ Public Class frmTradeRepo
                         Dim sfrm As New sfrmExcel返済
                         sfrm.txt銘柄コード.Text = 銘柄コードText
                         sfrm.txt銘柄名.Text = 銘柄名Text
-                        sfrm.txt株数.Text = 株数Text
+                        sfrm.txt決済総株数.Text = 株数Text
                         sfrm.txt価格.Text = 価格Text
                         sfrm.txt決済日付.Text = 決済日付
                         Call sfrm.ShowDialog()

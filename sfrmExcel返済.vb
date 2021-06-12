@@ -67,42 +67,25 @@ Public Class sfrmExcel返済
         Call mSDA.Fill(dtblSelectData) ''データセット作成
         With dtblSelectData.Rows(0)
             txt返済玉ID.Text = Trim(.Item("ID").ToString)
-            txt返済玉入力ID.text = Trim(.Item("入力ID").ToString)
-            txt返済玉銘柄コード.text = Trim(.Item("銘柄コード").ToString)
+            txt返済玉入力ID.Text = Trim(.Item("入力ID").ToString)
+            txt返済玉銘柄コード.Text = Trim(.Item("銘柄コード").ToString)
             txt返済玉銘柄名.Text = Trim(.Item("銘柄名").ToString)
-            txt返済玉取引種別.text = Trim(.Item("取引種別").ToString)
+            txt返済玉取引種別.Text = Trim(.Item("取引種別").ToString)
             txt返済株数.Text = Trim(.Item("取引株数").ToString)
-            txt返済玉価格.text = Trim(.Item("取得単価").ToString)
-            txt返済玉取得日.text = Trim(.Item("取得日付").ToString)
+            txt返済玉価格.Text = Trim(.Item("取得単価").ToString)
+            txt返済玉取得日.Text = Trim(.Item("取得日付").ToString)
         End With
 
         'ほんとうに登録しますか？
-        Select Case MessageBox.Show("" & txt銘柄コード.Text & txt銘柄名.Text & "を" _
-                & txt返済株数.Text & " " & txt価格.Text & "'返済売'で、登録しますか？",
-               "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        ''    Select Case MessageBox.Show("" & txt返済玉銘柄コード.Text & txt返済玉銘柄名.Text & "を" _
+        '            & txt返済玉取引種別.Text & " " & txt返済玉価格.Text & "'返済売'で、登録しますか？",
+        '           "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-            Case Windows.Forms.DialogResult.Yes
-                '仮の売買差額を表示
-                Dim int返済株数 As Integer
-                Dim int残株数 As Integer = Integer.Parse(txt株数.Text)
-                '   Dim d取得単価 As Single
-                'txt返済株数が””の場合、入力を促す
-                'With txt価格
-                '    'Select Case (.Text <> "") And IsNumeric(.Text)
-                '    '    Case False
-                '    '        txt返済単価.Select()
-                '    '        'Case Else
-                '    '        Exit Sub
-                '    'End Select
-                'End With
-                ''txt取得単価””の場合、入力を促す
-                'With txt価格
-                '    Select Case (.Text <> "") And IsNumeric(.Text)
-                '        Case False
-                '            txt返済株数.Select()
-                '            Exit Sub
-                '    End Select
-                'End With
+        '        Case Windows.Forms.DialogResult.Yes
+        '仮の売買差額を表示
+        Dim int返済株数 As Integer
+                Dim int残株数 As Integer = Integer.Parse(txt決済総株数.Text)
+
                 int返済株数 = Integer.Parse(txt返済株数.Text)
 
                 Dim d取得単価 As Single = Double.Parse(txt返済玉価格.Text)
@@ -110,13 +93,14 @@ Public Class sfrmExcel返済
                 Dim d返済単価 As Single = Double.Parse(txt価格.Text)
                 返済後残株数 = (int残株数 - int返済株数)
                 txt返済後残株数.Text = 返済後残株数.ToString
-                txt株数.Text = 返済後残株数.ToString
+
+                txt決済総株数.Text = 返済後残株数.ToString
                 txt概算損益.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
 
-            Case Else
+        'Case Else
 
-                Exit Sub
-        End Select
+        'Exit Sub
+        'End Select
 
         '   Dim toInt As Integer
         msSQL = "INSERT INTO [dbo].[MST_返済]"
@@ -143,7 +127,7 @@ Public Class sfrmExcel返済
         msSQL += "set 残株数= "
         'toInt = Integer.Parse(txt残株数.Text)
         'mssql += "'" + toInt + "'"
-        msSQL += "'0'"
+        msSQL += "'0'"      '当建玉は全返済するので残は必ず '0’
         msSQL += ", 現況 = "
         msSQL += "'" + cmb現況.Text + "'"
         msSQL += " where ID = "
@@ -154,7 +138,7 @@ Public Class sfrmExcel返済
 
         ''複数回の返済を1回で通知された場合
         If 返済後残株数 > 0 Then
-            MsgBox("残りの玉の返済を続けます")
+            '  MsgBox("建玉別の返済を続けます")
             txt返済ID.Text = getMaxId.ToString
             Call 返済玉表示()
 
