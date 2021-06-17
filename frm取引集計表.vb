@@ -7,6 +7,7 @@ Public Class frm取引集計表
 
     Private Sub frm取引集計表_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call 結果表示()
+        txt銘柄コード.Select()
     End Sub
     Private Sub 結果表示()
         Dim cDB As New clsDB
@@ -22,7 +23,8 @@ Public Class frm取引集計表
         msSQL += " FROM MST_取得 as A left join MST_返済 as b"
         msSQL += " On a.入力ID = b.返済元ID"
 
-        msSQL += " Where a.銘柄コード = '6857'"
+        msSQL += " Where a.銘柄コード = "
+        msSQL += "'" & txt銘柄コード.Text & "'"      'ex'6857'
         msSQL += " group by rollup(b.返済日付 ,a.銘柄コード, a.銘柄名)"
         mCommand = cDB.getsqlComand(msSQL)
         mSDA.SelectCommand = mCommand
@@ -30,5 +32,10 @@ Public Class frm取引集計表
         Call mSDA.Fill(dtbl検索結果) ''データセット作成
         Dgv検索結果.DataSource = dtbl検索結果
 
+    End Sub
+
+    Private Sub btn集計_Click(sender As Object, e As EventArgs) Handles btn集計.Click
+        Call 結果表示()
+        txt銘柄コード.Select()
     End Sub
 End Class

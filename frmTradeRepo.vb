@@ -175,7 +175,7 @@ Public Class frmTradeRepo
         Dim 株数Text As String
         Dim 価格Text As String
         Dim 決済日付 As String
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\getMailTest210614.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知210615_210616.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
@@ -221,6 +221,19 @@ Public Class frmTradeRepo
 
                         dt = worksheet.Cell(i, "d").Value        '決済日付
                         決済日付 = dt.Substring(0, 10)
+
+
+
+                        Select Case MessageBox.Show("" & 銘柄コードText & " " & 銘柄名Text & "を" _
+                & 株数Text & " " & 価格Text & "'新規買'で、登録しますか？",
+               "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+                            Case Windows.Forms.DialogResult.Yes
+                            Case Else
+                                GoTo nextRec
+                        End Select
+
+
 
                         '追加Dataのセット
                         msSQL = " INSERT INTO MST_取得 ( "
@@ -381,5 +394,11 @@ nextRec:        i += 1
             Dim txt価格Text As String = Trim(.Item("取得単価").ToString)
             Dim txt取得日Text As String = Trim(.Item("取得日付").ToString)
         End With
+    End Sub
+
+    Private Sub btn取引集計_Click(sender As Object, e As EventArgs) Handles btn取引集計.Click
+        Dim sfrm As New frm取引集計表
+        Call sfrm.ShowDialog()
+
     End Sub
 End Class

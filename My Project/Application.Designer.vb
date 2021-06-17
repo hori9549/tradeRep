@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.カシオペイア.frm取引集計表
+            Me.MainForm = Global.カシオペイア.frmTradeRepo
         End Sub
     End Class
 End Namespace
