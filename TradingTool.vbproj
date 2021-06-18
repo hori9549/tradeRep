@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDB.vb" />
+    <Compile Include="clsコンボボックス.vb" />
     <Compile Include="frmTradeRepo.Designer.vb">
       <DependentUpon>frmTradeRepo.vb</DependentUpon>
     </Compile>

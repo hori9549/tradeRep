@@ -4,11 +4,30 @@ Public Class frm取引集計表
     'Private mSDA As New SqlDataAdapter
     'Private msSQL As String
     'Private dtbl検索結果 As New DataTable
+    Private get集計区分 As New clsコンボボックス
 
     Private Sub frm取引集計表_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call 結果表示()
+        Call get集計区分.取引集計区分コンボ(cmb集計区分)
+        'Call 結果表示()
         txt銘柄コード.Select()
     End Sub
+    'Private Sub cmb集計区分_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb集計区分.SelectedValueChanged
+    '    If cmb集計区分.SelectedIndex < 0 Then
+    '        Exit Sub
+    '    End If
+
+    '    'PosIdSave = cmb集計区分.SelectedValue.ToString()
+    '    'PosNamSave = cmb集計区分.Text
+    '    'MsgBox(cmbPOSパターン.Text)
+
+
+    '    Select Case cmb集計区分.SelectedValue
+    '        Case 1
+    '            Call 結果表示()
+    '        Case Else
+    '            MsgBox("mikannsei")
+    '    End Select
+    'End Sub
     Private Sub 結果表示()
         Dim cDB As New clsDB
         Dim msSQL As String
@@ -25,7 +44,7 @@ Public Class frm取引集計表
 
         msSQL += " Where a.銘柄コード = "
         msSQL += "'" & txt銘柄コード.Text & "'"      'ex'6857'
-        msSQL += " group by rollup(b.返済日付 ,a.銘柄コード, a.銘柄名)"
+        msSQL += " group by rollup (b.返済日付 ,a.銘柄コード,a.銘柄名)"
         mCommand = cDB.getsqlComand(msSQL)
         mSDA.SelectCommand = mCommand
 
@@ -35,7 +54,17 @@ Public Class frm取引集計表
     End Sub
 
     Private Sub btn集計_Click(sender As Object, e As EventArgs) Handles btn集計.Click
-        Call 結果表示()
-        txt銘柄コード.Select()
+        Select Case cmb集計区分.SelectedValue
+            Case 1
+                Call 結果表示()
+            Case Else
+                MsgBox("mikannsei")
+        End Select
+
+
+        ' txt銘柄コード.Select()
     End Sub
+
+
+
 End Class
