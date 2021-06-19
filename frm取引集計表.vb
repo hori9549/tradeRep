@@ -54,12 +54,49 @@ Public Class frm取引集計表
     End Sub
 
     Private Sub btn集計_Click(sender As Object, e As EventArgs) Handles btn集計.Click
+        Dim cDB As New clsDB
+        Dim msSQL As String
+        Dim mCommand As SqlCommand
+        Dim mSDA As New SqlDataAdapter
+        Dim dtbl検索結果 As New DataTable
+
         Select Case cmb集計区分.SelectedValue
-            Case 1
-                Call 結果表示()
+            Case 1      '概算損益
+
+                msSQL = " Select   a.銘柄コード as CODE , a.銘柄名 "
+                msSQL += " ,b.返済日付,sum( b.返済株数) as 返済総数 "
+                msSQL += ",sum(b.返済株数 * b.返済単価 - a.取引株数 * a.取得単価) as 概算損益"
+
+                msSQL += " FROM MST_取得 as A left join MST_返済 as b"
+                msSQL += " On a.入力ID = b.返済元ID"
+
+                msSQL += " Where a.銘柄コード = "
+                msSQL += "'" & txt銘柄コード.Text & "'"      'ex'6857'
+                msSQL += " group by rollup (b.返済日付 ,a.銘柄コード,a.銘柄名)"
+                mCommand = cDB.getsqlComand(msSQL)
+                mSDA.SelectCommand = mCommand
+
+                Call mSDA.Fill(dtbl検索結果) ''データセット作成
+                Dgv検索結果.DataSource = dtbl検索結果
+            Case 2               ' /****** 取引履歴   ******/
+
+                msSQL = " Select a.銘柄コード,a.銘柄名"
+
+                msSQL += " b,[返済日付] ,sum([返済株数]) as 返済総数 ,max([返済単価]) as 返済単価"
+
+                msSQL += " From MST_取得 As a inner Join MST_返済 As b"
+                msSQL += " On a.入力ID = b.返済元ID"
+
+                msSQL += " group by [返済日付], a.銘柄コード, a.銘柄名;"
+                mCommand = cDB.getsqlComand(msSQL)
+                mSDA.SelectCommand = mCommand
+
+                Call mSDA.Fill(dtbl検索結果) ''データセット作成
+                Dgv検索結果.DataSource = dtbl検索結果
             Case Else
-                MsgBox("mikannsei")
-        End Select
+
+                        MsgBox("mikannsei")
+                End Select
 
 
         ' txt銘柄コード.Select()
