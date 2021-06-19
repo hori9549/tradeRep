@@ -125,6 +125,12 @@
     <Compile Include="frmベース.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmメニュー.designer.vb">
+      <DependentUpon>frmメニュー.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmメニュー.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm取引集計表.Designer.vb">
       <DependentUpon>frm取引集計表.vb</DependentUpon>
     </Compile>
@@ -172,6 +178,12 @@
     <Compile Include="sfrmベース.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sfrmログイン.Designer.vb">
+      <DependentUpon>sfrmログイン.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sfrmログイン.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="sfrm日付選択.Designer.vb">
       <DependentUpon>sfrm日付選択.vb</DependentUpon>
     </Compile>
@@ -185,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmベース.resx">
       <DependentUpon>frmベース.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmメニュー.resx">
+      <DependentUpon>frmメニュー.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm取引集計表.resx">
       <DependentUpon>frm取引集計表.vb</DependentUpon>
@@ -206,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sfrmベース.resx">
       <DependentUpon>sfrmベース.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sfrmログイン.resx">
+      <DependentUpon>sfrmログイン.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sfrm日付選択.resx">
       <DependentUpon>sfrm日付選択.vb</DependentUpon>
