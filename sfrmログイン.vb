@@ -39,8 +39,8 @@ Public Class sfrmログイン
             'パスワード大文字・小文字判別チェック
             If String.Compare(str_CheckPassword, str_InputPassword, False) = 0 Then
                 '認証ＯＫ
-                MS会員ID = dtbl会員.Rows(0)("会員ID")
-                MS氏名 = dtbl会員.Rows(0)("氏名")
+                'MS会員ID = dtbl会員.Rows(0)("会員ID")
+                'MS氏名 = dtbl会員.Rows(0)("氏名")
 
                 Me.DialogResult = System.Windows.Forms.DialogResult.OK
                 Me.Close()

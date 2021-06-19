@@ -46,7 +46,7 @@ Public Class clsコンボボックス
 
         ''検索SQL======================================================
         getSQL = "SELECT DISTINCT (区分名) as 表示,区分"
-        getSQL += " FROM MST_区分"
+        getSQL += " FROM MTD_集計区分"
         'getSQL += " WHERE 施設ID='" & my環境設定.施設ID & "'"
         getSQL += " ORDER BY 区分,区分名"
 

@@ -25,7 +25,6 @@ Partial Class frmメニュー
     Private Sub InitializeComponent()
         Me.btn企業マスタ = New System.Windows.Forms.Button()
         Me.btn会員マスタ = New System.Windows.Forms.Button()
-        Me.btn郵便番号取込 = New System.Windows.Forms.Button()
         Me.tabManual = New System.Windows.Forms.TabControl()
         Me.tab手入力 = New System.Windows.Forms.TabPage()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -34,7 +33,6 @@ Partial Class frmメニュー
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btn会員スキルマスタ = New System.Windows.Forms.Button()
         Me.btnプロジェクトマスタ = New System.Windows.Forms.Button()
-        Me.btn環境設定 = New System.Windows.Forms.Button()
         Me.btn区分管理マスタ = New System.Windows.Forms.Button()
         Me.lblバージョン = New System.Windows.Forms.Label()
         Me.lbl日付 = New System.Windows.Forms.Label()
@@ -63,16 +61,6 @@ Partial Class frmメニュー
         Me.btn会員マスタ.TabIndex = 1
         Me.btn会員マスタ.Text = "会員マスタ"
         Me.btn会員マスタ.UseVisualStyleBackColor = True
-        '
-        'btn郵便番号取込
-        '
-        Me.btn郵便番号取込.Location = New System.Drawing.Point(494, 560)
-        Me.btn郵便番号取込.Margin = New System.Windows.Forms.Padding(5)
-        Me.btn郵便番号取込.Name = "btn郵便番号取込"
-        Me.btn郵便番号取込.Size = New System.Drawing.Size(230, 45)
-        Me.btn郵便番号取込.TabIndex = 2
-        Me.btn郵便番号取込.Text = "郵便番号取込"
-        Me.btn郵便番号取込.UseVisualStyleBackColor = True
         '
         'tabManual
         '
@@ -119,9 +107,7 @@ Partial Class frmメニュー
         Me.tabGmail.Controls.Add(Me.Button1)
         Me.tabGmail.Controls.Add(Me.btn会員スキルマスタ)
         Me.tabGmail.Controls.Add(Me.btnプロジェクトマスタ)
-        Me.tabGmail.Controls.Add(Me.btn環境設定)
         Me.tabGmail.Controls.Add(Me.btn区分管理マスタ)
-        Me.tabGmail.Controls.Add(Me.btn郵便番号取込)
         Me.tabGmail.Controls.Add(Me.btn会員マスタ)
         Me.tabGmail.Controls.Add(Me.btn企業マスタ)
         Me.tabGmail.Location = New System.Drawing.Point(4, 29)
@@ -158,15 +144,6 @@ Partial Class frmメニュー
         Me.btnプロジェクトマスタ.TabIndex = 5
         Me.btnプロジェクトマスタ.Text = "プロジェクトマスタ"
         Me.btnプロジェクトマスタ.UseVisualStyleBackColor = True
-        '
-        'btn環境設定
-        '
-        Me.btn環境設定.Location = New System.Drawing.Point(20, 560)
-        Me.btn環境設定.Name = "btn環境設定"
-        Me.btn環境設定.Size = New System.Drawing.Size(230, 45)
-        Me.btn環境設定.TabIndex = 4
-        Me.btn環境設定.Text = "環境設定"
-        Me.btn環境設定.UseVisualStyleBackColor = True
         '
         'btn区分管理マスタ
         '
@@ -245,12 +222,10 @@ Partial Class frmメニュー
 
     Friend WithEvents btn企業マスタ As Button
     Friend WithEvents btn会員マスタ As Button
-    Friend WithEvents btn郵便番号取込 As Button
     Public WithEvents picImg As PictureBox
     Friend WithEvents tabManual As TabControl
     Friend WithEvents tab手入力 As TabPage
     Friend WithEvents tabGmail As TabPage
-    Friend WithEvents btn環境設定 As Button
     Friend WithEvents btn区分管理マスタ As Button
     Friend WithEvents lblバージョン As Label
     Friend WithEvents lbl日付 As Label
