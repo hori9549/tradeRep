@@ -21,10 +21,11 @@ Public Class sfrmExcel返済
         Dim myTable As New DataTable
 
         msSQL = " select *"
-        msSQL += " from MST_取得 "
+        msSQL += " from MTD_取得 "
         msSQL += " where [銘柄コード]= "
         msSQL += "'" & txt銘柄コード.Text & "'"
         msSQL += " and 残株数 <> 0"
+        msSQL += " AND 現況<>'現引'"
         mCommand = cDB.getsqlComand(msSQL)
         mSDA.SelectCommand = mCommand
 
@@ -58,7 +59,7 @@ Public Class sfrmExcel返済
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
 
-        msSQL = "select * FROM MST_取得 "
+        msSQL = "select * FROM MTD_取得 "
         msSQL += "where 入力ID =　" & "'" & selID & "'"
 
         mCommand = cDB.getsqlComand(msSQL)
@@ -66,12 +67,20 @@ Public Class sfrmExcel返済
 
         Call mSDA.Fill(dtblSelectData) ''データセット作成
         With dtblSelectData.Rows(0)
-            txt返済玉ID.Text = Trim(.Item("ID").ToString)
+            txt返済玉ID.Text = Trim(dtblSelectData.Rows(0)("ID").ToString)
+            '    txt返済玉ID.Text = Trim(.Item("ID").ToString)
             txt返済玉入力ID.Text = Trim(.Item("入力ID").ToString)
             txt返済玉銘柄コード.Text = Trim(.Item("銘柄コード").ToString)
             txt返済玉銘柄名.Text = Trim(.Item("銘柄名").ToString)
-            txt返済玉取引種別.Text = Trim(.Item("取引種別").ToString)
-            txt返済株数.Text = Trim(.Item("取引株数").ToString)
+            If txt取引名称.Text = "現引" Then
+
+                txt現況.Text = "現引"
+
+            Else
+
+                txt現況.Text = "返済済"
+            End If
+            txt返済株数.Text = Trim(.Item("取得株数").ToString)
             txt返済玉価格.Text = Trim(.Item("取得単価").ToString)
             txt返済玉取得日.Text = Trim(.Item("取得日付").ToString)
         End With
@@ -103,33 +112,38 @@ Public Class sfrmExcel返済
         'End Select
 
         '   Dim toInt As Integer
-        msSQL = "INSERT INTO [dbo].[MST_返済]"
+        msSQL = "INSERT INTO [dbo].[MTD_返済]"
         msSQL += "([入力ID]"
         msSQL += " ,[返済日付]"
         msSQL += " ,[返済元ID]"
-        msSQL += " ,[取引種別]"
-        msSQL += " ,[取引区分]"
+        msSQL += " ,[取引名称]"
         msSQL += " ,[返済株数]"
         msSQL += " ,[返済単価])"
+
         msSQL += " VALUES ( "
         msSQL += "'" + txt返済ID.Text + "'"          ' ,<入力ID, nvarchar(9),>
         '  Dim dt As Date = DateTime.Parse(txt返済日付.Text)
         '  mssql += ",'" + txt返済日付.Text + "'"          ' ,<返済日付, date,>
         msSQL += ",'" + txt決済日付.Text + "'"
         msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
-        msSQL += ",'制度信用'"          ' ,<取引種別, nvarchar(4),>
-        msSQL += ",'信用返済売'"          ' ,<取引区分, nvarchar(5),>
+        msSQL += ",'信用返済売'"          ' ,<取引名称, nvarchar(5),>
         msSQL += ",'" + txt返済株数.Text + "'"          ' ,<返済株数, int,>
         msSQL += ",'" + txt価格.Text + "'"          ' ,<返済単価, int,>)
         msSQL += ") "
 
-        msSQL += "update MST_取得 "
-        msSQL += "set 残株数= "
-        'toInt = Integer.Parse(txt残株数.Text)
-        'mssql += "'" + toInt + "'"
-        msSQL += "'0'"      '当建玉は全返済するので残は必ず '0’
+        msSQL += "update MTD_取得 "
+        If txt現況.Text = "現引" Then
+            msSQL += "set 現況 = '現引'"
+
+        Else
+            msSQL += "set 残株数= "
+            'toInt = Integer.Parse(txt残株数.Text)
+            'mssql += "'" + toInt + "'"
+            msSQL += "'0'"      '当建玉は全返済するので残は必ず '0’
         msSQL += ", 現況 = "
-        msSQL += "'" + cmb現況.Text + "'"
+            msSQL += "'返済済'"
+        End If
+
         msSQL += " where ID = "
         msSQL += "'" + txt返済玉ID.Text + "'"
 

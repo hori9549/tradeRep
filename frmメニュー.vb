@@ -8,6 +8,7 @@
         Select Case sfrm.ShowDialog()
             Case DialogResult.OK
             Case Else
+                Call Application.Exit()
         End Select
 
         lblバージョン.Text = "Ver" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
@@ -33,20 +34,26 @@
 
 
 
-    Private Sub frmカレンダー表示_Click(sender As Object, e As EventArgs) Handles frmカレンダー表示.Click
-        'Dim frm As New frmSカレンダー
-        'frm.ShowDialog()
-    End Sub
+
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        '  Dim frm As New frmSカレンダー
-        'frm.ShowDialog()
+        Dim frm As New frmTradeRepo
+        frm.ShowDialog()
     End Sub
 
     Private Sub btn区分管理マスタ_Click(sender As Object, e As EventArgs) Handles btn区分管理マスタ.Click
         Dim sfrm As New frmM区分管理
         sfrm.ShowDialog()
+
+    End Sub
+
+    Private Sub btn会員マスタ_Click(sender As Object, e As EventArgs) Handles btn会員マスタ.Click
+        Dim frm As New frm取引集計表
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub btnCallExcel_Click(sender As Object, e As EventArgs) Handles btnCallExcel.Click
 
     End Sub
 End Class

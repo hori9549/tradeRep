@@ -29,7 +29,7 @@ Public Class frm新規建入力
         Dim getデータ As New DataTable
 
         '表示
-        msSQL = " SELECT * from [MST_取得]"
+        msSQL = " SELECT * from [MTD_取得]"
         msSQL += " where 残株数 <> 0 "
         msSQL += " order by 入力ID desc "
         mCommand = cDB.getsqlComand(msSQL)
@@ -51,7 +51,7 @@ Public Class frm新規建入力
 
         '    txt入力ID.Text = getMaxId()
 
-        'tabNam = "MST_取得"
+        'tabNam = "MTD_取得"
         'cond = "残株数 <> 0"
 
         'ヘッダーとすべてのセルの内容に合わせて、列の幅を自動調整する
@@ -119,7 +119,7 @@ Public Class frm新規建入力
         Dim cDB As New clsDB
         Dim msSQL As String
         Dim myTable As New DataTable
-        'msSQL = " SELECT * FROM MST_取得"
+        'msSQL = " SELECT * FROM MTD_取得"
         'msSQL += " WHERE 入力ID = " & txt入力ID.Text
 
         'mCommand = cDB.getsqlComand(msSQL)
@@ -135,7 +135,7 @@ Public Class frm新規建入力
         UorI = True  '新規追加
 
         '追加Dataのセット
-        msSQL = " INSERT INTO MST_取得 ( "
+        msSQL = " INSERT INTO MTD_取得 ( "
         msSQL += " [入力ID]"
         msSQL += " ,[銘柄コード]"
         msSQL += " ,[銘柄名]"

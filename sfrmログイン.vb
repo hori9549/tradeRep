@@ -38,6 +38,7 @@ Public Class sfrmログイン
 
         'パスワード大文字・小文字判別チェック
         If String.Compare(str_CheckPassword, str_InputPassword, True) = 0 Then
+
             '認証ＯＫ
             'MS会員ID = dtbl会員.Rows(0)("会員ID")
             'MS氏名 = dtbl会員.Rows(0)("氏名")
@@ -64,19 +65,21 @@ Public Class sfrmログイン
                     Exit Sub
                 Case Else
             End Select
+
+            Select Case subログイン()
+                Case True
+                    Me.DialogResult = System.Windows.Forms.DialogResult.OK
+                    Me.Close()
+                Case Else
+                    Call .Select()
+
+            End Select
         End With
-        Select Case subログイン()
-            Case True
-                Call Application.Exit()
-            Case Else
-                Call txtパスワード.Select()
-        End Select
     End Sub
 
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Call Application.Exit()
-
+        Me.Close()
     End Sub
 
 End Class

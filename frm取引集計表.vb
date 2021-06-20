@@ -39,7 +39,7 @@ Public Class frm取引集計表
         msSQL += " ,b.返済日付,sum( b.返済株数) as 返済総数 "
         msSQL += ",sum(b.返済株数 * b.返済単価 - a.取引株数 * a.取得単価) as 概算損益"
 
-        msSQL += " FROM MST_取得 as A left join MST_返済 as b"
+        msSQL += " FROM MTD_取得 as A left join MTD_返済 as b"
         msSQL += " On a.入力ID = b.返済元ID"
 
         msSQL += " Where a.銘柄コード = "
@@ -67,7 +67,7 @@ Public Class frm取引集計表
                 msSQL += " ,b.返済日付,sum( b.返済株数) as 返済総数 "
                 msSQL += ",sum(b.返済株数 * b.返済単価 - a.取引株数 * a.取得単価) as 概算損益"
 
-                msSQL += " FROM MST_取得 as A left join MST_返済 as b"
+                msSQL += " FROM MTD_取得 as A left join MTD_返済 as b"
                 msSQL += " On a.入力ID = b.返済元ID"
 
                 msSQL += " Where a.銘柄コード = "
@@ -84,7 +84,7 @@ Public Class frm取引集計表
 
                 msSQL += " b,[返済日付] ,sum([返済株数]) as 返済総数 ,max([返済単価]) as 返済単価"
 
-                msSQL += " From MST_取得 As a inner Join MST_返済 As b"
+                msSQL += " From MTD_取得 As a inner Join MTD_返済 As b"
                 msSQL += " On a.入力ID = b.返済元ID"
 
                 msSQL += " group by [返済日付], a.銘柄コード, a.銘柄名;"

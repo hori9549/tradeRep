@@ -36,9 +36,9 @@ Public Class frm返済
     '    Dim 取得tabMaxId As Integer
     '    Dim 返済tabMaxId As Integer
     '    Dim maxID As Integer
-    '    'MST_取得の最大値を計算する
+    '    'MTD_取得の最大値を計算する
 
-    '    msSQL = " SELECT * FROM MST_取得"
+    '    msSQL = " SELECT * FROM MTD_取得"
     '    msSQL += " ORDER BY 入力ID DESC"
 
     '    mCommand = cDB.getsqlComand(msSQL)
@@ -90,7 +90,7 @@ Public Class frm返済
     '        End Select
     '    End If
 
-    '    'MST_取得の最大値とMST_返済の最大値を比較して大きいほうをmaxIDにする
+    '    'MTD_取得の最大値とMST_返済の最大値を比較して大きいほうをmaxIDにする
     '    If 取得tabMaxId > 返済tabMaxId Then
     '        maxID = 取得tabMaxId
     '    Else
@@ -131,7 +131,7 @@ Public Class frm返済
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
 
-        msSQL = " select * from [MST_取得] "
+        msSQL = " select * from [MTD_取得] "
         msSQL += " where 残株数<>0"
 
         mCommand = cDB.getsqlComand(msSQL)
@@ -191,7 +191,7 @@ Public Class frm返済
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
 
-        msSQL = "select * FROM MST_取得 "
+        msSQL = "select * FROM MTD_取得 "
         msSQL += "where 入力ID =　" & "'" & selID & "'"
 
         mCommand = cDB.getsqlComand(msSQL)
@@ -255,16 +255,16 @@ Public Class frm返済
                 'txt売買差額.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
 
 
-               ' 'ほんとうに登録しますか？
-               ' Select Case MessageBox.Show("" & txt銘柄コード.Text & txt銘柄名.Text & "を" _
-               ' & txt返済株数.Text & " " & txt返済単価.Text & "’約’" & txt売買差額.Text & "'返済売'で、登録しますか？",
-               '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                ' 'ほんとうに登録しますか？
+                ' Select Case MessageBox.Show("" & txt銘柄コード.Text & txt銘柄名.Text & "を" _
+                ' & txt返済株数.Text & " " & txt返済単価.Text & "’約’" & txt売買差額.Text & "'返済売'で、登録しますか？",
+                '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-               '     Case Windows.Forms.DialogResult.Yes
-               '     Case Else
-               '         txt返済単価.Select()
-               '         Exit Sub
-               ' End Select
+                '     Case Windows.Forms.DialogResult.Yes
+                '     Case Else
+                '         txt返済単価.Select()
+                '         Exit Sub
+                ' End Select
 
                 '   Dim toInt As Integer
                 mssql = "INSERT INTO [dbo].[MST_返済]"
@@ -287,7 +287,7 @@ Public Class frm返済
                 mssql += ",'" + txt返済単価.Text + "'"          ' ,<返済単価, int,>)
                 mssql += ") "
 
-                mssql += "update MST_取得 "
+                mssql += "update MTD_取得 "
                 mssql += "set 残株数= "
                 'toInt = Integer.Parse(txt残株数.Text)
                 'mssql += "'" + toInt + "'"
@@ -352,7 +352,7 @@ Public Class frm返済
     End Sub
     'txt返済株数_Leave
     '仮の売買差額を表示
-        Private Sub txt返済株数_Leave(sender As Object, e As EventArgs) Handles txt返済株数.Leave
+    Private Sub txt返済株数_Leave(sender As Object, e As EventArgs) Handles txt返済株数.Leave
         Dim int返済株数 As Integer
         Dim int残株数 As Integer = Integer.Parse(txt残株数.Text)
         '   Dim d取得単価 As Single
@@ -405,7 +405,7 @@ Public Class frm返済
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
 
-        msSQL = "Select * From MST_取得 "
+        msSQL = "Select * From MTD_取得 "
         msSQL += " Where 取得日付 = "
         msSQL += "'" & txt検索日付.Text & "'"                   'EX '2021/2/1'
         msSQL += " AND [残株数]<>0 "
@@ -437,7 +437,7 @@ Public Class frm返済
         Dim cDB As New clsDB
         Dim getデータ As New DataTable
 
-        'msSQL = " select * from MST_取得 as A "
+        'msSQL = " select * from MTD_取得 as A "
         'msSQL += " left join MST_返済 as B "
         'msSQL += " on A.入力ID = B.返済元ID "
         'msSQL += " order by A.入力ID desc "
