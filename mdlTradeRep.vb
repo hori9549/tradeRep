@@ -8,7 +8,7 @@ Module mdlTradeRep
 
     Public Function getMaxId() As Integer
         '入力ID ベース取得　yyMM  & "010"
-        Dim IdBase As String = DateTime.Now.ToString("yyMMdd") + "010"
+        Dim IdBase As String = DateTime.Now.ToString("yyMMdd") + "001"
         Dim cDB As New clsDB
         Dim msSQL As String
         Dim mytable As New DataTable
@@ -17,7 +17,7 @@ Module mdlTradeRep
 
         'MST_取得の最大値を計算する
 
-        msSQL = " SELECT * FROM MST_取得"
+        msSQL = " SELECT * FROM MTD_取得"
         msSQL += " ORDER BY 入力ID DESC"
 
         mCommand = cDB.getsqlComand(msSQL)
@@ -45,7 +45,7 @@ Module mdlTradeRep
 
         'MST_返済の最大値を計算する
 
-        msSQL = " SELECT * FROM MST_返済"
+        msSQL = " SELECT * FROM MTD_返済"
         msSQL += " ORDER BY 入力ID DESC"
 
         mCommand = cDB.getsqlComand(msSQL)

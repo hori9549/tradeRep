@@ -175,7 +175,7 @@ Public Class frmTradeRepo
         Dim 株数Text As String
         Dim 価格Text As String
         Dim 決済日付 As String
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知201228_210618.xlsx"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知201227_210618.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
@@ -185,6 +185,7 @@ Public Class frmTradeRepo
         Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
             'ワークシートを取得する
             Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
+            ' Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("work")
 
             '  Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("Sheet1")
             '  Dim ws取引種別 As String = worksheet.Cell(1, "G")
@@ -210,6 +211,7 @@ Public Class frmTradeRepo
 
                         dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
                         銘柄名Text = dt.Substring(0, (dt.Length - 1))
+
 
 
                         dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
@@ -307,7 +309,9 @@ Public Class frmTradeRepo
                         sfrm.txt価格.Text = 価格Text
                         sfrm.txt決済日付.Text = 決済日付
                         sfrm.txt取引名称.Text = "信用返済売"
-                        Call sfrm.ShowDialog()
+                        If System.Windows.Forms.DialogResult.OK <> sfrm.ShowDialog() Then
+                            worksheet.Cell(i, "N").Value = "NG"
+                        End If
                          ' 
                     ''　現物買 
                     '------------------------------
@@ -351,7 +355,7 @@ Public Class frmTradeRepo
                         msSQL += " ,[銘柄コード]"
                         msSQL += " ,[銘柄名]"
                         msSQL += " ,[取引名称]"
-                        msSQL += " ,[取引株数]"
+                        msSQL += " ,[取得株数]"
                         msSQL += " ,[取得単価]"
                         msSQL += " ,[取得日付]"
                         msSQL += " ,[残株数]"
@@ -386,65 +390,51 @@ Public Class frmTradeRepo
                     ''　現引 
                     '------------------------------
                     Case "現引"
-                        Dim 入力ID As String = getMaxId().ToString
+                        MsgBox($"{ws取引種別}は、未完成です")
+                        worksheet.Cell(i, "N").Value = "NG"
 
-                        銘柄コードText = worksheet.Cell(i, "I").Value
+                        'Dim 入力ID As String = getMaxId().ToString
 
-                        dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
-                        銘柄名Text = dt.Substring(0, (dt.Length - 1))
+                        '銘柄コードText = worksheet.Cell(i, "I").Value
 
-                        dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
-                        dt = dt.Substring(3)
-                        dt = dt.Substring(0, dt.Length - 1)
-                        株数Text = dt.Replace(",", "") '","をのぞく
+                        'dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
+                        '銘柄名Text = dt.Substring(0, (dt.Length - 1))
 
-                        dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
-                        dt = dt.Substring(0, dt.Length - 1)
-                        価格Text = dt.Replace(",", "") '","をのぞく
+                        'dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
+                        'dt = dt.Substring(3)
+                        'dt = dt.Substring(0, dt.Length - 1)
+                        '株数Text = dt.Replace(",", "") '","をのぞく
 
-                        dt = worksheet.Cell(i, "d").Value        '決済日付
-                        決済日付 = dt.Substring(0, 10)
+                        'dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
+                        'dt = dt.Substring(0, dt.Length - 1)
+                        '価格Text = dt.Replace(",", "") '","をのぞく
+
+                        'dt = worksheet.Cell(i, "d").Value        '決済日付
+                        '決済日付 = dt.Substring(0, 10)
 
 
-                        Dim sfrm As New sfrmExcel返済
-                        sfrm.txt銘柄コード.Text = 銘柄コードText
-                        sfrm.txt銘柄名.Text = 銘柄名Text
-                        sfrm.txt決済総株数.Text = 株数Text
-                        sfrm.txt価格.Text = 価格Text
-                        sfrm.txt決済日付.Text = 決済日付
-                        sfrm.txt取引名称.Text = "現引"
-                        Call sfrm.ShowDialog()
+                        'Dim sfrm As New sfrmExcel返済
+                        'sfrm.txt銘柄コード.Text = 銘柄コードText
+                        'sfrm.txt銘柄名.Text = 銘柄名Text
+                        'sfrm.txt決済総株数.Text = 株数Text
+                        'sfrm.txt価格.Text = 価格Text
+                        'sfrm.txt決済日付.Text = 決済日付
+                        'sfrm.txt取引名称.Text = "現引"
+                        'Call sfrm.ShowDialog()
 
 
                     Case Else
                         MsgBox($"{ws取引種別}は、未完成です")
+                        worksheet.Cell(i, "N").Value = "NG"
+
                 End Select
 nextRec:        i += 1
             Loop
-            ''ワークブックを保存する
-            'Using sfd As SaveFileDialog = New SaveFileDialog
-            '    'デフォルトのファイル名を指定します
-            '    sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
-            '    sfd.FileName = "会員名簿"
-            '    sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel"
+            ' // ワークブックを保存する
+            workbook.SaveAs(sテンプレートパス)
 
-            '    If sfd.ShowDialog() = DialogResult.OK Then
-            '        getExcelファイル = sfd.FileName
-            '        workbook.SaveAs(getExcelファイル)     ''別ブックで保存
+            MsgBox("全Recを手続きしました")
 
-            '        ''作成ファイルオープン
-            '        '  Select Case sfrmメッセージ.ShowDialog("フィルが作成されました。" & vbCrLf _
-            '        '                            & "作成ファイルを開きますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-            '        '    Case vbOK
-            '        '        Dim execProc As New Process
-            '        '        With execProc
-            '        '            .StartInfo.FileName = getExcelファイル
-            '        '            .Start()
-            '        '        End With
-            '        'End Select
-
-            '    End If
-            'End Using
         End Using
 
 

@@ -33,6 +33,9 @@ Public Class sfrmExcel返済
 
         If myTable.Rows.Count = 0 Then
             MsgBox("返済'玉'がありません")
+
+            'excelファイルにNGマーク
+            Me.DialogResult = System.Windows.Forms.DialogResult.No
             Me.Close()
         Else
             dgv返済玉.DataSource = myTable
@@ -158,6 +161,7 @@ Public Class sfrmExcel返済
 
         Else
             ' MsgBox("返済手続きは、完了しました")
+            Me.DialogResult = System.Windows.Forms.DialogResult.OK
             Me.Close()
         End If
     End Sub
