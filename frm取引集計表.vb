@@ -65,7 +65,7 @@ Public Class frm取引集計表
 
                 msSQL = " Select   a.銘柄コード as CODE , a.銘柄名 "
                 msSQL += " ,b.返済日付,sum( b.返済株数) as 返済総数 "
-                msSQL += ",sum(b.返済株数 * b.返済単価 - a.取引株数 * a.取得単価) as 概算損益"
+                msSQL += ",sum(b.返済株数 * b.返済単価 - a.取得株数 * a.取得単価) as 概算損益"
 
                 msSQL += " FROM MTD_取得 as A left join MTD_返済 as b"
                 msSQL += " On a.入力ID = b.返済元ID"
