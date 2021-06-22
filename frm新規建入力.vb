@@ -282,7 +282,7 @@ Public Class frm新規建入力
         Dim testTable As New DataTable
 
 
-        msSQL = " Select * From [MST_銘柄表] "
+        msSQL = " Select * From [MTD_銘柄表] "
         msSQL += " Where コード = "
         msSQL += "'" & txt銘柄コード.Text & "'"
         mCommand = cDB.getsqlComand(msSQL)
