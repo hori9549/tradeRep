@@ -25,11 +25,11 @@ Partial Class sfrmExcel返済
         Me.txtg銘柄コード = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txt銘柄名 = New System.Windows.Forms.TextBox()
+        Me.txtg銘柄名 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txt決済総株数 = New System.Windows.Forms.TextBox()
+        Me.txtg株数 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txt価格 = New System.Windows.Forms.TextBox()
+        Me.txtg価格 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtg日付 = New System.Windows.Forms.TextBox()
         Me.dgv返済玉 = New System.Windows.Forms.DataGridView()
@@ -64,345 +64,309 @@ Partial Class sfrmExcel返済
         '
         'txtg銘柄コード
         '
-        Me.txtg銘柄コード.Location = New System.Drawing.Point(1013, 89)
-        Me.txtg銘柄コード.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtg銘柄コード.Location = New System.Drawing.Point(779, 85)
         Me.txtg銘柄コード.Name = "txtg銘柄コード"
-        Me.txtg銘柄コード.Size = New System.Drawing.Size(189, 31)
+        Me.txtg銘柄コード.Size = New System.Drawing.Size(146, 26)
         Me.txtg銘柄コード.TabIndex = 0
         Me.txtg銘柄コード.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(888, 93)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(674, 88)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 30)
+        Me.Label1.Size = New System.Drawing.Size(99, 19)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "g銘柄コード"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(913, 156)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(698, 133)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 24)
+        Me.Label2.Size = New System.Drawing.Size(75, 19)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "銘柄名"
+        Me.Label2.Text = "g銘柄名"
         '
-        'txt銘柄名
+        'txtg銘柄名
         '
-        Me.txt銘柄名.Location = New System.Drawing.Point(1013, 147)
-        Me.txt銘柄名.Margin = New System.Windows.Forms.Padding(4)
-        Me.txt銘柄名.Name = "txt銘柄名"
-        Me.txt銘柄名.Size = New System.Drawing.Size(189, 31)
-        Me.txt銘柄名.TabIndex = 2
-        Me.txt銘柄名.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtg銘柄名.Location = New System.Drawing.Point(779, 130)
+        Me.txtg銘柄名.Name = "txtg銘柄名"
+        Me.txtg銘柄名.Size = New System.Drawing.Size(146, 26)
+        Me.txtg銘柄名.TabIndex = 2
+        Me.txtg銘柄名.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(875, 213)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(717, 184)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(130, 24)
+        Me.Label3.Size = New System.Drawing.Size(56, 19)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "決済総株数"
+        Me.Label3.Text = "g株数"
         '
-        'txt決済総株数
+        'txtg株数
         '
-        Me.txt決済総株数.Location = New System.Drawing.Point(1013, 208)
-        Me.txt決済総株数.Margin = New System.Windows.Forms.Padding(4)
-        Me.txt決済総株数.Name = "txt決済総株数"
-        Me.txt決済総株数.Size = New System.Drawing.Size(189, 31)
-        Me.txt決済総株数.TabIndex = 4
-        Me.txt決済総株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtg株数.Location = New System.Drawing.Point(779, 175)
+        Me.txtg株数.Name = "txtg株数"
+        Me.txtg株数.Size = New System.Drawing.Size(146, 26)
+        Me.txtg株数.TabIndex = 4
+        Me.txtg株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(926, 287)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(717, 223)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(58, 24)
+        Me.Label4.Size = New System.Drawing.Size(56, 19)
         Me.Label4.TabIndex = 7
-        Me.Label4.Text = "価格"
+        Me.Label4.Text = "g価格"
         '
-        'txt価格
+        'txtg価格
         '
-        Me.txt価格.Location = New System.Drawing.Point(1013, 278)
-        Me.txt価格.Margin = New System.Windows.Forms.Padding(4)
-        Me.txt価格.Name = "txt価格"
-        Me.txt価格.Size = New System.Drawing.Size(189, 31)
-        Me.txt価格.TabIndex = 6
-        Me.txt価格.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtg価格.Location = New System.Drawing.Point(779, 220)
+        Me.txtg価格.Name = "txtg価格"
+        Me.txtg価格.Size = New System.Drawing.Size(146, 26)
+        Me.txtg価格.TabIndex = 6
+        Me.txtg価格.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(888, 350)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(717, 268)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 30)
+        Me.Label5.Size = New System.Drawing.Size(56, 19)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "g日付"
         '
         'txtg日付
         '
-        Me.txtg日付.Location = New System.Drawing.Point(1013, 342)
-        Me.txtg日付.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtg日付.Location = New System.Drawing.Point(779, 265)
         Me.txtg日付.Name = "txtg日付"
-        Me.txtg日付.Size = New System.Drawing.Size(189, 31)
+        Me.txtg日付.Size = New System.Drawing.Size(146, 26)
         Me.txtg日付.TabIndex = 8
         Me.txtg日付.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'dgv返済玉
         '
         Me.dgv返済玉.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv返済玉.Location = New System.Drawing.Point(16, 453)
-        Me.dgv返済玉.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgv返済玉.Location = New System.Drawing.Point(12, 359)
         Me.dgv返済玉.Name = "dgv返済玉"
         Me.dgv返済玉.RowHeadersWidth = 51
         Me.dgv返済玉.RowTemplate.Height = 21
-        Me.dgv返済玉.Size = New System.Drawing.Size(1171, 174)
+        Me.dgv返済玉.Size = New System.Drawing.Size(901, 138)
         Me.dgv返済玉.TabIndex = 10
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(16, 425)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(12, 336)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(248, 24)
+        Me.Label6.Size = New System.Drawing.Size(197, 19)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "返済対象建玉をえらんで"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(50, 128)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(38, 101)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(181, 24)
+        Me.Label8.Size = New System.Drawing.Size(146, 19)
         Me.Label8.TabIndex = 19
         Me.Label8.Text = "txt返済玉銘柄名"
         '
         'txt返済玉銘柄名
         '
-        Me.txt返済玉銘柄名.Location = New System.Drawing.Point(245, 121)
-        Me.txt返済玉銘柄名.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済玉銘柄名.Location = New System.Drawing.Point(188, 96)
         Me.txt返済玉銘柄名.Name = "txt返済玉銘柄名"
-        Me.txt返済玉銘柄名.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済玉銘柄名.Size = New System.Drawing.Size(146, 26)
         Me.txt返済玉銘柄名.TabIndex = 18
         Me.txt返済玉銘柄名.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(16, 94)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(12, 74)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(211, 24)
+        Me.Label9.Size = New System.Drawing.Size(170, 19)
         Me.Label9.TabIndex = 17
         Me.Label9.Text = "txt返済玉銘柄コード"
         '
         'txt返済玉銘柄コード
         '
-        Me.txt返済玉銘柄コード.Location = New System.Drawing.Point(245, 90)
-        Me.txt返済玉銘柄コード.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済玉銘柄コード.Location = New System.Drawing.Point(188, 71)
         Me.txt返済玉銘柄コード.Name = "txt返済玉銘柄コード"
-        Me.txt返済玉銘柄コード.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済玉銘柄コード.Size = New System.Drawing.Size(146, 26)
         Me.txt返済玉銘柄コード.TabIndex = 16
         Me.txt返済玉銘柄コード.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(50, 54)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(38, 43)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(179, 24)
+        Me.Label10.Size = New System.Drawing.Size(144, 19)
         Me.Label10.TabIndex = 15
         Me.Label10.Text = "txt返済玉入力ID"
         '
         'txt返済玉入力ID
         '
-        Me.txt返済玉入力ID.Location = New System.Drawing.Point(245, 50)
-        Me.txt返済玉入力ID.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済玉入力ID.Location = New System.Drawing.Point(188, 40)
         Me.txt返済玉入力ID.Name = "txt返済玉入力ID"
-        Me.txt返済玉入力ID.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済玉入力ID.Size = New System.Drawing.Size(146, 26)
         Me.txt返済玉入力ID.TabIndex = 14
         Me.txt返済玉入力ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(99, 12)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(76, 10)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(131, 24)
+        Me.Label11.Size = New System.Drawing.Size(106, 19)
         Me.Label11.TabIndex = 13
         Me.Label11.Text = "txt返済玉ID"
         '
         'txt返済玉ID
         '
-        Me.txt返済玉ID.Location = New System.Drawing.Point(245, 12)
-        Me.txt返済玉ID.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済玉ID.Location = New System.Drawing.Point(188, 10)
         Me.txt返済玉ID.Name = "txt返済玉ID"
-        Me.txt返済玉ID.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済玉ID.Size = New System.Drawing.Size(146, 26)
         Me.txt返済玉ID.TabIndex = 12
         Me.txt返済玉ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(45, 300)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(35, 238)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(181, 24)
+        Me.Label12.Size = New System.Drawing.Size(146, 19)
         Me.Label12.TabIndex = 27
         Me.Label12.Text = "txt返済玉取得日"
         '
         'txt返済玉取得日
         '
-        Me.txt返済玉取得日.Location = New System.Drawing.Point(243, 291)
-        Me.txt返済玉取得日.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済玉取得日.Location = New System.Drawing.Point(187, 230)
         Me.txt返済玉取得日.Name = "txt返済玉取得日"
-        Me.txt返済玉取得日.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済玉取得日.Size = New System.Drawing.Size(146, 26)
         Me.txt返済玉取得日.TabIndex = 26
         Me.txt返済玉取得日.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(70, 268)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(54, 212)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(157, 24)
+        Me.Label13.Size = New System.Drawing.Size(127, 19)
         Me.Label13.TabIndex = 25
         Me.Label13.Text = "txt返済玉価格"
         '
         'txt返済玉価格
         '
-        Me.txt返済玉価格.Location = New System.Drawing.Point(243, 259)
-        Me.txt返済玉価格.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済玉価格.Location = New System.Drawing.Point(187, 205)
         Me.txt返済玉価格.Name = "txt返済玉価格"
-        Me.txt返済玉価格.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済玉価格.Size = New System.Drawing.Size(146, 26)
         Me.txt返済玉価格.TabIndex = 24
         Me.txt返済玉価格.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(45, 238)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Location = New System.Drawing.Point(35, 188)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(133, 24)
+        Me.Label14.Size = New System.Drawing.Size(108, 19)
         Me.Label14.TabIndex = 23
         Me.Label14.Text = "txt返済株数"
         '
         'txt返済株数
         '
-        Me.txt返済株数.Location = New System.Drawing.Point(243, 229)
-        Me.txt返済株数.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済株数.Location = New System.Drawing.Point(187, 181)
         Me.txt返済株数.Name = "txt返済株数"
-        Me.txt返済株数.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済株数.Size = New System.Drawing.Size(146, 26)
         Me.txt返済株数.TabIndex = 22
         Me.txt返済株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(546, 95)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Location = New System.Drawing.Point(420, 75)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(106, 24)
+        Me.Label15.Size = New System.Drawing.Size(85, 19)
         Me.Label15.TabIndex = 31
         Me.Label15.Text = "概算損益"
         '
         'txt概算損益
         '
-        Me.txt概算損益.Location = New System.Drawing.Point(664, 86)
-        Me.txt概算損益.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt概算損益.Location = New System.Drawing.Point(511, 68)
         Me.txt概算損益.Name = "txt概算損益"
-        Me.txt概算損益.Size = New System.Drawing.Size(189, 31)
+        Me.txt概算損益.Size = New System.Drawing.Size(146, 26)
         Me.txt概算損益.TabIndex = 30
         Me.txt概算損益.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(573, 48)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Location = New System.Drawing.Point(441, 38)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(80, 24)
+        Me.Label16.Size = New System.Drawing.Size(64, 19)
         Me.Label16.TabIndex = 29
         Me.Label16.Text = "返済ID"
         '
         'txt返済ID
         '
-        Me.txt返済ID.Location = New System.Drawing.Point(664, 48)
-        Me.txt返済ID.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済ID.Location = New System.Drawing.Point(511, 38)
         Me.txt返済ID.Name = "txt返済ID"
-        Me.txt返済ID.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済ID.Size = New System.Drawing.Size(146, 26)
         Me.txt返済ID.TabIndex = 28
         Me.txt返済ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(497, 178)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Location = New System.Drawing.Point(382, 141)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(154, 24)
+        Me.Label17.Size = New System.Drawing.Size(123, 19)
         Me.Label17.TabIndex = 33
         Me.Label17.Text = "返済後残株数"
         '
         'txt返済後残株数
         '
-        Me.txt返済後残株数.Location = New System.Drawing.Point(664, 174)
-        Me.txt返済後残株数.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt返済後残株数.Location = New System.Drawing.Point(511, 138)
         Me.txt返済後残株数.Name = "txt返済後残株数"
-        Me.txt返済後残株数.Size = New System.Drawing.Size(189, 31)
+        Me.txt返済後残株数.Size = New System.Drawing.Size(146, 26)
         Me.txt返済後残株数.TabIndex = 32
         Me.txt返済後残株数.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(145, 353)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label18.Location = New System.Drawing.Point(112, 279)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(58, 24)
+        Me.Label18.Size = New System.Drawing.Size(47, 19)
         Me.Label18.TabIndex = 51
         Me.Label18.Text = "現況"
         '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(861, 57)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Location = New System.Drawing.Point(674, 45)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(146, 30)
+        Me.Label19.Size = New System.Drawing.Size(94, 19)
         Me.Label19.TabIndex = 54
         Me.Label19.Text = "g取引種別"
         '
         'txtg取引名称
         '
-        Me.txtg取引名称.Location = New System.Drawing.Point(1014, 50)
-        Me.txtg取引名称.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtg取引名称.Location = New System.Drawing.Point(780, 40)
         Me.txtg取引名称.Name = "txtg取引名称"
-        Me.txtg取引名称.Size = New System.Drawing.Size(189, 31)
+        Me.txtg取引名称.Size = New System.Drawing.Size(146, 26)
         Me.txtg取引名称.TabIndex = 53
         Me.txtg取引名称.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txt現況
         '
-        Me.txt現況.Location = New System.Drawing.Point(245, 344)
-        Me.txt現況.Margin = New System.Windows.Forms.Padding(4)
+        Me.txt現況.Location = New System.Drawing.Point(188, 272)
         Me.txt現況.Name = "txt現況"
-        Me.txt現況.Size = New System.Drawing.Size(189, 31)
+        Me.txt現況.Size = New System.Drawing.Size(146, 26)
         Me.txt現況.TabIndex = 55
         Me.txt現況.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -410,17 +374,18 @@ Partial Class sfrmExcel返済
         '
         Me.Label7.AutoSize = True
         Me.Label7.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Label7.Location = New System.Drawing.Point(926, 12)
+        Me.Label7.Location = New System.Drawing.Point(712, 10)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(121, 24)
+        Me.Label7.Size = New System.Drawing.Size(142, 19)
         Me.Label7.TabIndex = 56
-        Me.Label7.Text = "Excelデータ"
+        Me.Label7.Text = "ExcelGmailデータ"
         '
         'sfrmExcel返済
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1230, 645)
+        Me.ClientSize = New System.Drawing.Size(946, 511)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt現況)
         Me.Controls.Add(Me.Label19)
@@ -451,14 +416,13 @@ Partial Class sfrmExcel返済
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtg日付)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txt価格)
+        Me.Controls.Add(Me.txtg価格)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txt決済総株数)
+        Me.Controls.Add(Me.txtg株数)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txt銘柄名)
+        Me.Controls.Add(Me.txtg銘柄名)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtg銘柄コード)
-        Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "sfrmExcel返済"
         Me.Text = "sfrmExcel返済"
         CType(Me.dgv返済玉, System.ComponentModel.ISupportInitialize).EndInit()
@@ -470,11 +434,11 @@ Partial Class sfrmExcel返済
     Friend WithEvents txtg銘柄コード As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txt銘柄名 As TextBox
+    Friend WithEvents txtg銘柄名 As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txt決済総株数 As TextBox
+    Friend WithEvents txtg株数 As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents txt価格 As TextBox
+    Friend WithEvents txtg価格 As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtg日付 As TextBox
     Friend WithEvents dgv返済玉 As DataGridView

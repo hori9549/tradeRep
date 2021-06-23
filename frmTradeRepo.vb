@@ -170,12 +170,12 @@ Public Class frmTradeRepo
         Dim cDB As New clsDB
         Dim msSQL As String
         Dim myTable As New DataTable
-        Dim g取引名称 As String    　 'Excelに規されたgmailのデーター
-        Dim g銘柄コード As String     'Excelに規されたgmailのデーター
-        Dim g銘柄名 As String         'Excelに規されたgmailのデーター
-        Dim g株数 As String           'Excelに規されたgmailのデーター
-        Dim g価格 As String           'Excelに規されたgmailのデーター
-        Dim g日付 As String           'Excelに規されたgmailのデーター
+        Dim g取引名称 As String    　 'Excelに記されたgmailのデーター
+        Dim g銘柄コード As String     'Excelに記されたgmailのデーター
+        Dim g銘柄名 As String         'Excelに記されたgmailのデーター
+        Dim g株数 As String           'Excelに記されたgmailのデーター
+        Dim g価格 As String           'Excelに記されたgmailのデーター
+        Dim g日付 As String           'Excelに記されたgmailのデーター
         Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知210621.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
@@ -184,21 +184,39 @@ Public Class frmTradeRepo
         'Try
         'Excelファイルを開く
         Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
-            'ワークシートを取得する
+
+            ''/****************ワークシートを取得する************************/
             Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
             ' Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("work")
 
-            '  Dim g取引名称 As String = worksheet.Cell(1, "G")
+            ''/*****************空伯がでてくるまで読み続ける******************/
             Dim i As Integer = 1
+            Do While (worksheet.Cell(i, "A").Value) <> ""   '空伯がでてくるまで読み続ける
 
-            Do While (worksheet.Cell(i, "A").Value) <> ""
-
+                ''/**** Excel Gmail データーを取得 ****/
                 Dim dt As String
+
+                dt = (worksheet.Cell(i, "G").Value)   '取引名称 & vbLF  
+                g取引名称 = dt.Substring(0, (dt.Length - 1))
+
+                g銘柄コード = worksheet.Cell(i, "I").Value
+
+                dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
+                g銘柄名 = dt.Substring(0, (dt.Length - 1))
+
+                dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
+                dt = dt.Substring(3)
+                dt = dt.Substring(0, dt.Length - 1)
+                g株数 = dt.Replace(",", "") '","をのぞく
+
+                dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
+                dt = dt.Substring(0, dt.Length - 1)
+                g価格 = dt.Replace(",", "") '","をのぞく
+
                 dt = worksheet.Cell(i, "d").Value        ' g日付
                 g日付 = dt.Substring(0, 10)
 
-                dt = (worksheet.Cell(i, "G").Value)   '取引種別&vbLF
-                g取引名称 = dt.Substring(0, (dt.Length - 1))
+
 
                 '/************** 取引種別ごとに分ける *****************/
                 Select Case g取引名称
@@ -209,25 +227,6 @@ Public Class frmTradeRepo
                         '  txt入力ID.Text = 入力ID最大取得.maxID
                         Dim 入力ID As String = getMaxId().ToString
 
-                        g銘柄コード = worksheet.Cell(i, "I").Value
-
-                        dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
-                        g銘柄名 = dt.Substring(0, (dt.Length - 1))
-
-
-
-                        dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
-                        dt = dt.Substring(3)
-                        dt = dt.Substring(0, dt.Length - 1)
-                        g株数 = dt.Replace(",", "") '","をのぞく
-
-                        dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
-                        dt = dt.Substring(0, dt.Length - 1)
-                        g価格 = dt.Replace(",", "") '","をのぞく
-
-
-
-
                         Select Case MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
                 & g株数 & " " & g価格 & "'新規買'で、登録しますか？",
                "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -236,8 +235,6 @@ Public Class frmTradeRepo
                             Case Else
                                 GoTo nextRec
                         End Select
-
-
 
                         '追加Dataのセット
                         msSQL = " INSERT INTO MTD_取得 ( "
@@ -276,27 +273,25 @@ Public Class frmTradeRepo
                             btn閉じる.Select()
                         End Try
 
-                    ' Call msgOut(msg入力ID, UorI, OorN)
-
                     ' 
                     ''信用返済売 
                     '------------------------------
                     Case "信用返済売"
                         Dim 入力ID As String = getMaxId().ToString
 
-                        g銘柄コード = worksheet.Cell(i, "I").Value
+                        '  g銘柄コード = worksheet.Cell(i, "I").Value
 
-                        dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
-                        g銘柄名 = dt.Substring(0, (dt.Length - 1))
+                        'dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
+                        'g銘柄名 = dt.Substring(0, (dt.Length - 1))
 
-                        dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
-                        dt = dt.Substring(3)
-                        dt = dt.Substring(0, dt.Length - 1)
-                        g株数 = dt.Replace(",", "") '","をのぞく
+                        'dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
+                        'dt = dt.Substring(3)
+                        'dt = dt.Substring(0, dt.Length - 1)
+                        'g株数 = dt.Replace(",", "") '","をのぞく
 
-                        dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
-                        dt = dt.Substring(0, dt.Length - 1)
-                        g価格 = dt.Replace(",", "") '","をのぞく
+                        'dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
+                        'dt = dt.Substring(0, dt.Length - 1)
+                        'g価格 = dt.Replace(",", "") '","をのぞく
 
                         'dt = worksheet.Cell(i, "d").Value        ' g日付
                         'g日付 = dt.Substring(0, 10)
@@ -304,12 +299,12 @@ Public Class frmTradeRepo
 
                         Dim sfrm As New sfrmExcel返済
                         sfrm.txtg銘柄コード.Text = g銘柄コード
-                        sfrm.txt銘柄名.Text = g銘柄名
-                        sfrm.txt決済総株数.Text = g株数
-                        sfrm.txt価格.Text = g価格
+                        sfrm.txtg銘柄名.Text = g銘柄名
+                        sfrm.txtg株数.Text = g株数
+                        sfrm.txtg価格.Text = g価格
                         sfrm.txtg日付.Text = g日付
                         sfrm.txtg取引名称.Text = "信用返済売"
-                        If System.Windows.Forms.DialogResult.OK <> sfrm.ShowDialog() Then
+                        If System.Windows.Forms.DialogResult.OK <> sfrm.ShowDialog() Then   'sfrmExcel返済に一任する
                             worksheet.Cell(i, "N").Value = "NG"
                         End If
                          ' 

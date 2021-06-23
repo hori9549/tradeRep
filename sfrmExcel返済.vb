@@ -57,23 +57,34 @@ Public Class sfrmExcel返済
         '取得したIDを持つレコードを取り出す
         Dim cDB As New clsDB
         Dim msSQL As String
-        Dim dtblSelectData As New DataTable
+        Dim dtblSelectedData As New DataTable
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
-
         msSQL = "select * FROM MTD_取得 "
         msSQL += "where 入力ID =　" & "'" & selID & "'"
-
         mCommand = cDB.getsqlComand(msSQL)
         mSDA.SelectCommand = mCommand
+        Call mSDA.Fill(dtblSelectedData) ''データセット作成
 
-        Call mSDA.Fill(dtblSelectData) ''データセット作成
-        With dtblSelectData.Rows(0)
-            txt返済玉ID.Text = Trim(dtblSelectData.Rows(0)("ID").ToString)
-            '    txt返済玉ID.Text = Trim(.Item("ID").ToString)
-            txt返済玉入力ID.Text = Trim(.Item("入力ID").ToString)
-            txt返済玉銘柄コード.Text = Trim(.Item("銘柄コード").ToString)
-            txt返済玉銘柄名.Text = Trim(.Item("銘柄名").ToString)
+
+
+
+
+
+
+        For Each getデータ As DataRow In dtblSelectedData.Rows
+            txt返済玉ID.Text = getデータ("ID")
+            txt返済玉入力ID.Text = getデータ("入力ID")
+            txt返済玉銘柄コード.Text = getデータ("銘柄コード")
+            txt返済玉銘柄名.Text = getデータ("銘柄名")
+
+
+            'With dtblSelectData.Rows(0)
+            '    txt返済玉ID.Text = Trim(dtblSelectData.Rows(0)("ID").ToString)
+            '    '    txt返済玉ID.Text = Trim(.Item("ID").ToString)
+            '    txt返済玉入力ID.Text = Trim(.Item("入力ID").ToString)
+            '    txt返済玉銘柄コード.Text = Trim(.Item("銘柄コード").ToString)
+            '    txt返済玉銘柄名.Text = Trim(.Item("銘柄名").ToString)
             If txtg取引名称.Text = "現引" Then
 
                 txt現況.Text = "現引"
@@ -82,11 +93,11 @@ Public Class sfrmExcel返済
 
                 txt現況.Text = "返済済"
             End If
-            txt返済株数.Text = Trim(.Item("取得株数").ToString)
-            txt返済玉価格.Text = Trim(.Item("取得単価").ToString)
-            txt返済玉取得日.Text = Trim(.Item("取得日付").ToString)
-        End With
-
+            txt返済株数.Text = getデータ("取得株数")
+            txt返済玉価格.Text = getデータ("取得単価")
+            txt返済玉取得日.Text = getデータ("取得日付")
+            ' End With
+        Next
         'ほんとうに登録しますか？
         ''    Select Case MessageBox.Show("" & txt返済玉銘柄コード.Text & txt返済玉銘柄名.Text & "を" _
         '            & txt返済玉取引種別.Text & " " & txt返済玉価格.Text & "'返済売'で、登録しますか？",
@@ -95,17 +106,17 @@ Public Class sfrmExcel返済
         '        Case Windows.Forms.DialogResult.Yes
         '仮の売買差額を表示
         Dim int返済株数 As Integer
-        Dim int残株数 As Integer = Integer.Parse(txt決済総株数.Text)
+        Dim int残株数 As Integer = Integer.Parse(txtg株数.Text)
 
         int返済株数 = Integer.Parse(txt返済株数.Text)
 
         Dim d取得単価 As Single = Double.Parse(txt返済玉価格.Text)
 
-        Dim d返済単価 As Single = Double.Parse(txt価格.Text)
+        Dim d返済単価 As Single = Double.Parse(txtg価格.Text)
         返済後残株数 = (int残株数 - int返済株数)
         txt返済後残株数.Text = 返済後残株数.ToString
 
-        txt決済総株数.Text = 返済後残株数.ToString
+        txtg株数.Text = 返済後残株数.ToString
         txt概算損益.Text = (int返済株数 * (d返済単価 - d取得単価)).ToString("C")
 
         'Case Else
@@ -130,7 +141,7 @@ Public Class sfrmExcel返済
         msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
         msSQL += ",'信用返済売'"          ' ,<取引名称, nvarchar(5),>
         msSQL += ",'" + txt返済株数.Text + "'"          ' ,<返済株数, int,>
-        msSQL += ",'" + txt価格.Text + "'"          ' ,<返済単価, int,>)
+        msSQL += ",'" + txtg価格.Text + "'"          ' ,<返済単価, int,>)
         msSQL += ") "
 
         msSQL += "update MTD_取得 "
