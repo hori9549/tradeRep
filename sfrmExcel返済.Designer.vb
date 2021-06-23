@@ -22,7 +22,7 @@ Partial Class sfrmExcel返済
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.txt銘柄コード = New System.Windows.Forms.TextBox()
+        Me.txtg銘柄コード = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt銘柄名 = New System.Windows.Forms.TextBox()
@@ -31,7 +31,7 @@ Partial Class sfrmExcel返済
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt価格 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txt決済日付 = New System.Windows.Forms.TextBox()
+        Me.txtg日付 = New System.Windows.Forms.TextBox()
         Me.dgv返済玉 = New System.Windows.Forms.DataGridView()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -56,20 +56,20 @@ Partial Class sfrmExcel返済
         Me.txt返済後残株数 = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.txt取引名称 = New System.Windows.Forms.TextBox()
+        Me.txtg取引名称 = New System.Windows.Forms.TextBox()
         Me.txt現況 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.dgv返済玉, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'txt銘柄コード
+        'txtg銘柄コード
         '
-        Me.txt銘柄コード.Location = New System.Drawing.Point(1013, 89)
-        Me.txt銘柄コード.Margin = New System.Windows.Forms.Padding(4)
-        Me.txt銘柄コード.Name = "txt銘柄コード"
-        Me.txt銘柄コード.Size = New System.Drawing.Size(189, 31)
-        Me.txt銘柄コード.TabIndex = 0
-        Me.txt銘柄コード.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtg銘柄コード.Location = New System.Drawing.Point(1013, 89)
+        Me.txtg銘柄コード.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtg銘柄コード.Name = "txtg銘柄コード"
+        Me.txtg銘柄コード.Size = New System.Drawing.Size(189, 31)
+        Me.txtg銘柄コード.TabIndex = 0
+        Me.txtg銘柄コード.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
@@ -77,9 +77,9 @@ Partial Class sfrmExcel返済
         Me.Label1.Location = New System.Drawing.Point(888, 93)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(112, 24)
+        Me.Label1.Size = New System.Drawing.Size(154, 30)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "銘柄コード"
+        Me.Label1.Text = "g銘柄コード"
         '
         'Label2
         '
@@ -144,18 +144,18 @@ Partial Class sfrmExcel返済
         Me.Label5.Location = New System.Drawing.Point(888, 350)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(106, 24)
+        Me.Label5.Size = New System.Drawing.Size(86, 30)
         Me.Label5.TabIndex = 9
-        Me.Label5.Text = "決済日付"
+        Me.Label5.Text = "g日付"
         '
-        'txt決済日付
+        'txtg日付
         '
-        Me.txt決済日付.Location = New System.Drawing.Point(1013, 342)
-        Me.txt決済日付.Margin = New System.Windows.Forms.Padding(4)
-        Me.txt決済日付.Name = "txt決済日付"
-        Me.txt決済日付.Size = New System.Drawing.Size(189, 31)
-        Me.txt決済日付.TabIndex = 8
-        Me.txt決済日付.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtg日付.Location = New System.Drawing.Point(1013, 342)
+        Me.txtg日付.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtg日付.Name = "txtg日付"
+        Me.txtg日付.Size = New System.Drawing.Size(189, 31)
+        Me.txtg日付.TabIndex = 8
+        Me.txtg日付.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'dgv返済玉
         '
@@ -384,18 +384,18 @@ Partial Class sfrmExcel返済
         Me.Label19.Location = New System.Drawing.Point(861, 57)
         Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(133, 24)
+        Me.Label19.Size = New System.Drawing.Size(146, 30)
         Me.Label19.TabIndex = 54
-        Me.Label19.Text = "txt取引名称"
+        Me.Label19.Text = "g取引種別"
         '
-        'txt取引名称
+        'txtg取引名称
         '
-        Me.txt取引名称.Location = New System.Drawing.Point(1014, 50)
-        Me.txt取引名称.Margin = New System.Windows.Forms.Padding(4)
-        Me.txt取引名称.Name = "txt取引名称"
-        Me.txt取引名称.Size = New System.Drawing.Size(189, 31)
-        Me.txt取引名称.TabIndex = 53
-        Me.txt取引名称.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtg取引名称.Location = New System.Drawing.Point(1014, 50)
+        Me.txtg取引名称.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtg取引名称.Name = "txtg取引名称"
+        Me.txtg取引名称.Size = New System.Drawing.Size(189, 31)
+        Me.txtg取引名称.TabIndex = 53
+        Me.txtg取引名称.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txt現況
         '
@@ -424,7 +424,7 @@ Partial Class sfrmExcel返済
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt現況)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.txt取引名称)
+        Me.Controls.Add(Me.txtg取引名称)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.txt返済後残株数)
@@ -449,7 +449,7 @@ Partial Class sfrmExcel返済
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.dgv返済玉)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.txt決済日付)
+        Me.Controls.Add(Me.txtg日付)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txt価格)
         Me.Controls.Add(Me.Label3)
@@ -457,7 +457,7 @@ Partial Class sfrmExcel返済
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txt銘柄名)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txt銘柄コード)
+        Me.Controls.Add(Me.txtg銘柄コード)
         Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "sfrmExcel返済"
         Me.Text = "sfrmExcel返済"
@@ -467,7 +467,7 @@ Partial Class sfrmExcel返済
 
     End Sub
 
-    Friend WithEvents txt銘柄コード As TextBox
+    Friend WithEvents txtg銘柄コード As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txt銘柄名 As TextBox
@@ -476,7 +476,7 @@ Partial Class sfrmExcel返済
     Friend WithEvents Label4 As Label
     Friend WithEvents txt価格 As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents txt決済日付 As TextBox
+    Friend WithEvents txtg日付 As TextBox
     Friend WithEvents dgv返済玉 As DataGridView
     Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
@@ -501,7 +501,7 @@ Partial Class sfrmExcel返済
     Friend WithEvents txt返済後残株数 As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
-    Friend WithEvents txt取引名称 As TextBox
+    Friend WithEvents txtg取引名称 As TextBox
     Friend WithEvents txt現況 As TextBox
     Friend WithEvents Label7 As Label
 End Class

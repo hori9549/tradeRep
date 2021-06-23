@@ -4,7 +4,6 @@ Public Class sfrmExcel返済
     Private mCommand As SqlCommand
     Private mSDA As New SqlDataAdapter
     Private 返済後残株数 As Integer = 0
-    'Dim 銘柄コードText As String
     'Dim 銘柄名Text As String
     'Dim 株数Text As String
     'Dim 価格Text As String
@@ -23,7 +22,7 @@ Public Class sfrmExcel返済
         msSQL = " select *"
         msSQL += " from MTD_取得 "
         msSQL += " where [銘柄コード]= "
-        msSQL += "'" & txt銘柄コード.Text & "'"
+        msSQL += "'" & txtg銘柄コード.Text & "'"
         msSQL += " and 残株数 <> 0"
         msSQL += " AND 現況<>'現引'"
         mCommand = cDB.getsqlComand(msSQL)
@@ -75,7 +74,7 @@ Public Class sfrmExcel返済
             txt返済玉入力ID.Text = Trim(.Item("入力ID").ToString)
             txt返済玉銘柄コード.Text = Trim(.Item("銘柄コード").ToString)
             txt返済玉銘柄名.Text = Trim(.Item("銘柄名").ToString)
-            If txt取引名称.Text = "現引" Then
+            If txtg取引名称.Text = "現引" Then
 
                 txt現況.Text = "現引"
 
@@ -127,7 +126,7 @@ Public Class sfrmExcel返済
         msSQL += "'" + txt返済ID.Text + "'"          ' ,<入力ID, nvarchar(9),>
         '  Dim dt As Date = DateTime.Parse(txt返済日付.Text)
         '  mssql += ",'" + txt返済日付.Text + "'"          ' ,<返済日付, date,>
-        msSQL += ",'" + txt決済日付.Text + "'"
+        msSQL += ",'" + txtg日付.Text + "'"
         msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
         msSQL += ",'信用返済売'"          ' ,<取引名称, nvarchar(5),>
         msSQL += ",'" + txt返済株数.Text + "'"          ' ,<返済株数, int,>
