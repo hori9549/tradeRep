@@ -191,7 +191,7 @@ Public Class frmTradeRepo
 
             ''/*****************空伯がでてくるまで読み続ける******************/
             Dim i As Integer = 1
-            Do While (worksheet.Cell(i, "A").Value) <> ""   '空伯がでてくるまで読み続ける
+            Do While (worksheet.Cell(i, "A").Value) <> ""   '空白がでてくるまで読み続ける
 
                 ''/**** Excel Gmail データーを取得 ****/
                 Dim dt As String
@@ -300,7 +300,7 @@ Public Class frmTradeRepo
                         Dim sfrm As New sfrmExcel返済
                         sfrm.txtg銘柄コード.Text = g銘柄コード
                         sfrm.txtg銘柄名.Text = g銘柄名
-                        sfrm.txtg株数.Text = g株数
+                        sfrm.txtg返済株数.Text = g株数
                         sfrm.txtg価格.Text = g価格
                         sfrm.txtg日付.Text = g日付
                         sfrm.txtg取引名称.Text = "信用返済売"
