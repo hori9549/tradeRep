@@ -136,11 +136,15 @@ Public Class sfrmExcel返済
 
             mCommand = cDB.getsqlComand(msSQL)
             Call mCommand.ExecuteNonQuery()
-            GoTo owari
 
             MsgBox("返済手続きは、完了しました")
             Me.DialogResult = System.Windows.Forms.DialogResult.OK
             Me.Close()
+            Exit Sub
+            '/************** 一回で返済できないときの処理 ***************/
+        Else        '
+
+
         End If
 
         'ほんとうに登録しますか？
@@ -215,7 +219,7 @@ Public Class sfrmExcel返済
             Call 返済玉表示()
 
         Else
-owari:      MsgBox("返済手続きは、完了しました")
+            MsgBox("返済手続きは、完了しました")
             Me.DialogResult = System.Windows.Forms.DialogResult.OK
             Me.Close()
         End If
