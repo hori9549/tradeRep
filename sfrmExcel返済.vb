@@ -23,26 +23,23 @@ Public Class sfrmExcel返済
         msSQL += " from MTD_取得 "
         msSQL += " where [銘柄コード]= "
         msSQL += "'" & txtg銘柄コード.Text & "'"
-        msSQL += " and 残株数 <> 0"
-        msSQL += " AND 現況<>'現引'"
+        msSQL += " and 残株数 > 0"
+        msSQL += " AND 現況='買建'"
+
         mCommand = cDB.getsqlComand(msSQL)
         mSDA.SelectCommand = mCommand
-
         Call mSDA.Fill(myTable) ''データセット作成
+        dgv返済玉.DataSource = myTable
 
         If myTable.Rows.Count = 0 Then
             MsgBox("返済'玉'がありません")
-
-            'excelファイルにNGマーク
+            'excelファイルにNGマーク入れてもらう
             Me.DialogResult = System.Windows.Forms.DialogResult.No
             Me.Close()
-        Else
-            dgv返済玉.DataSource = myTable
         End If
 
-
     End Sub
-    Private Sub dgv返済玉_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgv返済玉.CellMouseClick
+    Private Sub dgv返済玉_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv返済玉.CellClick
 
         If e.RowIndex < 0 Then Exit Sub
         If e.ColumnIndex < 0 Then Exit Sub
@@ -66,37 +63,23 @@ Public Class sfrmExcel返済
         mSDA.SelectCommand = mCommand
         Call mSDA.Fill(dtblSelectedData) ''データセット作成
 
-
-
-
-
-
-
         For Each getデータ As DataRow In dtblSelectedData.Rows
             txt返済玉ID.Text = getデータ("ID")
             txt返済玉入力ID.Text = getデータ("入力ID")
             txt返済玉銘柄コード.Text = getデータ("銘柄コード")
             txt返済玉銘柄名.Text = getデータ("銘柄名")
 
+            'If txtg取引名称.Text = "現引" Then
 
-            'With dtblSelectData.Rows(0)
-            '    txt返済玉ID.Text = Trim(dtblSelectData.Rows(0)("ID").ToString)
-            '    '    txt返済玉ID.Text = Trim(.Item("ID").ToString)
-            '    txt返済玉入力ID.Text = Trim(.Item("入力ID").ToString)
-            '    txt返済玉銘柄コード.Text = Trim(.Item("銘柄コード").ToString)
-            '    txt返済玉銘柄名.Text = Trim(.Item("銘柄名").ToString)
-            If txtg取引名称.Text = "現引" Then
+            '    txt現況.Text = "現引"
 
-                txt現況.Text = "現引"
+            ' Else
 
-            Else
-
-                txt現況.Text = "返済済"
-            End If
+            txt現況.Text = "返済済"
+            ' End If
             txt返済株数.Text = getデータ("取得株数")
             txt返済玉価格.Text = getデータ("取得単価")
             txt返済玉取得日.Text = getデータ("取得日付")
-            ' End With
         Next
         'ほんとうに登録しますか？
         ''    Select Case MessageBox.Show("" & txt返済玉銘柄コード.Text & txt返済玉銘柄名.Text & "を" _
@@ -153,7 +136,7 @@ Public Class sfrmExcel返済
             'toInt = Integer.Parse(txt残株数.Text)
             'mssql += "'" + toInt + "'"
             msSQL += "'0'"      '当建玉は全返済するので残は必ず '0’
-        msSQL += ", 現況 = "
+            msSQL += ", 現況 = "
             msSQL += "'返済済'"
         End If
 
