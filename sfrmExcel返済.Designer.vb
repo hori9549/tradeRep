@@ -65,7 +65,7 @@ Partial Class sfrmExcel返済
         'txtg銘柄コード
         '
         Me.txtg銘柄コード.Location = New System.Drawing.Point(1013, 107)
-        Me.txtg銘柄コード.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtg銘柄コード.Margin = New System.Windows.Forms.Padding(4)
         Me.txtg銘柄コード.Name = "txtg銘柄コード"
         Me.txtg銘柄コード.Size = New System.Drawing.Size(189, 31)
         Me.txtg銘柄コード.TabIndex = 0
@@ -94,7 +94,7 @@ Partial Class sfrmExcel返済
         'txtg銘柄名
         '
         Me.txtg銘柄名.Location = New System.Drawing.Point(1013, 164)
-        Me.txtg銘柄名.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtg銘柄名.Margin = New System.Windows.Forms.Padding(4)
         Me.txtg銘柄名.Name = "txtg銘柄名"
         Me.txtg銘柄名.Size = New System.Drawing.Size(189, 31)
         Me.txtg銘柄名.TabIndex = 2
@@ -114,7 +114,7 @@ Partial Class sfrmExcel返済
         'txtg返済株数
         '
         Me.txtg返済株数.Location = New System.Drawing.Point(1013, 221)
-        Me.txtg返済株数.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtg返済株数.Margin = New System.Windows.Forms.Padding(4)
         Me.txtg返済株数.Name = "txtg返済株数"
         Me.txtg返済株数.Size = New System.Drawing.Size(189, 31)
         Me.txtg返済株数.TabIndex = 4
@@ -133,7 +133,7 @@ Partial Class sfrmExcel返済
         'txtg価格
         '
         Me.txtg価格.Location = New System.Drawing.Point(1013, 278)
-        Me.txtg価格.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtg価格.Margin = New System.Windows.Forms.Padding(4)
         Me.txtg価格.Name = "txtg価格"
         Me.txtg価格.Size = New System.Drawing.Size(189, 31)
         Me.txtg価格.TabIndex = 6
@@ -152,7 +152,7 @@ Partial Class sfrmExcel返済
         'txtg日付
         '
         Me.txtg日付.Location = New System.Drawing.Point(1013, 335)
-        Me.txtg日付.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtg日付.Margin = New System.Windows.Forms.Padding(4)
         Me.txtg日付.Name = "txtg日付"
         Me.txtg日付.Size = New System.Drawing.Size(189, 31)
         Me.txtg日付.TabIndex = 8
@@ -162,7 +162,7 @@ Partial Class sfrmExcel返済
         '
         Me.dgv返済玉.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv返済玉.Location = New System.Drawing.Point(16, 453)
-        Me.dgv返済玉.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv返済玉.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv返済玉.Name = "dgv返済玉"
         Me.dgv返済玉.RowHeadersWidth = 51
         Me.dgv返済玉.RowTemplate.Height = 21
@@ -176,7 +176,7 @@ Partial Class sfrmExcel返済
         Me.lblガイド.Location = New System.Drawing.Point(16, 424)
         Me.lblガイド.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblガイド.Name = "lblガイド"
-        Me.lblガイド.Size = New System.Drawing.Size(345, 30)
+        Me.lblガイド.Size = New System.Drawing.Size(276, 24)
         Me.lblガイド.TabIndex = 11
         Me.lblガイド.Text = "返済にあてる建玉をえらんで"
         '
@@ -193,7 +193,7 @@ Partial Class sfrmExcel返済
         'txt返済玉銘柄名
         '
         Me.txt返済玉銘柄名.Location = New System.Drawing.Point(244, 121)
-        Me.txt返済玉銘柄名.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済玉銘柄名.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済玉銘柄名.Name = "txt返済玉銘柄名"
         Me.txt返済玉銘柄名.Size = New System.Drawing.Size(189, 31)
         Me.txt返済玉銘柄名.TabIndex = 18
@@ -212,7 +212,7 @@ Partial Class sfrmExcel返済
         'txt返済玉銘柄コード
         '
         Me.txt返済玉銘柄コード.Location = New System.Drawing.Point(244, 90)
-        Me.txt返済玉銘柄コード.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済玉銘柄コード.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済玉銘柄コード.Name = "txt返済玉銘柄コード"
         Me.txt返済玉銘柄コード.Size = New System.Drawing.Size(189, 31)
         Me.txt返済玉銘柄コード.TabIndex = 16
@@ -231,7 +231,7 @@ Partial Class sfrmExcel返済
         'txt返済玉入力ID
         '
         Me.txt返済玉入力ID.Location = New System.Drawing.Point(244, 51)
-        Me.txt返済玉入力ID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済玉入力ID.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済玉入力ID.Name = "txt返済玉入力ID"
         Me.txt返済玉入力ID.Size = New System.Drawing.Size(189, 31)
         Me.txt返済玉入力ID.TabIndex = 14
@@ -250,7 +250,7 @@ Partial Class sfrmExcel返済
         'txt返済玉ID
         '
         Me.txt返済玉ID.Location = New System.Drawing.Point(244, 13)
-        Me.txt返済玉ID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済玉ID.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済玉ID.Name = "txt返済玉ID"
         Me.txt返済玉ID.Size = New System.Drawing.Size(189, 31)
         Me.txt返済玉ID.TabIndex = 12
@@ -269,7 +269,7 @@ Partial Class sfrmExcel返済
         'txt返済玉取得日
         '
         Me.txt返済玉取得日.Location = New System.Drawing.Point(243, 291)
-        Me.txt返済玉取得日.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済玉取得日.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済玉取得日.Name = "txt返済玉取得日"
         Me.txt返済玉取得日.Size = New System.Drawing.Size(189, 31)
         Me.txt返済玉取得日.TabIndex = 26
@@ -288,7 +288,7 @@ Partial Class sfrmExcel返済
         'txt返済玉価格
         '
         Me.txt返済玉価格.Location = New System.Drawing.Point(243, 259)
-        Me.txt返済玉価格.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済玉価格.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済玉価格.Name = "txt返済玉価格"
         Me.txt返済玉価格.Size = New System.Drawing.Size(189, 31)
         Me.txt返済玉価格.TabIndex = 24
@@ -307,7 +307,7 @@ Partial Class sfrmExcel返済
         'txt返済株数
         '
         Me.txt返済株数.Location = New System.Drawing.Point(243, 229)
-        Me.txt返済株数.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済株数.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済株数.Name = "txt返済株数"
         Me.txt返済株数.Size = New System.Drawing.Size(189, 31)
         Me.txt返済株数.TabIndex = 22
@@ -326,7 +326,7 @@ Partial Class sfrmExcel返済
         'txt概算損益
         '
         Me.txt概算損益.Location = New System.Drawing.Point(664, 86)
-        Me.txt概算損益.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt概算損益.Margin = New System.Windows.Forms.Padding(4)
         Me.txt概算損益.Name = "txt概算損益"
         Me.txt概算損益.Size = New System.Drawing.Size(189, 31)
         Me.txt概算損益.TabIndex = 30
@@ -345,7 +345,7 @@ Partial Class sfrmExcel返済
         'txt返済ID
         '
         Me.txt返済ID.Location = New System.Drawing.Point(664, 48)
-        Me.txt返済ID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済ID.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済ID.Name = "txt返済ID"
         Me.txt返済ID.Size = New System.Drawing.Size(189, 31)
         Me.txt返済ID.TabIndex = 28
@@ -364,7 +364,7 @@ Partial Class sfrmExcel返済
         'txt返済後残株数
         '
         Me.txt返済後残株数.Location = New System.Drawing.Point(664, 174)
-        Me.txt返済後残株数.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt返済後残株数.Margin = New System.Windows.Forms.Padding(4)
         Me.txt返済後残株数.Name = "txt返済後残株数"
         Me.txt返済後残株数.Size = New System.Drawing.Size(189, 31)
         Me.txt返済後残株数.TabIndex = 32
@@ -388,12 +388,12 @@ Partial Class sfrmExcel返済
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(117, 24)
         Me.Label19.TabIndex = 54
-        Me.Label19.Text = "g取引種別"
+        Me.Label19.Text = "g取引名称"
         '
         'txtg取引名称
         '
         Me.txtg取引名称.Location = New System.Drawing.Point(1014, 51)
-        Me.txtg取引名称.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtg取引名称.Margin = New System.Windows.Forms.Padding(4)
         Me.txtg取引名称.Name = "txtg取引名称"
         Me.txtg取引名称.Size = New System.Drawing.Size(189, 31)
         Me.txtg取引名称.TabIndex = 53
@@ -402,7 +402,7 @@ Partial Class sfrmExcel返済
         'txt現況
         '
         Me.txt現況.Location = New System.Drawing.Point(244, 344)
-        Me.txt現況.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt現況.Margin = New System.Windows.Forms.Padding(4)
         Me.txt現況.Name = "txt現況"
         Me.txt現況.Size = New System.Drawing.Size(189, 31)
         Me.txt現況.TabIndex = 55
@@ -460,7 +460,7 @@ Partial Class sfrmExcel返済
         Me.Controls.Add(Me.txtg銘柄名)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtg銘柄コード)
-        Me.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.Margin = New System.Windows.Forms.Padding(5)
         Me.Name = "sfrmExcel返済"
         Me.Text = "sfrmExcel返済"
         CType(Me.dgv返済玉, System.ComponentModel.ISupportInitialize).EndInit()

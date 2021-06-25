@@ -193,7 +193,7 @@ Public Class frmTradeRepo
             Dim i As Integer = 1
             Do While (worksheet.Cell(i, "A").Value) <> ""   '空白がでてくるまで読み続ける
 
-                ''/**** Excel Gmail データーを取得 ****/
+                ''/**** 共通部分 Excel Gmail データーを取得 ****/
                 Dim dt As String
 
                 dt = (worksheet.Cell(i, "G").Value)   '取引名称 & vbLF  
@@ -276,7 +276,7 @@ Public Class frmTradeRepo
                     ' 
                     ''信用返済売 
                     '------------------------------
-                    Case "信用返済売"
+                    Case "信用返済売", "現物売"
                         Dim 入力ID As String = getMaxId().ToString
 
                         '  g銘柄コード = worksheet.Cell(i, "I").Value
@@ -303,7 +303,7 @@ Public Class frmTradeRepo
                         sfrm.txtg返済株数.Text = g株数
                         sfrm.txtg価格.Text = g価格
                         sfrm.txtg日付.Text = g日付
-                        sfrm.txtg取引名称.Text = "信用返済売"
+                        sfrm.txtg取引名称.Text = g取引名称
                         If System.Windows.Forms.DialogResult.OK <> sfrm.ShowDialog() Then   'sfrmExcel返済に一任する
                             worksheet.Cell(i, "N").Value = "NG"
                         End If
@@ -313,23 +313,23 @@ Public Class frmTradeRepo
                     Case "現物買"
                         Dim 入力ID As String = getMaxId().ToString
 
-                        g銘柄コード = worksheet.Cell(i, "I").Value
+                        'g銘柄コード = worksheet.Cell(i, "I").Value
 
-                        dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
-                        g銘柄名 = dt.Substring(0, (dt.Length - 1))
+                        'dt = worksheet.Cell(i, "J").Value       '銘柄名 &vbLF
+                        'g銘柄名 = dt.Substring(0, (dt.Length - 1))
 
 
-                        dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
-                        dt = dt.Substring(3)
-                        dt = dt.Substring(0, dt.Length - 1)
-                        g株数 = dt.Replace(",", "") '","をのぞく
+                        'dt = worksheet.Cell(i, "L").Value        '"株数:1,000 &vbLF
+                        'dt = dt.Substring(3)
+                        'dt = dt.Substring(0, dt.Length - 1)
+                        'g株数 = dt.Replace(",", "") '","をのぞく
 
-                        dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
-                        dt = dt.Substring(0, dt.Length - 1)
-                        g価格 = dt.Replace(",", "") '","をのぞく
+                        'dt = (worksheet.Cell(i, "m").Value).substring(3)    '価格:#,###&vbLF
+                        'dt = dt.Substring(0, dt.Length - 1)
+                        'g価格 = dt.Replace(",", "") '","をのぞく
 
-                        dt = worksheet.Cell(i, "d").Value        ' g日付
-                        g日付 = dt.Substring(0, 10)
+                        'dt = worksheet.Cell(i, "d").Value        ' g日付
+                        'g日付 = dt.Substring(0, 10)
 
 
 
@@ -385,8 +385,7 @@ Public Class frmTradeRepo
                     ''　現引 
                     '------------------------------
                     Case "現引"
-                        MsgBox($"{g取引名称}は、未完成です")
-                        worksheet.Cell(i, "N").Value = "NG"
+                        '  MsgBox($"{g取引名称}は、未完成です")
 
                         'Dim 入力ID As String = getMaxId().ToString
 
@@ -407,16 +406,16 @@ Public Class frmTradeRepo
                         'dt = worksheet.Cell(i, "d").Value        ' g日付
                         ' g日付 = dt.Substring(0, 10)
 
-
-                        'Dim sfrm As New sfrmExcel返済
-                        'sfrm.txt銘柄コード.Text =  g銘柄コード
-                        'sfrm.txt銘柄名.Text =  g銘柄名
-                        'sfrm.txt決済総株数.Text =  g株数
-                        'sfrm.txt価格.Text =  g価格
-                        'sfrm.txt g日付.Text =  g日付
-                        'sfrm.txt取引名称.Text = "現引"
-                        'Call sfrm.ShowDialog()
-
+                        Dim sfrm As New sfrmExcel返済
+                        sfrm.txtg銘柄コード.Text = g銘柄コード
+                        sfrm.txtg銘柄名.Text = g銘柄名
+                        sfrm.txtg返済株数.Text = g株数
+                        sfrm.txtg価格.Text = g価格
+                        sfrm.txtg日付.Text = g日付
+                        sfrm.txtg取引名称.Text = g取引名称
+                        If System.Windows.Forms.DialogResult.OK <> sfrm.ShowDialog() Then   'sfrmExcel返済に一任する
+                            worksheet.Cell(i, "N").Value = "NG"
+                        End If
 
                     Case Else
                         MsgBox($"{g取引名称}は、未完成です")

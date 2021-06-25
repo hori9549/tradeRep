@@ -111,26 +111,37 @@ Public Class sfrmExcel返済
             '  mssql += ",'" + txt返済日付.Text + "'"          ' ,<返済日付, date,>
             msSQL += ",'" + txtg日付.Text + "'"
             msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
-            msSQL += ",'信用返済売'"          ' ,<取引名称, nvarchar(5),>
+            msSQL += ",'" + txtg取引名称.Text + "'"          ' ,<取引名称, nvarchar(5),>
             msSQL += ",'" + k今回返済数.ToString + "'"          ' ,<返済株数, int,>
             msSQL += ",'" + txtg価格.Text + "'"          ' ,<返済単価, int,>)
             msSQL += ") "
 
             msSQL += "update MTD_取得 "
-            'If txt現況.Text = "現引" Then
-            '    msSQL += "set 現況 = '現引'"
+            Select Case txtg取引名称.Text
+                Case "現引"
+                    msSQL += "set 現況 = '" & txtg取引名称.Text & "'"
+                Case "現物売"  '
+                    msSQL += "set 残株数= "
+                    msSQL += "'" + s返済後残株数.ToString + "'"
 
-            'Else
-            msSQL += "set 残株数= "
-            msSQL += "'" + s返済後残株数.ToString + "'"
+                    msSQL += ", 現況 = "
+                    If s返済後残株数 <= 0 Then
+                        msSQL += "'現物売'"
+                    Else
+                        msSQL += "'一部返済'"
+                    End If
 
-            msSQL += ", 現況 = "
-            If s返済後残株数 <= 0 Then
-                msSQL += "'返済済'"
-            Else
-                msSQL += "'一部返済'"
-            End If
-            'End If
+                Case Else   '"信用返済売"
+                    msSQL += "set 残株数= "
+                    msSQL += "'" + s返済後残株数.ToString + "'"
+
+                    msSQL += ", 現況 = "
+                    If s返済後残株数 <= 0 Then
+                        msSQL += "'返済済'"
+                    Else
+                        msSQL += "'一部返済'"
+                    End If
+            End Select
 
             msSQL += " where ID = "
             msSQL += "'" + txt返済玉ID.Text + "'"
@@ -159,23 +170,25 @@ Public Class sfrmExcel返済
             '  mssql += ",'" + txt返済日付.Text + "'"          ' ,<返済日付, date,>
             msSQL += ",'" + txtg日付.Text + "'"
             msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
-            msSQL += ",'信用返済売'"          ' ,<取引名称, nvarchar(5),>
+            msSQL += ",'" & txtg取引名称.Text & "'"         ' ,<取引名称, nvarchar(5),>
             msSQL += ",'" + k今回返済数.ToString + "'"          ' ,<返済株数, int,>
             msSQL += ",'" + txtg価格.Text + "'"          ' ,<返済単価, int,>)
             msSQL += ") "
 
             msSQL += "update MTD_取得 "
-            'If txt現況.Text = "現引" Then
-            '    msSQL += "set 現況 = '現引'"
+            Select Case txtg取引名称.Text
+                Case "現引"
+                    msSQL += "set 現況 = '" & txtg取引名称.Text & "'"
+                Case "現物売"  '
+                    msSQL += "set 残株数= '0'"
 
-            '  Else
-            msSQL += "set 残株数= "
-            'toInt = Integer.Parse(txt残株数.Text)
-            'mssql += "'" + toInt + "'"
-            msSQL += "'0'"      '当建玉は全返済するので残は必ず '0’
-            msSQL += ", 現況 = "
-            msSQL += "'返済済'"
-            '  End If
+                    msSQL += ", 現況 = '現物売'"
+
+                Case Else   '"信用返済売"
+                    msSQL += "set 残株数= '0'"      '当建玉は全返済するので残は必ず '0’
+                    msSQL += ", 現況 = '返済済' "
+            End Select
+
 
             msSQL += " where ID = "
             msSQL += "'" + txt返済玉ID.Text + "'"
