@@ -14,6 +14,10 @@ Public Class sfrmExcel返済
 
     Private Sub sfrmExcel返済_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txt返済ID.Text = getMaxId.ToString
+
+        g返済株数 = Integer.Parse(txtg返済株数.Text)      'gmailから読み込んだ返済株数
+        g返済後未返済株数 = g返済株数
+        lblガイド.Text = "返済にあてる建玉をえらんで"
         Call 返済玉表示()
 
     End Sub
@@ -26,8 +30,8 @@ Public Class sfrmExcel返済
         msSQL += " from MTD_取得 "
         msSQL += " where [銘柄コード]= "
         msSQL += "'" & txtg銘柄コード.Text & "'"
-        msSQL += " and 残株数 > 0"
-        msSQL += " AND 現況='買建'"
+        msSQL += " and 残株数 > '0'"
+        msSQL += " AND 現況 <> '現引'"
 
         mCommand = cDB.getsqlComand(msSQL)
         mSDA.SelectCommand = mCommand
@@ -40,9 +44,6 @@ Public Class sfrmExcel返済
             Me.DialogResult = System.Windows.Forms.DialogResult.No
             Me.Close()
         End If
-
-        g返済後未返済株数 = Integer.Parse(txtg返済株数.Text)      'gmailから読み込んだ返済株数
-
     End Sub
     Private Sub dgv返済玉_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv返済玉.CellClick
 
@@ -143,7 +144,59 @@ Public Class sfrmExcel返済
             Exit Sub
             '/************** 一回で返済できないときの処理 ***************/
         Else        '
+            k今回返済数 = s残株数
+            msSQL = "INSERT INTO [dbo].[MTD_返済]"
+            msSQL += "([入力ID]"
+            msSQL += " ,[返済日付]"
+            msSQL += " ,[返済元ID]"
+            msSQL += " ,[取引名称]"
+            msSQL += " ,[返済株数]"
+            msSQL += " ,[返済単価])"
 
+            msSQL += " VALUES ( "
+            msSQL += "'" + txt返済ID.Text + "'"          ' ,<入力ID, nvarchar(9),>
+            '  Dim dt As Date = DateTime.Parse(txt返済日付.Text)
+            '  mssql += ",'" + txt返済日付.Text + "'"          ' ,<返済日付, date,>
+            msSQL += ",'" + txtg日付.Text + "'"
+            msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
+            msSQL += ",'信用返済売'"          ' ,<取引名称, nvarchar(5),>
+            msSQL += ",'" + k今回返済数.ToString + "'"          ' ,<返済株数, int,>
+            msSQL += ",'" + txtg価格.Text + "'"          ' ,<返済単価, int,>)
+            msSQL += ") "
+
+            msSQL += "update MTD_取得 "
+            'If txt現況.Text = "現引" Then
+            '    msSQL += "set 現況 = '現引'"
+
+            '  Else
+            msSQL += "set 残株数= "
+            'toInt = Integer.Parse(txt残株数.Text)
+            'mssql += "'" + toInt + "'"
+            msSQL += "'0'"      '当建玉は全返済するので残は必ず '0’
+            msSQL += ", 現況 = "
+            msSQL += "'返済済'"
+            '  End If
+
+            msSQL += " where ID = "
+            msSQL += "'" + txt返済玉ID.Text + "'"
+
+            mCommand = cDB.getsqlComand(msSQL)
+            Call mCommand.ExecuteNonQuery()
+
+            g返済後未返済株数 -= k今回返済数
+            Call 返済玉表示()
+
+            If g返済後未返済株数 > 0 Then
+                ' MsgBox("建玉別の返済を続けます")
+                lblガイド.Text = "目標に達していないので返済を続けます、建玉を選んで(⋈◍＞◡＜◍)。✧♡マーク"
+                txt返済ID.Text = getMaxId.ToString
+
+            Else
+                lblガイド.Text = "返済手続きは、完了しました"
+                MsgBox("返済手続きは、完了しました")
+                Me.DialogResult = System.Windows.Forms.DialogResult.OK
+                Me.Close()
+            End If
 
         End If
 
@@ -174,55 +227,12 @@ Public Class sfrmExcel返済
         ''End Select
 
         ''   Dim toInt As Integer
-        'msSQL = "INSERT INTO [dbo].[MTD_返済]"
-        'msSQL += "([入力ID]"
-        'msSQL += " ,[返済日付]"
-        'msSQL += " ,[返済元ID]"
-        'msSQL += " ,[取引名称]"
-        'msSQL += " ,[返済株数]"
-        'msSQL += " ,[返済単価])"
 
-        'msSQL += " VALUES ( "
-        'msSQL += "'" + txt返済ID.Text + "'"          ' ,<入力ID, nvarchar(9),>
-        ''  Dim dt As Date = DateTime.Parse(txt返済日付.Text)
-        ''  mssql += ",'" + txt返済日付.Text + "'"          ' ,<返済日付, date,>
-        'msSQL += ",'" + txtg日付.Text + "'"
-        'msSQL += ",'" + txt返済玉入力ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
-        'msSQL += ",'信用返済売'"          ' ,<取引名称, nvarchar(5),>
-        'msSQL += ",'" + txt返済株数.Text + "'"          ' ,<返済株数, int,>
-        'msSQL += ",'" + txtg価格.Text + "'"          ' ,<返済単価, int,>)
-        'msSQL += ") "
 
-        'msSQL += "update MTD_取得 "
-        'If txt現況.Text = "現引" Then
-        '    msSQL += "set 現況 = '現引'"
 
-        'Else
-        '    msSQL += "set 残株数= "
-        '    'toInt = Integer.Parse(txt残株数.Text)
-        '    'mssql += "'" + toInt + "'"
-        '    msSQL += "'0'"      '当建玉は全返済するので残は必ず '0’
-        '    msSQL += ", 現況 = "
-        '    msSQL += "'返済済'"
-        'End If
 
-        'msSQL += " where ID = "
-        'msSQL += "'" + txt返済玉ID.Text + "'"
 
-        'mCommand = cDB.getsqlComand(msSQL)
-        'Call mCommand.ExecuteNonQuery()
 
-        ''複数回の返済を1回で通知された場合
-        If s返済後残株数 > 0 Then
-            '  MsgBox("建玉別の返済を続けます")
-            txt返済ID.Text = getMaxId.ToString
-            Call 返済玉表示()
-
-        Else
-            MsgBox("返済手続きは、完了しました")
-            Me.DialogResult = System.Windows.Forms.DialogResult.OK
-            Me.Close()
-        End If
     End Sub
 
 End Class
