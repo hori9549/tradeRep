@@ -176,7 +176,7 @@ Public Class frmTradeRepo
         Dim g株数 As String           'Excelに記されたgmailのデーター
         Dim g価格 As String           'Excelに記されたgmailのデーター
         Dim g日付 As String           'Excelに記されたgmailのデーター
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知201227_210618.xlsm"
+        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知0621_0624.xlsx"
 
         '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
         '  Dim getExcelファイル As String
@@ -186,8 +186,8 @@ Public Class frmTradeRepo
         Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
 
             ''/****************ワークシートを取得する************************/
-            'Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
-            Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("testData")
+            Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
+            ' Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("testData")
 
             ''/*****************空伯がでてくるまで読み続ける******************/
             Dim i As Integer = 1
