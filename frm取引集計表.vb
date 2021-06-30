@@ -9,7 +9,7 @@ Public Class frm取引集計表
     Private Sub frm取引集計表_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call get集計区分.取引集計区分コンボ(cmb集計区分)
         'Call 結果表示()
-        txt銘柄コード.Select()
+        cmb集計区分.Select()
     End Sub
     'Private Sub cmb集計区分_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmb集計区分.SelectedValueChanged
     '    If cmb集計区分.SelectedIndex < 0 Then
@@ -73,12 +73,12 @@ Public Class frm取引集計表
                 msSQL += " Where a.銘柄コード = "
                 msSQL += "'" & txt銘柄コード.Text & "'"      'ex'6857'
                 msSQL += " group by rollup (b.返済日付 ,a.銘柄コード,a.銘柄名)"
-                mCommand = cDB.getsqlComand(msSQL)
-                mSDA.SelectCommand = mCommand
+                'mCommand = cDB.getsqlComand(msSQL)
+                'mSDA.SelectCommand = mCommand
 
-                Call mSDA.Fill(dtbl検索結果) ''データセット作成
-                Dgv検索結果.DataSource = dtbl検索結果
-            Case 2               ' /****** 取引履歴   ******/
+                'Call mSDA.Fill(dtbl検索結果) ''データセット作成
+                'Dgv検索結果.DataSource = dtbl検索結果
+            Case "3"               ' /****** 取引履歴   ******/
 
                 msSQL = " Select a.銘柄コード,a.銘柄名"
 
@@ -88,16 +88,26 @@ Public Class frm取引集計表
                 msSQL += " On a.入力ID = b.返済元ID"
 
                 msSQL += " group by [返済日付], a.銘柄コード, a.銘柄名;"
-                mCommand = cDB.getsqlComand(msSQL)
-                mSDA.SelectCommand = mCommand
 
-                Call mSDA.Fill(dtbl検索結果) ''データセット作成
-                Dgv検索結果.DataSource = dtbl検索結果
+
+            Case "2"      '取引履歴(日付ごと)
+                msSQL = " select b.返済日付"
+                msSQL += ",sum( b.返済株数) as 返済総数"
+                msSQL += ",sum(b.返済株数 * b.返済単価 - a.取得株数 * a.取得単価) as 概算損益"
+                msSQL += " FROM MTD_取得 as A left join MTD_返済 as b"
+                msSQL += " on a.入力ID = b.返済元ID"
+                msSQL += " group by rollup(b.返済日付) --,a.銘柄コード, a.銘柄名)"
+
             Case Else
 
-                        MsgBox("mikannsei")
-                End Select
+                MsgBox("mikannsei")
+                Exit Sub
+        End Select
+        mCommand = cDB.getsqlComand(msSQL)
+        mSDA.SelectCommand = mCommand
 
+        Call mSDA.Fill(dtbl検索結果) ''データセット作成
+        Dgv検索結果.DataSource = dtbl検索結果
 
         ' txt銘柄コード.Select()
     End Sub
