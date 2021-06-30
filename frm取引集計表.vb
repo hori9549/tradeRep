@@ -78,7 +78,8 @@ Public Class frm取引集計表
 
                 'Call mSDA.Fill(dtbl検索結果) ''データセット作成
                 'Dgv検索結果.DataSource = dtbl検索結果
-            Case "3"               ' /****** 取引履歴   ******/
+
+            Case "3"               ' 返済履歴 (日付ごと) 
 
                 msSQL = " Select a.銘柄コード,a.銘柄名"
 
@@ -89,7 +90,6 @@ Public Class frm取引集計表
 
                 msSQL += " group by [返済日付], a.銘柄コード, a.銘柄名;"
 
-
             Case "2"      '取引履歴(日付ごと)
                 msSQL = " select b.返済日付"
                 msSQL += ",sum( b.返済株数) as 返済総数"
@@ -98,7 +98,16 @@ Public Class frm取引集計表
                 msSQL += " on a.入力ID = b.返済元ID"
                 msSQL += " group by rollup(b.返済日付) --,a.銘柄コード, a.銘柄名)"
 
-            Case Else
+            Case "4" '未返済 一覧
+                msSQL = " SELECT a.ID as 取得ID,a.取得日付 , b.ID as 返済ID,b.返済日付"
+                msSQL += ", a.銘柄コード as CODE , a.銘柄名"
+                msSQL += ",a.取得株数, b.返済株数 ,a.残株数"
+                msSQL += " FROM Mtd_取得 as a left join MTd_返済 as b"
+                msSQL += " on a.入力ID = b.返済元ID"
+                msSQL += " where a.残株数 <> 0 and 現況='買建'"
+                msSQL += " order by a.取得日付 desc"
+
+            Case Else      
 
                 MsgBox("mikannsei")
                 Exit Sub
