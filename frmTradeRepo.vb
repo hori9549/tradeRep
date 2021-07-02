@@ -176,14 +176,33 @@ Public Class frmTradeRepo
         Dim g株数 As String           'Excelに記されたgmailのデーター
         Dim g価格 As String           'Excelに記されたgmailのデーター
         Dim g日付 As String           'Excelに記されたgmailのデーター
-        Dim sテンプレートパス As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知2021625_629.xlsx"
+        ' Dim sFname As String = "C:\Users\hori9\OneDrive\ドキュメント\Gmail約定通知2021625_629.xlsx"
 
-        '   Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
-        '  Dim getExcelファイル As String
-
-        'Try
         'Excelファイルを開く
-        Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
+        Dim SFD As New OpenFileDialog
+        Dim sFname As String        'selected file name 
+        'Dim di As New System.IO.DirectoryInfo(sフォルダ)
+        'di.Create()
+        With SFD
+            .Filter = "excelファイル(*.xlsx,*.xlmx)|*.xlsx;*.xlmx"
+            .Title = "excelファイルを選択してください"
+            .RestoreDirectory = True
+            .CheckFileExists = True
+            .CheckPathExists = True
+
+            '' dialog　ＯＫ が押されたら次へ
+            If .ShowDialog <> Windows.Forms.DialogResult.OK Then Exit Sub
+
+            MsgBox(.FileName)
+            Console.WriteLine(.FileName)
+            sFname = .FileName
+        End With
+
+
+
+
+
+        Using workbook = New ClosedXML.Excel.XLWorkbook(sFname)
 
             ''/****************ワークシートを取得する************************/
             Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
@@ -425,7 +444,7 @@ Public Class frmTradeRepo
 nextRec:        i += 1
             Loop
             ' // ワークブックを保存する
-            workbook.SaveAs(sテンプレートパス)
+            workbook.SaveAs(sFname)
 
             MsgBox("全Recを手続きしました")
 
