@@ -246,15 +246,25 @@ Public Class frmTradeRepo
                         '  txt入力ID.Text = 入力ID最大取得.maxID
                         Dim 入力ID As String = getMaxId().ToString
 
-                        Select Case MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
-                & g株数 & " " & g価格 & "'新規買'で、登録しますか？",
-               "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        '         Select Case MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
+                        ' & g株数 & " " & g価格 & "'新規買'で、登録しますか？",
+                        '"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-                            Case Windows.Forms.DialogResult.Yes
-                            Case Else
-                                GoTo nextRec
-                        End Select
+                        '             Case Windows.Forms.DialogResult.Yes
+                        '             Case Else
+                        '                 GoTo nextRec
+                        '         End Select
+                        If System.Windows.Forms.DialogResult.OK <>
+        MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
+& g株数 & " " & g価格 & "'新規買'で、登録しますか？",
+"確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
 
+                            'Case Windows.Forms.DialogResult.Yes
+                            'Case Else
+                            '    GoTo nextRec
+                            worksheet.Cell(i, "N").Value = "NG"
+                            GoTo nextRec
+                        End If
                         '追加Dataのセット
                         msSQL = " INSERT INTO MTD_取得 ( "
                         msSQL += " [入力ID]"
@@ -351,15 +361,18 @@ Public Class frmTradeRepo
                         'g日付 = dt.Substring(0, 10)
 
 
-
-                        Select Case MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
+                        If System.Windows.Forms.DialogResult.OK <>
+                         MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
                 & g株数 & " " & g価格 & "'現物買'で、登録しますか？",
-               "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+               "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
 
-                            Case Windows.Forms.DialogResult.Yes
-                            Case Else
-                                GoTo nextRec
-                        End Select
+                            'Case Windows.Forms.DialogResult.Yes
+                            'Case Else
+                            '    GoTo nextRec
+                            worksheet.Cell(i, "N").Value = "NG"
+                            GoTo nextRec
+
+                        End If
 
 
 
