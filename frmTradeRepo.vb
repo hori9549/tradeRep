@@ -254,7 +254,7 @@ Public Class frmTradeRepo
                         '             Case Else
                         '                 GoTo nextRec
                         '         End Select
-                        If System.Windows.Forms.DialogResult.OK <>
+                        If System.Windows.Forms.DialogResult.Yes <>
         MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
 & g株数 & " " & g価格 & "'新規買'で、登録しますか？",
 "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
