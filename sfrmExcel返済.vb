@@ -206,7 +206,7 @@ Public Class sfrmExcel返済
 
             Else
                 lblガイド.Text = "返済手続きは、完了しました"
-                MsgBox("返済手続きは、完了しました")
+                '  MsgBox("返済手続きは、完了しました")
                 Me.DialogResult = System.Windows.Forms.DialogResult.OK
                 Me.Close()
             End If
