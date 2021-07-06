@@ -361,7 +361,7 @@ Public Class frmTradeRepo
                         'g日付 = dt.Substring(0, 10)
 
 
-                        If System.Windows.Forms.DialogResult.OK <>
+                        If System.Windows.Forms.DialogResult.Yes <>
                          MessageBox.Show("" & g銘柄コード & " " & g銘柄名 & "を" _
                 & g株数 & " " & g価格 & "'現物買'で、登録しますか？",
                "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question) Then
