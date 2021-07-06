@@ -208,7 +208,7 @@ Public Class frmTradeRepo
             Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("約定通知")
             '  Dim worksheet As ClosedXML.Excel.IXLWorksheet = workbook.Worksheet("retry")
 
-            ''/*****************空伯がでてくるまで読み続ける******************/
+            ''/*****************空白がでてくるまで読み続ける******************/
             Dim i As Integer = 1
             Do While (worksheet.Cell(i, "A").Value) <> ""   '空白がでてくるまで読み続ける
 
