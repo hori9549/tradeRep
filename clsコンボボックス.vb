@@ -45,10 +45,9 @@ Public Class clsコンボボックス
         Dim myTable As New DataTable
 
         ''検索SQL======================================================
-        getSQL = "SELECT DISTINCT (区分名) as 表示,区分"
+        getSQL = "SELECT DISTINCT (集計区分名) as 表示,(集計区分ID) as 区分"
         getSQL += " FROM MTD_集計区分"
-        'getSQL += " WHERE 施設ID='" & my環境設定.施設ID & "'"
-        getSQL += " ORDER BY 区分,区分名"
+        getSQL += " ORDER BY 集計区分ID,集計区分名"
 
         mCommand = cDB.getsqlComand(getSQL)
         mSDA.SelectCommand = mCommand
