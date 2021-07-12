@@ -29,7 +29,7 @@ Partial Class frm取引集計表
         Me.grp入力項目 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt銘柄コード = New System.Windows.Forms.TextBox()
-        Me.Dtp終 = New System.Windows.Forms.DateTimePicker()
+        Me.dtp日付終 = New System.Windows.Forms.DateTimePicker()
         Me.Dtp日付始 = New System.Windows.Forms.DateTimePicker()
         Me.lbl集計区分 = New System.Windows.Forms.Label()
         Me.cmb出力順昇降 = New System.Windows.Forms.ComboBox()
@@ -92,7 +92,7 @@ Partial Class frm取引集計表
         '
         Me.grp入力項目.Controls.Add(Me.Label1)
         Me.grp入力項目.Controls.Add(Me.txt銘柄コード)
-        Me.grp入力項目.Controls.Add(Me.Dtp終)
+        Me.grp入力項目.Controls.Add(Me.dtp日付終)
         Me.grp入力項目.Controls.Add(Me.Dtp日付始)
         Me.grp入力項目.Controls.Add(Me.lbl集計区分)
         Me.grp入力項目.Controls.Add(Me.cmb出力順昇降)
@@ -132,23 +132,25 @@ Partial Class frm取引集計表
         Me.txt銘柄コード.Text = "6857"
         Me.txt銘柄コード.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'Dtp終
+        'dtp日付終
         '
-        Me.Dtp終.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp終.Location = New System.Drawing.Point(641, 11)
-        Me.Dtp終.Margin = New System.Windows.Forms.Padding(4)
-        Me.Dtp終.Name = "Dtp終"
-        Me.Dtp終.Size = New System.Drawing.Size(129, 26)
-        Me.Dtp終.TabIndex = 22
+        Me.dtp日付終.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp日付終.Location = New System.Drawing.Point(641, 11)
+        Me.dtp日付終.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtp日付終.Name = "dtp日付終"
+        Me.dtp日付終.Size = New System.Drawing.Size(129, 26)
+        Me.dtp日付終.TabIndex = 22
         '
         'Dtp日付始
         '
+        Me.Dtp日付始.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.Dtp日付始.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.Dtp日付始.Location = New System.Drawing.Point(475, 14)
         Me.Dtp日付始.Margin = New System.Windows.Forms.Padding(4)
         Me.Dtp日付始.Name = "Dtp日付始"
         Me.Dtp日付始.Size = New System.Drawing.Size(129, 26)
         Me.Dtp日付始.TabIndex = 21
+        Me.Dtp日付始.Value = New Date(2021, 7, 13, 5, 38, 53, 0)
         '
         'lbl集計区分
         '
@@ -279,7 +281,7 @@ Partial Class frm取引集計表
     Friend WithEvents grp入力項目 As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txt銘柄コード As TextBox
-    Friend WithEvents Dtp終 As DateTimePicker
+    Friend WithEvents dtp日付終 As DateTimePicker
     Friend WithEvents Dtp日付始 As DateTimePicker
     Friend WithEvents lbl集計区分 As Label
     Friend WithEvents cmb出力順昇降 As ComboBox

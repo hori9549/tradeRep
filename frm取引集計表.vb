@@ -107,6 +107,34 @@ Public Class frm取引集計表
                 msSQL += " where a.残株数 <> 0 and 現況='買建'"
                 msSQL += " order by a.取得日付 desc"
 
+            Case "5" '日付ごと取引状況
+
+                '日付けの指定にあやまりはないか？
+                If Dtp日付始.Value > dtp日付終.Value Then
+                    MsgBox("集計日付始は集計日付終よりも前の日付を指定してください")
+                    Exit Sub
+                Else
+                    Dim 集計日付始 As String = Dtp日付始.Value.ToShortDateString()
+                    Dim 集計日付終 As String = Dtp日付終.Value.ToShortDateString()
+                    '集計日付始 = Dtp日付始.Text.Substring(0, 4) &
+                    '               Dtp日付始.Text.Substring(5, 2) &
+                    '               Dtp日付始.Text.Substring(8, 2)
+
+                    '集計日付終 = Dtp終.Text.Substring(0, 4) &
+                    '            Dtp終.Text.Substring(5, 2) &
+                    '            Dtp終.Text.Substring(8, 2)
+
+                    ''取得の表示
+                    msSQL = " SELECT * From MTD_取得 "
+                    msSQL += " WHERE 取得日付 >= '" + 集計日付始 + "'"
+                    msSQL += " And  取得日付 <= '" + 集計日付終 + "'"
+
+                    ''返済の表示
+                    msSQL += " SELECT * From MTD_返済 "
+                    msSQL += " WHERE 返済日付 >= '" + 集計日付始 + "'"
+                    msSQL += " And  返済日付 <= '" + 集計日付終 + "'"
+                End If
+
             Case Else      
 
                 MsgBox("mikannsei")
@@ -121,6 +149,7 @@ Public Class frm取引集計表
         ' txt銘柄コード.Select()
     End Sub
 
+    Private Sub Dtp日付始_ValueChanged(sender As Object, e As EventArgs) Handles Dtp日付始.ValueChanged
 
-
+    End Sub
 End Class
