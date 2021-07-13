@@ -115,7 +115,7 @@ Public Class frm取引集計表
                     Exit Sub
                 Else
                     Dim 集計日付始 As String = Dtp日付始.Value.ToShortDateString()
-                    Dim 集計日付終 As String = Dtp日付終.Value.ToShortDateString()
+                    Dim 集計日付終 As String = dtp日付終.Value.ToShortDateString()
                     '集計日付始 = Dtp日付始.Text.Substring(0, 4) &
                     '               Dtp日付始.Text.Substring(5, 2) &
                     '               Dtp日付始.Text.Substring(8, 2)
@@ -125,17 +125,39 @@ Public Class frm取引集計表
                     '            Dtp終.Text.Substring(8, 2)
 
                     ''取得の表示
-                    msSQL = " SELECT * From MTD_取得 "
+                    msSQL = " SELECT "
+                    msSQL += " [入力ID]"
+                    msSQL += ",[銘柄コード] as CODE"
+                    msSQL += ",[銘柄名]"
+                    msSQL += ",[取引名称]"
+                    msSQL += ",[取得株数] as 株数"
+                    msSQL += ",[取得単価] as 価格"
+                    msSQL += ",[取得日付] as 日付"
+                    msSQL += " FROM [MTD_取得]"
                     msSQL += " WHERE 取得日付 >= '" + 集計日付始 + "'"
                     msSQL += " And  取得日付 <= '" + 集計日付終 + "'"
 
                     ''返済の表示
-                    msSQL += " SELECT * From MTD_返済 "
+                    msSQL += "  UNION "
+
+                    msSQL += " SELECT"
+                    msSQL += " a.[入力ID]"
+                    msSQL += ",b.銘柄コード as CODE"
+                    msSQL += ",b.銘柄名"
+                    msSQL += ",a.[取引名称]"
+                    msSQL += ",[返済株数] as 株数"
+                    msSQL += ",[返済単価] as 価格"
+                    msSQL += ",a.[返済日付] as 日付"
+                    msSQL += " FROM [MTD_返済] as a INNER JOIN [MTD_取得] as b "
+                    msSQL += " ON a.返済元ID = b.入力ID "
+
                     msSQL += " WHERE 返済日付 >= '" + 集計日付始 + "'"
                     msSQL += " And  返済日付 <= '" + 集計日付終 + "'"
+
+                    msSQL += " ORDER BY 日付,取引名称"
                 End If
 
-            Case Else      
+            Case Else
 
                 MsgBox("mikannsei")
                 Exit Sub
