@@ -38,6 +38,7 @@ Partial Class frmメニュー
         Me.lbl日付 = New System.Windows.Forms.Label()
         Me.lbl時間 = New System.Windows.Forms.Label()
         Me.picImg = New System.Windows.Forms.PictureBox()
+        Me.btn環境設定 = New System.Windows.Forms.Button()
         Me.tabManual.SuspendLayout()
         Me.tab入力.SuspendLayout()
         Me.tab分析.SuspendLayout()
@@ -79,7 +80,7 @@ Partial Class frmメニュー
         Me.tab入力.Controls.Add(Me.btnCallExcel)
         Me.tab入力.Location = New System.Drawing.Point(4, 29)
         Me.tab入力.Name = "tab入力"
-        Me.tab入力.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.tab入力.Padding = New System.Windows.Forms.Padding(3)
         Me.tab入力.Size = New System.Drawing.Size(742, 621)
         Me.tab入力.TabIndex = 0
         Me.tab入力.Text = "入力"
@@ -105,6 +106,7 @@ Partial Class frmメニュー
         '
         'tab分析
         '
+        Me.tab分析.Controls.Add(Me.btn環境設定)
         Me.tab分析.Controls.Add(Me.Button1)
         Me.tab分析.Controls.Add(Me.btn会員スキルマスタ)
         Me.tab分析.Controls.Add(Me.btnプロジェクトマスタ)
@@ -113,7 +115,7 @@ Partial Class frmメニュー
         Me.tab分析.Controls.Add(Me.btn企業マスタ)
         Me.tab分析.Location = New System.Drawing.Point(4, 29)
         Me.tab分析.Name = "tab分析"
-        Me.tab分析.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.tab分析.Padding = New System.Windows.Forms.Padding(3)
         Me.tab分析.Size = New System.Drawing.Size(742, 621)
         Me.tab分析.TabIndex = 1
         Me.tab分析.Text = "分析"
@@ -195,6 +197,15 @@ Partial Class frmメニュー
         Me.picImg.TabIndex = 102
         Me.picImg.TabStop = False
         '
+        'btn環境設定
+        '
+        Me.btn環境設定.Location = New System.Drawing.Point(20, 560)
+        Me.btn環境設定.Name = "btn環境設定"
+        Me.btn環境設定.Size = New System.Drawing.Size(230, 45)
+        Me.btn環境設定.TabIndex = 8
+        Me.btn環境設定.Text = "環境設定"
+        Me.btn環境設定.UseVisualStyleBackColor = True
+        '
         'frmメニュー
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
@@ -205,7 +216,7 @@ Partial Class frmメニュー
         Me.Controls.Add(Me.lblバージョン)
         Me.Controls.Add(Me.tabManual)
         Me.Controls.Add(Me.picImg)
-        Me.Margin = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.Margin = New System.Windows.Forms.Padding(8)
         Me.Name = "frmメニュー"
         Me.Text = "カシオペイア"
         Me.Controls.SetChildIndex(Me.picImg, 0)
@@ -237,4 +248,5 @@ Partial Class frmメニュー
     Friend WithEvents btnCallExcel As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents btn環境設定 As Button
 End Class

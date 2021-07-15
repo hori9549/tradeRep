@@ -113,10 +113,17 @@
   <ItemGroup>
     <Compile Include="clsDB.vb" />
     <Compile Include="clsコンボボックス.vb" />
+    <Compile Include="cls環境設定.vb" />
     <Compile Include="frmM区分管理.Designer.vb">
       <DependentUpon>frmM区分管理.vb</DependentUpon>
     </Compile>
     <Compile Include="frmM区分管理.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmM環境設定.designer.vb">
+      <DependentUpon>frmM環境設定.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmM環境設定.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTradeRepo.Designer.vb">
@@ -155,6 +162,7 @@
     <Compile Include="frm返済.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="mdlCommon.vb" />
     <Compile Include="mdlTradeRep.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -200,6 +208,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmM区分管理.resx">
       <DependentUpon>frmM区分管理.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmM環境設定.resx">
+      <DependentUpon>frmM環境設定.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTradeRepo.resx">
       <DependentUpon>frmTradeRepo.vb</DependentUpon>

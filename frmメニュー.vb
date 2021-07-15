@@ -21,11 +21,21 @@
         lbl時間.Text = Now.ToString("HH:mm")
     End Sub
 
-    ''  Private Sub tim時間_Tick(sender As Object, e As EventArgs) Handles tim時間.Tick
-    '      lbl日付.Text = Now.Date.ToString("yyyy/MM/dd（ddd）")
-    '      lbl時間.Text = Now.ToString("HH:mm")
+    Private Sub btn環境設定_Click(sender As Object, e As EventArgs) Handles btn環境設定.Click
+        Dim sfrm As New frmM環境設定
+        Call sfrm.ShowDialog()
+    End Sub
 
-    ' ' End Sub
+    'Private Sub btn区分管理マスタ_Click(sender As Object, e As EventArgs) Handles btn区分管理マスタ.Click
+    '    Dim sfrm As New frmM区分管理
+    '    Call sfrm.ShowDialog()
+    'End Sub
+
+
+    Private Sub frmメニュー_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        ''環境設定読み込み
+        my環境設定 = New cls環境設定
+    End Sub
 
 
 
