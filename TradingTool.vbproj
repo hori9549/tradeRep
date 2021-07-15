@@ -254,5 +254,8 @@
     <None Include="packages.config" />
     <None Include="Resources\目のフリーアイコン5.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ロウソク足のアイコン0715.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
