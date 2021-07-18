@@ -162,4 +162,8 @@ Public Class frmT環境設定
 
         'Call txt住所.Select(Len(txt住所.Text), 0)
     End Sub
+
+    Private Sub btn登録_Click_1(sender As Object, e As EventArgs) Handles btn登録.Click
+
+    End Sub
 End Class
