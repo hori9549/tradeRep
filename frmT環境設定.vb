@@ -36,8 +36,8 @@ Public Class frmT環境設定
 
     End Sub
 
+    Private Sub btn登録_Click(sender As Object, e As EventArgs) Handles btn登録.Click
 
-    Private Sub btn登録_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim cDB As New clsDB
         Dim strPrint As String = 0 ''印刷値
         Dim str利用者 As String = 0 ''印刷値
@@ -50,7 +50,7 @@ Public Class frmT環境設定
         Try
 
             ''フリガナ------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txtフリガナ.Text) & "'"
             msSQL += " WHERE ID=1"
 
@@ -58,7 +58,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''会社名------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt会社名.Text) & "'"
             msSQL += " WHERE ID=2"
 
@@ -66,7 +66,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''代表者------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt代表者.Text) & "'"
             msSQL += " WHERE ID=3"
 
@@ -74,7 +74,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''郵便番号------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt郵便番号.Text) & "'"
             msSQL += " WHERE ID=4"
 
@@ -82,7 +82,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''住所------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt住所.Text) & "'"
             msSQL += " WHERE ID=5"
 
@@ -90,7 +90,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''電話番号------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt電話番号.Text) & "'"
             msSQL += " WHERE ID=6"
 
@@ -98,7 +98,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''FAX番号------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txtFAX番号.Text) & "'"
             msSQL += " WHERE ID=7"
 
@@ -106,7 +106,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''銀行名------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt銀行名.Text) & "'"
             msSQL += " WHERE ID=8"
 
@@ -114,7 +114,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''支店名------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt支店名.Text) & "'"
             msSQL += " WHERE ID=9"
 
@@ -122,7 +122,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''口座区分------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(cmb口座区分.SelectedValue) & "'"
             msSQL += " WHERE ID=10"
 
@@ -130,7 +130,7 @@ Public Class frmT環境設定
             Call mCommand.ExecuteNonQuery()
 
             ''口座番号------------------------------------
-            msSQL = "UPDATE mst_環境設定 SET "
+            msSQL = "UPDATE MTD_環境設定 SET "
             msSQL += " パラメータ ='" & Trim(txt口座番号.Text) & "'"
             msSQL += " WHERE ID=11"
 
@@ -163,7 +163,4 @@ Public Class frmT環境設定
         'Call txt住所.Select(Len(txt住所.Text), 0)
     End Sub
 
-    Private Sub btn登録_Click_1(sender As Object, e As EventArgs) Handles btn登録.Click
-
-    End Sub
 End Class

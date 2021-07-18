@@ -83,9 +83,9 @@ Partial Class frmT環境設定
         '
         'btn取得
         '
-        Me.btn取得.Location = New System.Drawing.Point(230, 89)
+        Me.btn取得.Location = New System.Drawing.Point(235, 89)
         Me.btn取得.Name = "btn取得"
-        Me.btn取得.Size = New System.Drawing.Size(27, 25)
+        Me.btn取得.Size = New System.Drawing.Size(17, 23)
         Me.btn取得.TabIndex = 10
         Me.btn取得.Text = "〒"
         Me.btn取得.UseVisualStyleBackColor = True
