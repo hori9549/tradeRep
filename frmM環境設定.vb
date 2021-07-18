@@ -13,7 +13,7 @@ Public Class frmM環境設定
     End Sub
 
     Private Sub frm利用者登録_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Call myコンボ.口座区分コンボ(cmb口座区分)
+        '  Call myコンボ.口座区分コンボ(cmb口座区分)
         ''一覧表示
         Call sub_Display_環境設定()
 
@@ -153,13 +153,13 @@ Public Class frmM環境設定
     End Sub
 
     Private Sub btn取得_Click(sender As Object, e As EventArgs) Handles btn取得.Click
-        Dim subForm As New sfrm住所検索
-        subForm.検索郵便 = txt郵便番号.Text
-        Call subForm.ShowDialog()
+        'Dim subForm As New sfrm住所検索
+        'subForm.検索郵便 = txt郵便番号.Text
+        'Call subForm.ShowDialog()
 
-        txt郵便番号.Text = subForm.検索郵便
-        txt住所.Text = subForm.検索住所
+        'txt郵便番号.Text = subForm.検索郵便
+        'txt住所.Text = subForm.検索住所
 
-        Call txt住所.Select(Len(txt住所.Text), 0)
+        'Call txt住所.Select(Len(txt住所.Text), 0)
     End Sub
 End Class
