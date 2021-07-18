@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmM環境設定
+Partial Class frmT環境設定
     'Inherits System.Windows.Forms.Form
     Inherits frmベース
 
@@ -44,6 +44,7 @@ Partial Class frmM環境設定
         Me.txt支店名 = New System.Windows.Forms.TextBox()
         Me.txt銀行名 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.btn登録 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label18
@@ -232,11 +233,21 @@ Partial Class frmM環境設定
         Me.Label15.TabIndex = 14
         Me.Label15.Text = "銀行"
         '
-        'frmM環境設定
+        'btn登録
+        '
+        Me.btn登録.Location = New System.Drawing.Point(903, 286)
+        Me.btn登録.Name = "btn登録"
+        Me.btn登録.Size = New System.Drawing.Size(114, 42)
+        Me.btn登録.TabIndex = 102
+        Me.btn登録.Text = "登録"
+        Me.btn登録.UseVisualStyleBackColor = True
+        '
+        'frmT環境設定
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1183, 762)
+        Me.Controls.Add(Me.btn登録)
         Me.Controls.Add(Me.cmb口座区分)
         Me.Controls.Add(Me.txt口座番号)
         Me.Controls.Add(Me.Label13)
@@ -259,7 +270,7 @@ Partial Class frmM環境設定
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtフリガナ)
         Me.Margin = New System.Windows.Forms.Padding(8)
-        Me.Name = "frmM環境設定"
+        Me.Name = "frmT環境設定"
         Me.Text = "環境設定"
         Me.Controls.SetChildIndex(Me.txtフリガナ, 0)
         Me.Controls.SetChildIndex(Me.Label6, 0)
@@ -282,6 +293,7 @@ Partial Class frmM環境設定
         Me.Controls.SetChildIndex(Me.Label13, 0)
         Me.Controls.SetChildIndex(Me.txt口座番号, 0)
         Me.Controls.SetChildIndex(Me.cmb口座区分, 0)
+        Me.Controls.SetChildIndex(Me.btn登録, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -307,4 +319,5 @@ Partial Class frmM環境設定
     Friend WithEvents txt支店名 As System.Windows.Forms.TextBox
     Friend WithEvents txt銀行名 As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents btn登録 As Button
 End Class

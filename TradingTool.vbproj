@@ -120,10 +120,10 @@
     <Compile Include="frmM区分管理.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmM環境設定.designer.vb">
-      <DependentUpon>frmM環境設定.vb</DependentUpon>
+    <Compile Include="frmT環境設定.designer.vb">
+      <DependentUpon>frmT環境設定.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmM環境設定.vb">
+    <Compile Include="frmT環境設定.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTradeRepo.Designer.vb">
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="frmM区分管理.resx">
       <DependentUpon>frmM区分管理.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmM環境設定.resx">
-      <DependentUpon>frmM環境設定.vb</DependentUpon>
+    <EmbeddedResource Include="frmT環境設定.resx">
+      <DependentUpon>frmT環境設定.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTradeRepo.resx">
       <DependentUpon>frmTradeRepo.vb</DependentUpon>

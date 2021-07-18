@@ -1,18 +1,18 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 
-Public Class frmM環境設定
+Public Class frmT環境設定
     ''データベース接続用-------------------------------
     Private msSQL As String
     Private mCommand As SqlCommand
     Private mSDA As New SqlDataAdapter
     Private myコンボ As New clsコンボボックス
 
-    Private Sub frm利用者登録_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+    Private Sub frmT環境設定_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         Call frmメニュー.Show()
     End Sub
 
-    Private Sub frm利用者登録_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmT環境設定_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '  Call myコンボ.口座区分コンボ(cmb口座区分)
         ''一覧表示
         Call sub_Display_環境設定()

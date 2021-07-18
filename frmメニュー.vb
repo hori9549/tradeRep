@@ -22,7 +22,7 @@
     End Sub
 
     Private Sub btn環境設定_Click(sender As Object, e As EventArgs) Handles btn環境設定.Click
-        Dim sfrm As New frmM環境設定
+        Dim sfrm As New frmT環境設定
         Call sfrm.ShowDialog()
     End Sub
 
