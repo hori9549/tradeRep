@@ -100,14 +100,14 @@ Public Class cls環境設定
     End Property
 
     Public Sub New()
-        '  Call 環境設定読込()
+        Call 環境設定読込()
     End Sub
 
     Public Sub 環境設定読込()
         Dim pd As New System.Drawing.Printing.PrintDocument
         Dim cDB As New clsDB
 
-        msSQL = "SELECT * FROM MST_環境設定"
+        msSQL = "SELECT * FROM Mtd_環境設定"
 
         mCommand = cDB.getsqlComand(msSQL)
         mSDA.SelectCommand = mCommand

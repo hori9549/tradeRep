@@ -12,6 +12,7 @@ Public Class frmT環境設定
         Call frmメニュー.Show()
     End Sub
 
+
     Private Sub frmT環境設定_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '  Call myコンボ.口座区分コンボ(cmb口座区分)
         ''一覧表示
