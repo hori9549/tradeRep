@@ -1,5 +1,6 @@
 ﻿Public Class frmベース
-    Private Sub Template_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmベース_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.KeyPreview = True    'フォームがすべてのキー イベントを受け取る
         BackColorChg(sender)
     End Sub
 
@@ -42,6 +43,7 @@
         If e.KeyChar = ControlChars.Cr Then
             '[Enter]キーで音が出るので、キーイベントが処理されたことにして音を消す
             e.Handled = True
+
         End If
     End Sub
 
