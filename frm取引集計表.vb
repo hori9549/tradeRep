@@ -126,34 +126,34 @@ Public Class frm取引集計表
 
                     ''取得の表示
                     msSQL = " SELECT "
-                    msSQL += " [入力ID]"
+                    msSQL += " min([入力ID]) as ID"
                     msSQL += ",[銘柄コード] as CODE"
                     msSQL += ",[銘柄名]"
                     msSQL += ",[取引名称]"
-                    msSQL += ",[取得株数] as 株数"
-                    msSQL += ",[取得単価] as 価格"
+                    msSQL += ",sum(取得株数) as 株数"
+                    msSQL += ",avg([取得単価]) as 価格"
                     msSQL += ",[取得日付] as 日付"
                     msSQL += " FROM [MTD_取得]"
                     msSQL += " WHERE 取得日付 >= '" + 集計日付始 + "'"
                     msSQL += " And  取得日付 <= '" + 集計日付終 + "'"
-
+                    msSQL += "group by [銘柄コード],銘柄名,[取引名称],[取得日付]"
                     ''返済の表示
                     msSQL += "  UNION "
 
                     msSQL += " SELECT"
-                    msSQL += " a.[入力ID]"
+                    msSQL += " MAX(a.[入力ID]) as ID "
                     msSQL += ",b.銘柄コード as CODE"
                     msSQL += ",b.銘柄名"
                     msSQL += ",a.[取引名称]"
-                    msSQL += ",[返済株数] as 株数"
-                    msSQL += ",[返済単価] as 価格"
+                    msSQL += ",sum([返済株数]) as 株数"
+                    msSQL += ",AVG([返済単価]) as 価格"
                     msSQL += ",a.[返済日付] as 日付"
                     msSQL += " FROM [MTD_返済] as a INNER JOIN [MTD_取得] as b "
                     msSQL += " ON a.返済元ID = b.入力ID "
 
                     msSQL += " WHERE 返済日付 >= '" + 集計日付始 + "'"
                     msSQL += " And  返済日付 <= '" + 集計日付終 + "'"
-
+                    msSQL += "group by  b.銘柄コード,b.銘柄名,a.[取引名称],a.[返済日付]"
                     msSQL += " ORDER BY 日付,取引名称"
                 End If
 
