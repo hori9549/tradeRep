@@ -157,6 +157,38 @@ Public Class frm取引集計表
                     msSQL += " ORDER BY 日付,取引名称"
                 End If
 
+            Case "6"    '/****** [MTD_返済] 損益計算 with grouping set ******/
+
+                Dim 集計日付始 As String = Dtp日付始.Value.ToShortDateString()
+                Dim 集計日付終 As String = dtp日付終.Value.ToShortDateString()
+
+                msSQL = " SELECT "
+                msSQL += " Case WHEN grouping(a.返済日付)=1 THEN  '＊　合　計　＊' "
+                msSQL += " WHEN grouping(a.返済単価)=1 then '＊　日　計　＊' "
+                msSQL += " Else cast( min(b.取得日付) As varchar(max)) End As 取得日付 "
+                msSQL += ",case when grouping(a.返済日付)=1 then '' "
+                msSQL += " when grouping(a.返済単価)=1 then '' "
+                msSQL += " Else max(b.銘柄コード) End As CODE	"
+                msSQL += ", Case WHEN grouping(a.返済日付)=1 then  '' "
+                msSQL += " WHEN grouping(a.返済単価)=1 then '' "
+                msSQL += " Else max(b.銘柄名) End As NAME "
+                msSQL += ",case when grouping(a.返済日付)=1 then  '' "
+                msSQL += " Else cast( min(a.返済日付) As varchar(max)) End As 返済日付 "
+                msSQL += ",count(a.返済株数) AS 件数 "
+                msSQL += ",sum(a.返済株数) AS 返済株数       "
+                msSQL += ",format(avg(a.返済単価),'#,###') AS avg返済単価 "
+                msSQL += " ,format(sum(a.返済株数*a.返済単価-b.取得株数*b.取得単価),'#,###') as 概算損益 "
+                msSQL += " FROM [MTD_返済] as a left join [MTD_取得] as b "
+                msSQL += " ON a.返済元ID=b.入力ID"
+
+                msSQL += " WHERE 返済日付 >= '" + 集計日付始 + "'"
+                msSQL += " And  返済日付 <= '" + 集計日付終 + "'"
+                msSQL += " group by grouping sets"
+                msSQL += " (()"
+                msSQL += " ,(a.返済日付)"
+                msSQL += " ,(a.返済日付,a.返済単価/*,a.返済株数)*/)"
+                msSQL += " )"
+
             Case Else
 
                 MsgBox("mikannsei")
