@@ -65,7 +65,7 @@ Public Class frm取引集計表
 
                 msSQL = " Select   a.銘柄コード as CODE , a.銘柄名 "
                 msSQL += " ,b.返済日付,sum( b.返済株数) as 返済総数 "
-                msSQL += ",sum(b.返済株数 * b.返済単価 - a.取得株数 * a.取得単価) as 概算損益"
+                msSQL += ",sum(b.返済株数 *( b.返済単価 - a.取得単価)) as 概算損益"
 
                 msSQL += " FROM MTD_取得 as A left join MTD_返済 as b"
                 msSQL += " On a.入力ID = b.返済元ID"
@@ -93,7 +93,7 @@ Public Class frm取引集計表
             Case "2"      '取引履歴(日付ごと)
                 msSQL = " select b.返済日付"
                 msSQL += ",sum( b.返済株数) as 返済総数"
-                msSQL += ",sum(b.返済株数 * b.返済単価 - a.取得株数 * a.取得単価) as 概算損益"
+                msSQL += ",sum(b.返済株数 *( b.返済単価 - a.取得単価)) as 概算損益"
                 msSQL += " FROM MTD_取得 as A left join MTD_返済 as b"
                 msSQL += " on a.入力ID = b.返済元ID"
                 msSQL += " group by rollup(b.返済日付) --,a.銘柄コード, a.銘柄名)"
@@ -177,7 +177,7 @@ Public Class frm取引集計表
                 msSQL += ",count(a.返済株数) AS 件数 "
                 msSQL += ",sum(a.返済株数) AS 返済株数       "
                 msSQL += ",format(avg(a.返済単価),'#,###') AS avg返済単価 "
-                msSQL += " ,format(sum(a.返済株数*a.返済単価-b.取得株数*b.取得単価),'#,###') as 概算損益 "
+                msSQL += " ,format(sum(a.返済株数*(a.返済単価-b.取得単価)),'#,###') as 概算損益 "
                 msSQL += " FROM [MTD_返済] as a left join [MTD_取得] as b "
                 msSQL += " ON a.返済元ID=b.入力ID"
 
@@ -202,7 +202,7 @@ Public Class frm取引集計表
         Dgv検索結果.Columns(0).Width = 150
         Dgv検索結果.Columns(1).Width = 150
         Dgv検索結果.Columns(2).Width = 150
-        Dgv検索結果.Columns(3).Width = 150
+        '  Dgv検索結果.Columns(3).Width = 150
 
 
         ' txt銘柄コード.Select()
