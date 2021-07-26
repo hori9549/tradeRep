@@ -199,6 +199,11 @@ Public Class frm取引集計表
 
         Call mSDA.Fill(dtbl検索結果) ''データセット作成
         Dgv検索結果.DataSource = dtbl検索結果
+        Dgv検索結果.Columns(0).Width = 150
+        Dgv検索結果.Columns(1).Width = 150
+        Dgv検索結果.Columns(2).Width = 150
+        Dgv検索結果.Columns(3).Width = 150
+
 
         ' txt銘柄コード.Select()
     End Sub

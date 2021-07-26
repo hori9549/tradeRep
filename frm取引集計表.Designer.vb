@@ -53,6 +53,7 @@ Partial Class frm取引集計表
         Me.Dgv検索結果.Margin = New System.Windows.Forms.Padding(4)
         Me.Dgv検索結果.Name = "Dgv検索結果"
         Me.Dgv検索結果.ReadOnly = True
+        Me.Dgv検索結果.RowHeadersVisible = False
         Me.Dgv検索結果.RowHeadersWidth = 51
         Me.Dgv検索結果.RowTemplate.Height = 21
         Me.Dgv検索結果.Size = New System.Drawing.Size(1153, 553)
@@ -259,6 +260,7 @@ Partial Class frm取引集計表
         Me.Controls.Add(Me.btnレシート印刷)
         Me.Controls.Add(Me.btn集計)
         Me.Controls.Add(Me.grp入力項目)
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.Name = "frm取引集計表"
         Me.Text = "frm取引集計表"
