@@ -130,7 +130,6 @@ Partial Class frm取引集計表
         Me.txt銘柄コード.Name = "txt銘柄コード"
         Me.txt銘柄コード.Size = New System.Drawing.Size(124, 26)
         Me.txt銘柄コード.TabIndex = 23
-        Me.txt銘柄コード.Text = "6857"
         Me.txt銘柄コード.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'dtp日付終

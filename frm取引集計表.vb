@@ -78,18 +78,6 @@ Public Class frm取引集計表
 
                 'Call mSDA.Fill(dtbl検索結果) ''データセット作成
                 'Dgv検索結果.DataSource = dtbl検索結果
-
-            Case "3"               ' 返済履歴 (日付ごと) 
-
-                msSQL = " Select a.銘柄コード,a.銘柄名"
-
-                msSQL += " b,[返済日付] ,sum([返済株数]) as 返済総数 ,max([返済単価]) as 返済単価"
-
-                msSQL += " From MTD_取得 As a inner Join MTD_返済 As b"
-                msSQL += " On a.入力ID = b.返済元ID"
-
-                msSQL += " group by [返済日付], a.銘柄コード, a.銘柄名;"
-
             Case "2"      '取引履歴(日付ごと)
                 msSQL = " select b.返済日付"
                 msSQL += ",sum( b.返済株数) as 返済総数"
@@ -97,6 +85,26 @@ Public Class frm取引集計表
                 msSQL += " FROM MTD_取得 as A left join MTD_返済 as b"
                 msSQL += " on a.入力ID = b.返済元ID"
                 msSQL += " group by rollup(b.返済日付) --,a.銘柄コード, a.銘柄名)"
+
+            Case "3"               '  取引明細(銘柄別)
+                Dim 集計日付始 As String = Dtp日付始.Value.ToShortDateString()
+                Dim 集計日付終 As String = dtp日付終.Value.ToShortDateString()
+
+                msSQL = " SELECT  a.ID as 返済ID,a.返済日付 , b.ID as 取得ID,b.取得日付"
+                msSQL += ", b.銘柄コード as CODE , b.銘柄名"
+                msSQL += ",b.取得株数, a.返済株数 ,b.残株数 "
+                msSQL += ",a.返済単価,b.取得単価"
+                msSQL += ", format(a.[返済株数] * a.[返済単価] - a.返済株数 * 取得単価,'#,##0') as 損益"
+                msSQL += " FROM MTD_返済 as a left join MTD_取得 as b"
+                msSQL += " on b.入力ID = a.返済元ID"
+
+                msSQL += " WHERE 返済日付 >= '" + 集計日付始 + "'"
+                msSQL += " And  返済日付 <= '" + 集計日付終 + "'"
+
+                msSQL += " AND b.銘柄コード = "
+                msSQL += "'" & txt銘柄コード.Text & "'"      'ex'6857'
+
+                msSQL += " order by a.返済日付"
 
             Case "4" '未返済 一覧
                 msSQL = " SELECT a.ID as 取得ID,a.取得日付 , b.ID as 返済ID,b.返済日付"
