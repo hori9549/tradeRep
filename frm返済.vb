@@ -203,7 +203,7 @@ Public Class frm返済
             txt返済玉ID.Text = Trim(.Item("入力ID").ToString)
             txt銘柄コード.Text = Trim(.Item("銘柄コード").ToString)
             txt銘柄名.Text = Trim(.Item("銘柄名").ToString)
-            txt取引種別.Text = Trim(.Item("取引種別").ToString)
+            txt取引名称.Text = Trim(.Item("取引名称").ToString)
 
             'txt取引区分.Text = Trim(.Item("取引区分").ToString)
             'txt返済株数.Text = Trim(.Item("取引株数").ToString)
@@ -267,22 +267,18 @@ Public Class frm返済
                 ' End Select
 
                 '   Dim toInt As Integer
-                mssql = "INSERT INTO [dbo].[MST_返済]"
+                mssql = "INSERT INTO [dbo].[Mtd_返済]"
                 mssql += "([入力ID]"
                 mssql += " ,[返済日付]"
                 mssql += " ,[返済元ID]"
-                mssql += " ,[取引種別]"
-                mssql += " ,[取引区分]"
+                mssql += " ,[取引名称]"
                 mssql += " ,[返済株数]"
                 mssql += " ,[返済単価])"
                 mssql += " VALUES ( "
                 mssql += "'" + txt返済入力ID.Text + "'"          ' ,<入力ID, nvarchar(9),>
-                '  Dim dt As Date = DateTime.Parse(txt返済日付.Text)
-                '  mssql += ",'" + txt返済日付.Text + "'"          ' ,<返済日付, date,>
                 mssql += ",'" + get日付 + "'"
                 mssql += ",'" + txt返済玉ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
-                mssql += ",'" + txt取引種別.Text + "'"          ' ,<取引種別, nvarchar(4),>
-                mssql += ",'" + txt取引区分.Text + "'"          ' ,<取引区分, nvarchar(4),>
+                mssql += ", '信用返済売'"          ' ,<取引種別, nvarchar(4),>
                 mssql += ",'" + txt残株数.Text + "'"          ' ,<返済株数, int,>
                 mssql += ",'" + txt返済単価.Text + "'"          ' ,<返済単価, int,>)
                 mssql += ") "
@@ -293,7 +289,7 @@ Public Class frm返済
                 'mssql += "'" + toInt + "'"
                 mssql += "'" + txt返済後残株数.Text + "' "
                 mssql += ", 現況 = "
-                mssql += "'" + cmb現況.Text + "'"
+                mssql += "'返済済'"
                 mssql += " where 入力ID = "
                 mssql += "'" + txt返済玉ID.Text + "'"
 

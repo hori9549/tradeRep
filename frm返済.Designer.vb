@@ -53,7 +53,7 @@ Partial Class frm返済
         Me.lbl定休日 = New System.Windows.Forms.Label()
         Me.lblE = New System.Windows.Forms.Label()
         Me.txt取引区分 = New System.Windows.Forms.TextBox()
-        Me.txt取引種別 = New System.Windows.Forms.TextBox()
+        Me.txt取引名称 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt返済日付 = New System.Windows.Forms.TextBox()
         Me.btn検索日付 = New System.Windows.Forms.Button()
@@ -293,7 +293,7 @@ Partial Class frm返済
         Me.lbl定休日.Name = "lbl定休日"
         Me.lbl定休日.Size = New System.Drawing.Size(72, 16)
         Me.lbl定休日.TabIndex = 26
-        Me.lbl定休日.Text = "取引種別"
+        Me.lbl定休日.Text = "取引名称"
         '
         'lblE
         '
@@ -312,14 +312,13 @@ Partial Class frm返済
         Me.txt取引区分.TabIndex = 29
         Me.txt取引区分.Text = "信返済売"
         '
-        'txt取引種別
+        'txt取引名称
         '
-        Me.txt取引種別.AcceptsReturn = True
-        Me.txt取引種別.Location = New System.Drawing.Point(547, 214)
-        Me.txt取引種別.Name = "txt取引種別"
-        Me.txt取引種別.Size = New System.Drawing.Size(119, 23)
-        Me.txt取引種別.TabIndex = 27
-        Me.txt取引種別.Text = "制度信用"
+        Me.txt取引名称.AcceptsReturn = True
+        Me.txt取引名称.Location = New System.Drawing.Point(547, 214)
+        Me.txt取引名称.Name = "txt取引名称"
+        Me.txt取引名称.Size = New System.Drawing.Size(119, 23)
+        Me.txt取引名称.TabIndex = 27
         '
         'Label6
         '
@@ -396,7 +395,7 @@ Partial Class frm返済
         Me.Controls.Add(Me.btn検索日付)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txt返済日付)
-        Me.Controls.Add(Me.txt取引種別)
+        Me.Controls.Add(Me.txt取引名称)
         Me.Controls.Add(Me.txt取引区分)
         Me.Controls.Add(Me.lblE)
         Me.Controls.Add(Me.lbl定休日)
@@ -466,7 +465,7 @@ Partial Class frm返済
     Friend WithEvents lbl定休日 As Label
     Friend WithEvents lblE As Label
     Friend WithEvents txt取引区分 As TextBox
-    Friend WithEvents txt取引種別 As TextBox
+    Friend WithEvents txt取引名称 As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txt返済日付 As TextBox
     Friend WithEvents btn検索日付 As Button
