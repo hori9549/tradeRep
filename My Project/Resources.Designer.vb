@@ -79,5 +79,25 @@ Namespace My.Resources
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
+        
+        '''<summary>
+        '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        '''</summary>
+        Friend ReadOnly Property 虫眼鏡イラスト() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("虫眼鏡イラスト", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        '''</summary>
+        Friend ReadOnly Property 虫眼鏡イラストS() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("虫眼鏡イラストS", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
     End Module
 End Namespace
