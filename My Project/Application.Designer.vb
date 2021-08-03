@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.カシオペイア.frmメニュー
+            Me.MainForm = Global.カシオペイア.frmメニュー2
         End Sub
     End Class
 End Namespace
