@@ -219,4 +219,29 @@ Public Class frm取引集計表
     Private Sub Dtp日付始_ValueChanged(sender As Object, e As EventArgs) Handles Dtp日付始.ValueChanged
 
     End Sub
+
+    Private Sub btnExcel出力_Click(sender As Object, e As EventArgs) Handles btnExcel出力.Click
+        'Excelファイルを開く
+        Dim SFD As New OpenFileDialog
+        Dim sFname As String        'selected file name 
+        'Dim di As New System.IO.DirectoryInfo(sフォルダ)
+        'di.Create()
+        With SFD
+            .FileName = "TradeRep01"
+            .Filter = "excelファイル(*.xlsx,*.xlmx)|*.xlsx;*.xlmx"
+            .Title = "excelファイル名は？"
+            .RestoreDirectory = True
+            .CheckFileExists = True
+            .CheckPathExists = True
+
+            '' dialog　ＯＫ が押されたら次へ
+            If .ShowDialog <> Windows.Forms.DialogResult.OK Then Exit Sub
+
+            MsgBox(.FileName)
+            Console.WriteLine(.FileName)
+            sFname = .FileName
+        End With
+
+
+    End Sub
 End Class
