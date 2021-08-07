@@ -220,11 +220,26 @@ Public Class frm取引集計表
     End Sub
 
     Private Sub btnExcel出力_Click(sender As Object, e As EventArgs) Handles btnExcel出力.Click
-        Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
-        Dim getExcelファイル As String
+        ' ワークブックを作成
+        Dim book As New ClosedXML.Excel.XLWorkbook
 
-        ' Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
-        Dim workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
+        ' ワークシートを作成し、シートを取得
+        Dim sheet As ClosedXML.Excel.IXLWorksheet = book.Worksheets.Add("page1")
+
+        ' 行列番号でセルを指定して値を挿入
+        sheet.Cell(1, 1).Value = Dgv検索結果(0, 0).Value
+        sheet.Cell(1, 2).Value = Dgv検索結果(1, 0).Value
+        sheet.Cell(1, 3).Value = Dgv検索結果(2, 0).Value
+
+
+        ' ファイルに保存
+        book.SaveAs("c:\temp\sample.xlsx")
+
+        'Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
+        'Dim getExcelファイル As String
+
+        '' Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
+        'Dim workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
 
         ''Excelファイルを開く
         'Dim SFD As New OpenFileDialog
@@ -249,19 +264,19 @@ Public Class frm取引集計表
         ' End Using
         'ワークブックを保存する
         '  Using sfd As SaveFileDialog = New SaveFileDialog
-        Dim sfd As SaveFileDialog = New SaveFileDialog
+        'Dim sfd As SaveFileDialog = New SaveFileDialog
 
 
-                'デフォルトのファイル名を指定します
-                sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
-        sfd.FileName = "取引集計表"
-        sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel"
+        ''デフォルトのファイル名を指定します
+        'sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
+        'sfd.FileName = "取引集計表"
+        'sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel"
 
-                If sfd.ShowDialog() = DialogResult.OK Then
-                    getExcelファイル = sfd.FileName
-                    workbook.SaveAs(getExcelファイル)     ''別ブックで保存
+        'If sfd.ShowDialog() = DialogResult.OK Then
+        '    getExcelファイル = sfd.FileName
+        '    workbook.SaveAs(getExcelファイル)     ''別ブックで保存
 
-                End If
+        'End If
         ' End Using
     End Sub
 End Class
