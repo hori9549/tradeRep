@@ -3,7 +3,7 @@
 Public Class frm取引集計表
     'Private mSDA As New SqlDataAdapter
     'Private msSQL As String
-    'Private dtbl検索結果 As New DataTable
+    Private dtbl検索結果 As New DataTable
     Private get集計区分 As New clsコンボボックス
 
     Private Sub frm取引集計表_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,7 +33,6 @@ Public Class frm取引集計表
         Dim msSQL As String
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
-        Dim dtbl検索結果 As New DataTable
 
         msSQL = " Select   a.銘柄コード as CODE , a.銘柄名 "
         msSQL += " ,b.返済日付,sum( b.返済株数) as 返済総数 "
@@ -221,27 +220,48 @@ Public Class frm取引集計表
     End Sub
 
     Private Sub btnExcel出力_Click(sender As Object, e As EventArgs) Handles btnExcel出力.Click
-        'Excelファイルを開く
-        Dim SFD As New OpenFileDialog
-        Dim sFname As String        'selected file name 
-        'Dim di As New System.IO.DirectoryInfo(sフォルダ)
-        'di.Create()
-        With SFD
-            .FileName = "TradeRep01"
-            .Filter = "excelファイル(*.xlsx,*.xlmx)|*.xlsx;*.xlmx"
-            .Title = "excelファイル名は？"
-            .RestoreDirectory = True
-            .CheckFileExists = True
-            .CheckPathExists = True
+        Dim sテンプレートパス As String = "Temp\会員名簿.xlsx"
+        Dim getExcelファイル As String
 
-            '' dialog　ＯＫ が押されたら次へ
-            If .ShowDialog <> Windows.Forms.DialogResult.OK Then Exit Sub
+        ' Using workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
+        Dim workbook = New ClosedXML.Excel.XLWorkbook(sテンプレートパス)
 
-            MsgBox(.FileName)
-            Console.WriteLine(.FileName)
-            sFname = .FileName
-        End With
+        ''Excelファイルを開く
+        'Dim SFD As New OpenFileDialog
+        'Dim sFname As String        'selected file name 
+        ''Dim di As New System.IO.DirectoryInfo(sフォルダ)
+        ''di.Create()
+        'With SFD
+        '    .FileName = "TradeRep01"
+        '    .Filter = "excelファイル(*.xlsx,*.xlmx)|*.xlsx;*.xlmx"
+        '    .Title = "excelファイル名は？"
+        '    .RestoreDirectory = True
+        '    .CheckFileExists = True
+        '    .CheckPathExists = True
+
+        '    '' dialog　ＯＫ が押されたら次へ
+        '    If .ShowDialog <> Windows.Forms.DialogResult.OK Then Exit Sub
+
+        '    MsgBox(.FileName)
+        '    Console.WriteLine(.FileName)
+        '    sFname = .FileName
+        'End With
+        ' End Using
+        'ワークブックを保存する
+        '  Using sfd As SaveFileDialog = New SaveFileDialog
+        Dim sfd As SaveFileDialog = New SaveFileDialog
 
 
+                'デフォルトのファイル名を指定します
+                sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
+        sfd.FileName = "取引集計表"
+        sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel"
+
+                If sfd.ShowDialog() = DialogResult.OK Then
+                    getExcelファイル = sfd.FileName
+                    workbook.SaveAs(getExcelファイル)     ''別ブックで保存
+
+                End If
+        ' End Using
     End Sub
 End Class
