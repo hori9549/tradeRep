@@ -57,7 +57,7 @@ Public Class frm取引集計表
         Dim msSQL As String
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
-        Dim dtbl検索結果 As New DataTable
+        '     Dim dtbl検索結果 As New DataTable
 
         Select Case cmb集計区分.SelectedValue
             Case 1      '概算損益
@@ -268,7 +268,7 @@ Public Class frm取引集計表
 
         'デフォルトのファイル名を指定します
         sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
-        sfd.FileName = "取引集計表" & Format(Now, "yyyyMMdd HHmm") & " .xlsx"
+        sfd.FileName = "取引集計表" & Format(Now, "yyyyMMdd HHmmss") & " .xlsx"
         sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel集計表"
 
         If sfd.ShowDialog() = DialogResult.OK Then
