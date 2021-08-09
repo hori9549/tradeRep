@@ -270,6 +270,7 @@ Public Class frm取引集計表
         sfd.Filter = "Excelファイル(*.xlsx)|*.xlsx"
         sfd.FileName = "取引集計表" & Format(Now, "yyyyMMdd HHmmss") & " .xlsx"
         sfd.InitialDirectory = System.Windows.Forms.Application.StartupPath & "\Excel集計表"
+        ' sfd.InitialDirectory = My.Application.Info.DirectoryPath & "\Excel集計表"
 
         If sfd.ShowDialog() = DialogResult.OK Then
             ' ワークブックを作成
