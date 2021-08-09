@@ -57,7 +57,15 @@ Public Class frm取引集計表
         Dim msSQL As String
         Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
-        '     Dim dtbl検索結果 As New DataTable
+
+
+
+
+
+        dtbl検索結果.Clear()    'Header?
+
+
+
 
         Select Case cmb集計区分.SelectedValue
             Case 1      '概算損益
@@ -297,4 +305,5 @@ Public Class frm取引集計表
         End If
         ' End Using
     End Sub
+
 End Class

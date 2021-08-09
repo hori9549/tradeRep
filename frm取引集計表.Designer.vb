@@ -49,43 +49,43 @@ Partial Class frm取引集計表
         Me.Dgv検索結果.AllowUserToAddRows = False
         Me.Dgv検索結果.AllowUserToDeleteRows = False
         Me.Dgv検索結果.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgv検索結果.Location = New System.Drawing.Point(18, 162)
-        Me.Dgv検索結果.Margin = New System.Windows.Forms.Padding(5)
+        Me.Dgv検索結果.Location = New System.Drawing.Point(15, 134)
+        Me.Dgv検索結果.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Dgv検索結果.Name = "Dgv検索結果"
         Me.Dgv検索結果.ReadOnly = True
         Me.Dgv検索結果.RowHeadersVisible = False
         Me.Dgv検索結果.RowHeadersWidth = 51
         Me.Dgv検索結果.RowTemplate.Height = 21
-        Me.Dgv検索結果.Size = New System.Drawing.Size(1384, 669)
+        Me.Dgv検索結果.Size = New System.Drawing.Size(1153, 553)
         Me.Dgv検索結果.TabIndex = 26
         '
         'btnExcel出力
         '
         Me.btnExcel出力.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btnExcel出力.Location = New System.Drawing.Point(1237, 24)
-        Me.btnExcel出力.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnExcel出力.Location = New System.Drawing.Point(1031, 20)
+        Me.btnExcel出力.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnExcel出力.Name = "btnExcel出力"
-        Me.btnExcel出力.Size = New System.Drawing.Size(130, 50)
+        Me.btnExcel出力.Size = New System.Drawing.Size(108, 41)
         Me.btnExcel出力.TabIndex = 25
         Me.btnExcel出力.Text = "EXCEL出力"
         Me.btnExcel出力.UseVisualStyleBackColor = True
         '
         'btnレシート印刷
         '
-        Me.btnレシート印刷.Location = New System.Drawing.Point(1106, 24)
-        Me.btnレシート印刷.Margin = New System.Windows.Forms.Padding(5)
+        Me.btnレシート印刷.Location = New System.Drawing.Point(922, 20)
+        Me.btnレシート印刷.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnレシート印刷.Name = "btnレシート印刷"
-        Me.btnレシート印刷.Size = New System.Drawing.Size(130, 50)
+        Me.btnレシート印刷.Size = New System.Drawing.Size(108, 41)
         Me.btnレシート印刷.TabIndex = 24
         Me.btnレシート印刷.Text = "ﾚｼｰﾄ印刷"
         Me.btnレシート印刷.UseVisualStyleBackColor = True
         '
         'btn集計
         '
-        Me.btn集計.Location = New System.Drawing.Point(977, 24)
-        Me.btn集計.Margin = New System.Windows.Forms.Padding(5)
+        Me.btn集計.Location = New System.Drawing.Point(814, 20)
+        Me.btn集計.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn集計.Name = "btn集計"
-        Me.btn集計.Size = New System.Drawing.Size(130, 50)
+        Me.btn集計.Size = New System.Drawing.Size(108, 41)
         Me.btn集計.TabIndex = 23
         Me.btn集計.Text = "集計"
         Me.btn集計.UseVisualStyleBackColor = True
@@ -105,61 +105,61 @@ Partial Class frm取引集計表
         Me.grp入力項目.Controls.Add(Me.lbl波線)
         Me.grp入力項目.Controls.Add(Me.cmb集計区分)
         Me.grp入力項目.Controls.Add(Me.cmb部門)
-        Me.grp入力項目.Location = New System.Drawing.Point(18, 18)
-        Me.grp入力項目.Margin = New System.Windows.Forms.Padding(5)
+        Me.grp入力項目.Location = New System.Drawing.Point(15, 15)
+        Me.grp入力項目.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grp入力項目.Name = "grp入力項目"
-        Me.grp入力項目.Padding = New System.Windows.Forms.Padding(5)
-        Me.grp入力項目.Size = New System.Drawing.Size(946, 134)
+        Me.grp入力項目.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grp入力項目.Size = New System.Drawing.Size(788, 111)
         Me.grp入力項目.TabIndex = 22
         Me.grp入力項目.TabStop = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(474, 19)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label1.Location = New System.Drawing.Point(395, 16)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(82, 24)
+        Me.Label1.Size = New System.Drawing.Size(66, 19)
         Me.Label1.TabIndex = 27
         Me.Label1.Text = "集計日"
         '
         'txt銘柄コード
         '
         Me.txt銘柄コード.Font = New System.Drawing.Font("MS UI Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txt銘柄コード.Location = New System.Drawing.Point(121, 56)
-        Me.txt銘柄コード.Margin = New System.Windows.Forms.Padding(5)
+        Me.txt銘柄コード.Location = New System.Drawing.Point(101, 46)
+        Me.txt銘柄コード.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt銘柄コード.Name = "txt銘柄コード"
-        Me.txt銘柄コード.Size = New System.Drawing.Size(148, 31)
+        Me.txt銘柄コード.Size = New System.Drawing.Size(124, 26)
         Me.txt銘柄コード.TabIndex = 23
         Me.txt銘柄コード.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'dtp日付終
         '
         Me.dtp日付終.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp日付終.Location = New System.Drawing.Point(769, 13)
-        Me.dtp日付終.Margin = New System.Windows.Forms.Padding(5)
+        Me.dtp日付終.Location = New System.Drawing.Point(641, 11)
+        Me.dtp日付終.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtp日付終.Name = "dtp日付終"
-        Me.dtp日付終.Size = New System.Drawing.Size(154, 31)
+        Me.dtp日付終.Size = New System.Drawing.Size(129, 26)
         Me.dtp日付終.TabIndex = 22
         '
         'Dtp日付始
         '
         Me.Dtp日付始.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.Dtp日付始.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.Dtp日付始.Location = New System.Drawing.Point(570, 17)
-        Me.Dtp日付始.Margin = New System.Windows.Forms.Padding(5)
+        Me.Dtp日付始.Location = New System.Drawing.Point(475, 14)
+        Me.Dtp日付始.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Dtp日付始.Name = "Dtp日付始"
-        Me.Dtp日付始.Size = New System.Drawing.Size(154, 31)
+        Me.Dtp日付始.Size = New System.Drawing.Size(129, 26)
         Me.Dtp日付始.TabIndex = 21
         Me.Dtp日付始.Value = New Date(2021, 7, 13, 5, 38, 53, 0)
         '
         'lbl集計区分
         '
         Me.lbl集計区分.AutoSize = True
-        Me.lbl集計区分.Location = New System.Drawing.Point(11, 24)
-        Me.lbl集計区分.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lbl集計区分.Location = New System.Drawing.Point(9, 20)
+        Me.lbl集計区分.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl集計区分.Name = "lbl集計区分"
-        Me.lbl集計区分.Size = New System.Drawing.Size(106, 24)
+        Me.lbl集計区分.Size = New System.Drawing.Size(85, 19)
         Me.lbl集計区分.TabIndex = 3
         Me.lbl集計区分.Text = "集計区分"
         '
@@ -167,10 +167,10 @@ Partial Class frm取引集計表
         '
         Me.cmb出力順昇降.FormattingEnabled = True
         Me.cmb出力順昇降.Items.AddRange(New Object() {"昇順"})
-        Me.cmb出力順昇降.Location = New System.Drawing.Point(554, 91)
-        Me.cmb出力順昇降.Margin = New System.Windows.Forms.Padding(5)
+        Me.cmb出力順昇降.Location = New System.Drawing.Point(462, 75)
+        Me.cmb出力順昇降.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmb出力順昇降.Name = "cmb出力順昇降"
-        Me.cmb出力順昇降.Size = New System.Drawing.Size(381, 31)
+        Me.cmb出力順昇降.Size = New System.Drawing.Size(318, 27)
         Me.cmb出力順昇降.TabIndex = 15
         Me.cmb出力順昇降.Text = "昇順"
         '
@@ -178,10 +178,10 @@ Partial Class frm取引集計表
         '
         Me.lbl出力順.BackColor = System.Drawing.Color.Green
         Me.lbl出力順.ForeColor = System.Drawing.Color.White
-        Me.lbl出力順.Location = New System.Drawing.Point(456, 59)
-        Me.lbl出力順.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lbl出力順.Location = New System.Drawing.Point(380, 49)
+        Me.lbl出力順.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl出力順.Name = "lbl出力順"
-        Me.lbl出力順.Size = New System.Drawing.Size(90, 62)
+        Me.lbl出力順.Size = New System.Drawing.Size(75, 51)
         Me.lbl出力順.TabIndex = 4
         Me.lbl出力順.Text = "出 力 順"
         Me.lbl出力順.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -190,10 +190,10 @@ Partial Class frm取引集計表
         '
         Me.cmb出力順項目.FormattingEnabled = True
         Me.cmb出力順項目.Items.AddRange(New Object() {"概算損益"})
-        Me.cmb出力順項目.Location = New System.Drawing.Point(554, 56)
-        Me.cmb出力順項目.Margin = New System.Windows.Forms.Padding(5)
+        Me.cmb出力順項目.Location = New System.Drawing.Point(462, 46)
+        Me.cmb出力順項目.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmb出力順項目.Name = "cmb出力順項目"
-        Me.cmb出力順項目.Size = New System.Drawing.Size(381, 31)
+        Me.cmb出力順項目.Size = New System.Drawing.Size(318, 27)
         Me.cmb出力順項目.TabIndex = 14
         Me.cmb出力順項目.Text = "コード"
         '
@@ -202,10 +202,10 @@ Partial Class frm取引集計表
         Me.lbl部門.BackColor = System.Drawing.Color.Green
         Me.lbl部門.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.lbl部門.ForeColor = System.Drawing.Color.White
-        Me.lbl部門.Location = New System.Drawing.Point(36, 91)
-        Me.lbl部門.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lbl部門.Location = New System.Drawing.Point(30, 75)
+        Me.lbl部門.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl部門.Name = "lbl部門"
-        Me.lbl部門.Size = New System.Drawing.Size(77, 30)
+        Me.lbl部門.Size = New System.Drawing.Size(64, 25)
         Me.lbl部門.TabIndex = 5
         Me.lbl部門.Text = "部 門"
         Me.lbl部門.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -213,30 +213,30 @@ Partial Class frm取引集計表
         'lblX
         '
         Me.lblX.AutoSize = True
-        Me.lblX.Location = New System.Drawing.Point(11, 59)
-        Me.lblX.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lblX.Location = New System.Drawing.Point(9, 49)
+        Me.lblX.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblX.Name = "lblX"
-        Me.lblX.Size = New System.Drawing.Size(112, 24)
+        Me.lblX.Size = New System.Drawing.Size(90, 19)
         Me.lblX.TabIndex = 6
         Me.lblX.Text = "銘柄コード"
         '
         'lbl波線
         '
         Me.lbl波線.AutoSize = True
-        Me.lbl波線.Location = New System.Drawing.Point(734, 24)
-        Me.lbl波線.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.lbl波線.Location = New System.Drawing.Point(612, 20)
+        Me.lbl波線.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl波線.Name = "lbl波線"
-        Me.lbl波線.Size = New System.Drawing.Size(34, 24)
+        Me.lbl波線.Size = New System.Drawing.Size(28, 19)
         Me.lbl波線.TabIndex = 7
         Me.lbl波線.Text = "～"
         '
         'cmb集計区分
         '
         Me.cmb集計区分.FormattingEnabled = True
-        Me.cmb集計区分.Location = New System.Drawing.Point(121, 19)
-        Me.cmb集計区分.Margin = New System.Windows.Forms.Padding(5)
+        Me.cmb集計区分.Location = New System.Drawing.Point(101, 16)
+        Me.cmb集計区分.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmb集計区分.Name = "cmb集計区分"
-        Me.cmb集計区分.Size = New System.Drawing.Size(306, 31)
+        Me.cmb集計区分.Size = New System.Drawing.Size(256, 27)
         Me.cmb集計区分.TabIndex = 8
         Me.cmb集計区分.Text = " 集計区分を選択してください"
         '
@@ -244,24 +244,24 @@ Partial Class frm取引集計表
         '
         Me.cmb部門.FormattingEnabled = True
         Me.cmb部門.Items.AddRange(New Object() {"信用買(返済)"})
-        Me.cmb部門.Location = New System.Drawing.Point(121, 91)
-        Me.cmb部門.Margin = New System.Windows.Forms.Padding(5)
+        Me.cmb部門.Location = New System.Drawing.Point(101, 75)
+        Me.cmb部門.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cmb部門.Name = "cmb部門"
-        Me.cmb部門.Size = New System.Drawing.Size(306, 31)
+        Me.cmb部門.Size = New System.Drawing.Size(256, 27)
         Me.cmb部門.TabIndex = 9
         '
         'frm取引集計表
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 23.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1421, 921)
+        Me.ClientSize = New System.Drawing.Size(1184, 761)
         Me.Controls.Add(Me.Dgv検索結果)
         Me.Controls.Add(Me.btnExcel出力)
         Me.Controls.Add(Me.btnレシート印刷)
         Me.Controls.Add(Me.btn集計)
         Me.Controls.Add(Me.grp入力項目)
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(6, 7, 6, 7)
+        Me.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
         Me.Name = "frm取引集計表"
         Me.Text = "frm取引集計表"
         Me.Controls.SetChildIndex(Me.grp入力項目, 0)
