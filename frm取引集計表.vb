@@ -105,13 +105,13 @@ Public Class frm取引集計表
                 msSQL += " order by a.返済日付"
 
             Case "4" '未返済 一覧
-                msSQL = " SELECT a.ID as 取得ID,a.取得日付 , b.ID as 返済ID,b.返済日付"
+                msSQL = " SELECT a.ID as 取得ID,a.取得日付 "      ' b.ID as 返済ID,b.返済日付
                 msSQL += ", a.銘柄コード as CODE , a.銘柄名"
-                msSQL += ",a.取得株数, b.返済株数 ,a.残株数"
+                msSQL += ",a.取得株数,a.取得単価, b.返済株数 ,b.返済単価 ,a.残株数"
                 msSQL += " FROM Mtd_取得 as a left join MTd_返済 as b"
                 msSQL += " on a.入力ID = b.返済元ID"
                 msSQL += " where a.残株数 <> 0 and 現況='買建'"
-                msSQL += " order by a.取得日付 desc"
+                msSQL += " order by a.銘柄コード , a.取得日付 "
 
             Case "5" '日付ごと取引状況
 
