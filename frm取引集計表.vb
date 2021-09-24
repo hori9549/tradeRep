@@ -113,7 +113,7 @@ Public Class frm取引集計表
                 msSQL += " where a.残株数 <> 0 and 現況='買建'"
                 msSQL += " order by a.銘柄コード , a.取得日付 "
 
-            Case "5" '日付ごと取引状況
+            Case "5" '日付ごと取引状況 概算損益付き
 
                 '日付けの指定にあやまりはないか？
                 If Dtp日付始.Value > dtp日付終.Value Then
@@ -132,13 +132,14 @@ Public Class frm取引集計表
 
                     ''取得の表示
                     msSQL = " SELECT "
-                    msSQL += " ([入力ID]) as ID"
+                    msSQL += "[取得日付] as 日付"
+                    msSQL += ", [入力ID] as ID"
                     msSQL += ",[銘柄コード] as CODE"
                     msSQL += ",[銘柄名]"
                     msSQL += ",[取引名称]"
                     msSQL += ",(取得株数) as 株数"
                     msSQL += ",([取得単価]) as 価格"
-                    msSQL += ",[取得日付] as 日付"
+                    msSQL += ",[取得単価]*0 as 金額"
                     msSQL += " FROM [MTD_取得]"
                     msSQL += " WHERE 取得日付 >= '" + 集計日付始 + "'"
                     msSQL += " And  取得日付 <= '" + 集計日付終 + "'"
@@ -146,14 +147,17 @@ Public Class frm取引集計表
                     ''返済の表示
                     msSQL += "  UNION "
 
-                    msSQL += " SELECT"
-                    msSQL += " (a.[入力ID]) as ID "
+                    msSQL += " SELECT "
+                    msSQL += " a.[返済日付] as 日付"
+
+                    msSQL += ", a.[入力ID] as ID "
                     msSQL += ",b.銘柄コード as CODE"
                     msSQL += ",b.銘柄名"
                     msSQL += ",a.[取引名称]"
                     msSQL += ",([返済株数]) as 株数"
                     msSQL += ",([返済単価]) as 価格"
-                    msSQL += ",a.[返済日付] as 日付"
+                    msSQL += ",(a.[返済単価]-b.取得単価)*a.返済株数 as 金額"
+
                     msSQL += " FROM [MTD_返済] as a INNER JOIN [MTD_取得] as b "
                     msSQL += " ON a.返済元ID = b.入力ID "
 
