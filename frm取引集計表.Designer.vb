@@ -56,6 +56,7 @@ Partial Class frm取引集計表
         Me.Dgv検索結果.RowHeadersVisible = False
         Me.Dgv検索結果.RowHeadersWidth = 51
         Me.Dgv検索結果.RowTemplate.Height = 21
+        Me.Dgv検索結果.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgv検索結果.Size = New System.Drawing.Size(1153, 553)
         Me.Dgv検索結果.TabIndex = 26
         '
