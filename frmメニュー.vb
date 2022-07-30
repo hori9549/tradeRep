@@ -47,7 +47,7 @@
 
 
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub btnManyual入力_Click(sender As Object, e As EventArgs) Handles btnManyual入力.Click
         Dim frm As New frmTradeRepo
         frm.ShowDialog()
     End Sub
