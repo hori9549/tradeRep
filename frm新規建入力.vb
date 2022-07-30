@@ -292,16 +292,12 @@ Public Class frm新規建入力
 
         If testTable.Rows.Count = 0 Then
             txt銘柄名.Text = ""
-            txt市場区分.Text = ""
-            txt業種区分.Text = ""
             txt銘柄コード.Select()
             Exit Sub
 
         Else
             With testTable.Rows(0)
                 txt銘柄名.Text = .Item("銘柄名").ToString
-                txt市場区分.Text = .Item("市場区分").ToString
-                txt業種区分.Text = .Item("業種区分").ToString
                 txt取得株数.Select()
             End With
         End If
