@@ -314,6 +314,10 @@ Public Class frm新規建入力
 
     End Sub
 
+    Private Sub rdo信返売り_CheckedChanged(sender As Object, e As EventArgs) Handles rdo信返売り.CheckedChanged
+
+    End Sub
+
 
 
     ' <summary>
