@@ -22,21 +22,21 @@ Partial Class frm新規建入力
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.lbl取引種別 = New System.Windows.Forms.Label()
+        Me.lbl現況 = New System.Windows.Forms.Label()
         Me.lblフリガナ = New System.Windows.Forms.Label()
         Me.lbl銘柄名 = New System.Windows.Forms.Label()
-        Me.lbl取引区分 = New System.Windows.Forms.Label()
+        Me.lbl取引名称 = New System.Windows.Forms.Label()
         Me.lbl株数 = New System.Windows.Forms.Label()
         Me.lbl取得単価 = New System.Windows.Forms.Label()
         Me.lbl残株数 = New System.Windows.Forms.Label()
-        Me.txt取引種別 = New System.Windows.Forms.TextBox()
+        Me.txt現況 = New System.Windows.Forms.TextBox()
         Me.txt銘柄名 = New System.Windows.Forms.TextBox()
-        Me.txt取引区分 = New System.Windows.Forms.TextBox()
+        Me.txt取引名称 = New System.Windows.Forms.TextBox()
         Me.txt取得株数 = New System.Windows.Forms.TextBox()
         Me.txt取得単価 = New System.Windows.Forms.TextBox()
         Me.txt残株数 = New System.Windows.Forms.TextBox()
         Me.rdo信新買い = New System.Windows.Forms.RadioButton()
-        Me.rdo信返売り = New System.Windows.Forms.RadioButton()
+        Me.rdo信用新規売 = New System.Windows.Forms.RadioButton()
         Me.dgv新規一覧 = New System.Windows.Forms.DataGridView()
         Me.btn閉じる = New System.Windows.Forms.Button()
         Me.grb性別 = New System.Windows.Forms.GroupBox()
@@ -53,20 +53,20 @@ Partial Class frm新規建入力
         Me.grb性別.SuspendLayout()
         Me.SuspendLayout()
         '
-        'lbl取引種別
+        'lbl現況
         '
-        Me.lbl取引種別.AutoSize = True
-        Me.lbl取引種別.Location = New System.Drawing.Point(66, 143)
-        Me.lbl取引種別.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbl取引種別.Name = "lbl取引種別"
-        Me.lbl取引種別.Size = New System.Drawing.Size(89, 20)
-        Me.lbl取引種別.TabIndex = 10
-        Me.lbl取引種別.Text = "取引種別"
+        Me.lbl現況.AutoSize = True
+        Me.lbl現況.Location = New System.Drawing.Point(135, 407)
+        Me.lbl現況.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbl現況.Name = "lbl現況"
+        Me.lbl現況.Size = New System.Drawing.Size(49, 20)
+        Me.lbl現況.TabIndex = 10
+        Me.lbl現況.Text = "現況"
         '
         'lblフリガナ
         '
         Me.lblフリガナ.AutoSize = True
-        Me.lblフリガナ.Location = New System.Drawing.Point(57, 83)
+        Me.lblフリガナ.Location = New System.Drawing.Point(140, 41)
         Me.lblフリガナ.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblフリガナ.Name = "lblフリガナ"
         Me.lblフリガナ.Size = New System.Drawing.Size(93, 20)
@@ -76,27 +76,27 @@ Partial Class frm新規建入力
         'lbl銘柄名
         '
         Me.lbl銘柄名.AutoSize = True
-        Me.lbl銘柄名.Location = New System.Drawing.Point(509, 85)
+        Me.lbl銘柄名.Location = New System.Drawing.Point(157, 87)
         Me.lbl銘柄名.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl銘柄名.Name = "lbl銘柄名"
         Me.lbl銘柄名.Size = New System.Drawing.Size(69, 20)
         Me.lbl銘柄名.TabIndex = 8
         Me.lbl銘柄名.Text = "銘柄名"
         '
-        'lbl取引区分
+        'lbl取引名称
         '
-        Me.lbl取引区分.AutoSize = True
-        Me.lbl取引区分.Location = New System.Drawing.Point(66, 214)
-        Me.lbl取引区分.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbl取引区分.Name = "lbl取引区分"
-        Me.lbl取引区分.Size = New System.Drawing.Size(89, 20)
-        Me.lbl取引区分.TabIndex = 16
-        Me.lbl取引区分.Text = "取引区分"
+        Me.lbl取引名称.AutoSize = True
+        Me.lbl取引名称.Location = New System.Drawing.Point(135, 139)
+        Me.lbl取引名称.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbl取引名称.Name = "lbl取引名称"
+        Me.lbl取引名称.Size = New System.Drawing.Size(89, 20)
+        Me.lbl取引名称.TabIndex = 16
+        Me.lbl取引名称.Text = "取引名称"
         '
         'lbl株数
         '
         Me.lbl株数.AutoSize = True
-        Me.lbl株数.Location = New System.Drawing.Point(64, 265)
+        Me.lbl株数.Location = New System.Drawing.Point(133, 186)
         Me.lbl株数.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl株数.Name = "lbl株数"
         Me.lbl株数.Size = New System.Drawing.Size(89, 20)
@@ -106,7 +106,7 @@ Partial Class frm新規建入力
         'lbl取得単価
         '
         Me.lbl取得単価.AutoSize = True
-        Me.lbl取得単価.Location = New System.Drawing.Point(64, 304)
+        Me.lbl取得単価.Location = New System.Drawing.Point(95, 260)
         Me.lbl取得単価.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl取得単価.Name = "lbl取得単価"
         Me.lbl取得単価.Size = New System.Drawing.Size(89, 20)
@@ -116,27 +116,27 @@ Partial Class frm新規建入力
         'lbl残株数
         '
         Me.lbl残株数.AutoSize = True
-        Me.lbl残株数.Location = New System.Drawing.Point(475, 264)
+        Me.lbl残株数.Location = New System.Drawing.Point(115, 344)
         Me.lbl残株数.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl残株数.Name = "lbl残株数"
         Me.lbl残株数.Size = New System.Drawing.Size(69, 20)
         Me.lbl残株数.TabIndex = 23
         Me.lbl残株数.Text = "残株数"
         '
-        'txt取引種別
+        'txt現況
         '
-        Me.txt取引種別.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txt取引種別.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txt取引種別.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txt取引種別.Location = New System.Drawing.Point(165, 137)
-        Me.txt取引種別.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.txt取引種別.MaxLength = 50
-        Me.txt取引種別.Name = "txt取引種別"
-        Me.txt取引種別.Size = New System.Drawing.Size(271, 21)
-        Me.txt取引種別.TabIndex = 11
-        Me.txt取引種別.TabStop = False
-        Me.txt取引種別.Text = "制度信用"
-        Me.txt取引種別.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt現況.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txt現況.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txt現況.ImeMode = System.Windows.Forms.ImeMode.Off
+        Me.txt現況.Location = New System.Drawing.Point(234, 401)
+        Me.txt現況.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.txt現況.MaxLength = 50
+        Me.txt現況.Name = "txt現況"
+        Me.txt現況.Size = New System.Drawing.Size(271, 21)
+        Me.txt現況.TabIndex = 11
+        Me.txt現況.TabStop = False
+        Me.txt現況.Text = "買建"
+        Me.txt現況.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txt銘柄名
         '
@@ -144,7 +144,7 @@ Partial Class frm新規建入力
         Me.txt銘柄名.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt銘柄名.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt銘柄名.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.txt銘柄名.Location = New System.Drawing.Point(586, 83)
+        Me.txt銘柄名.Location = New System.Drawing.Point(234, 85)
         Me.txt銘柄名.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txt銘柄名.MaxLength = 20
         Me.txt銘柄名.Name = "txt銘柄名"
@@ -154,21 +154,21 @@ Partial Class frm新規建入力
         Me.txt銘柄名.Text = "新道 結"
         Me.txt銘柄名.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txt取引区分
+        'txt取引名称
         '
-        Me.txt取引区分.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txt取引区分.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txt取引区分.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txt取引区分.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.txt取引区分.Location = New System.Drawing.Point(165, 214)
-        Me.txt取引区分.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.txt取引区分.MaxLength = 50
-        Me.txt取引区分.Name = "txt取引区分"
-        Me.txt取引区分.Size = New System.Drawing.Size(271, 21)
-        Me.txt取引区分.TabIndex = 17
-        Me.txt取引区分.TabStop = False
-        Me.txt取引区分.Text = "信新規買"
-        Me.txt取引区分.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txt取引名称.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txt取引名称.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txt取引名称.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txt取引名称.ImeMode = System.Windows.Forms.ImeMode.[On]
+        Me.txt取引名称.Location = New System.Drawing.Point(234, 139)
+        Me.txt取引名称.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.txt取引名称.MaxLength = 50
+        Me.txt取引名称.Name = "txt取引名称"
+        Me.txt取引名称.Size = New System.Drawing.Size(271, 21)
+        Me.txt取引名称.TabIndex = 17
+        Me.txt取引名称.TabStop = False
+        Me.txt取引名称.Text = "信用新規買"
+        Me.txt取引名称.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txt取得株数
         '
@@ -176,7 +176,7 @@ Partial Class frm新規建入力
         Me.txt取得株数.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt取得株数.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt取得株数.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txt取得株数.Location = New System.Drawing.Point(165, 259)
+        Me.txt取得株数.Location = New System.Drawing.Point(234, 180)
         Me.txt取得株数.MaxLength = 15
         Me.txt取得株数.Name = "txt取得株数"
         Me.txt取得株数.Size = New System.Drawing.Size(271, 21)
@@ -189,7 +189,7 @@ Partial Class frm新規建入力
         Me.txt取得単価.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt取得単価.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt取得単価.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.txt取得単価.Location = New System.Drawing.Point(165, 299)
+        Me.txt取得単価.Location = New System.Drawing.Point(234, 257)
         Me.txt取得単価.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txt取得単価.MaxLength = 10
         Me.txt取得単価.Name = "txt取得単価"
@@ -202,7 +202,7 @@ Partial Class frm新規建入力
         Me.txt残株数.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt残株数.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt残株数.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.txt残株数.Location = New System.Drawing.Point(553, 259)
+        Me.txt残株数.Location = New System.Drawing.Point(234, 343)
         Me.txt残株数.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txt残株数.MaxLength = 10
         Me.txt残株数.Name = "txt残株数"
@@ -223,22 +223,23 @@ Partial Class frm新規建入力
         Me.rdo信新買い.Text = "信用新規買"
         Me.rdo信新買い.UseVisualStyleBackColor = True
         '
-        'rdo信返売り
+        'rdo信用新規売
         '
-        Me.rdo信返売り.AutoSize = True
-        Me.rdo信返売り.Location = New System.Drawing.Point(37, 57)
-        Me.rdo信返売り.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.rdo信返売り.Name = "rdo信返売り"
-        Me.rdo信返売り.Size = New System.Drawing.Size(127, 24)
-        Me.rdo信返売り.TabIndex = 1
-        Me.rdo信返売り.Text = "信用返済売"
-        Me.rdo信返売り.UseVisualStyleBackColor = True
+        Me.rdo信用新規売.AutoSize = True
+        Me.rdo信用新規売.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rdo信用新規売.Location = New System.Drawing.Point(37, 57)
+        Me.rdo信用新規売.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.rdo信用新規売.Name = "rdo信用新規売"
+        Me.rdo信用新規売.Size = New System.Drawing.Size(127, 24)
+        Me.rdo信用新規売.TabIndex = 1
+        Me.rdo信用新規売.Text = "信用新規売"
+        Me.rdo信用新規売.UseVisualStyleBackColor = True
         '
         'dgv新規一覧
         '
         Me.dgv新規一覧.AllowUserToAddRows = False
         Me.dgv新規一覧.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv新規一覧.Location = New System.Drawing.Point(15, 423)
+        Me.dgv新規一覧.Location = New System.Drawing.Point(15, 483)
         Me.dgv新規一覧.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.dgv新規一覧.Name = "dgv新規一覧"
         Me.dgv新規一覧.RowHeadersWidth = 51
@@ -250,18 +251,19 @@ Partial Class frm新規建入力
         'btn閉じる
         '
         Me.btn閉じる.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btn閉じる.Location = New System.Drawing.Point(444, 365)
+        Me.btn閉じる.ForeColor = System.Drawing.Color.Red
+        Me.btn閉じる.Location = New System.Drawing.Point(1046, 401)
         Me.btn閉じる.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.btn閉じる.Name = "btn閉じる"
         Me.btn閉じる.Size = New System.Drawing.Size(138, 42)
         Me.btn閉じる.TabIndex = 26
-        Me.btn閉じる.Text = "次へ(&N)"
+        Me.btn閉じる.Text = "閉じる(&N)"
         Me.btn閉じる.UseVisualStyleBackColor = True
         '
         'grb性別
         '
         Me.grb性別.Controls.Add(Me.rdo信新買い)
-        Me.grb性別.Controls.Add(Me.rdo信返売り)
+        Me.grb性別.Controls.Add(Me.rdo信用新規売)
         Me.grb性別.Location = New System.Drawing.Point(893, 76)
         Me.grb性別.Name = "grb性別"
         Me.grb性別.Size = New System.Drawing.Size(361, 103)
@@ -282,12 +284,12 @@ Partial Class frm新規建入力
         'btn登録
         '
         Me.btn登録.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btn登録.Location = New System.Drawing.Point(61, 365)
+        Me.btn登録.Location = New System.Drawing.Point(663, 401)
         Me.btn登録.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.btn登録.Name = "btn登録"
         Me.btn登録.Size = New System.Drawing.Size(138, 47)
         Me.btn登録.TabIndex = 22
-        Me.btn登録.Text = "確認(&U)"
+        Me.btn登録.Text = "登録(&U)"
         Me.btn登録.UseVisualStyleBackColor = True
         '
         'txt入力ID
@@ -295,7 +297,7 @@ Partial Class frm新規建入力
         Me.txt入力ID.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt入力ID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt入力ID.ImeMode = System.Windows.Forms.ImeMode.Off
-        Me.txt入力ID.Location = New System.Drawing.Point(746, 18)
+        Me.txt入力ID.Location = New System.Drawing.Point(244, 2)
         Me.txt入力ID.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txt入力ID.MaxLength = 10
         Me.txt入力ID.Name = "txt入力ID"
@@ -308,7 +310,7 @@ Partial Class frm新規建入力
         'lbl取引ID
         '
         Me.lbl取引ID.AutoSize = True
-        Me.lbl取引ID.Location = New System.Drawing.Point(640, 23)
+        Me.lbl取引ID.Location = New System.Drawing.Point(138, 7)
         Me.lbl取引ID.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl取引ID.Name = "lbl取引ID"
         Me.lbl取引ID.Size = New System.Drawing.Size(67, 20)
@@ -322,7 +324,7 @@ Partial Class frm新規建入力
         Me.txt取得日付.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt取得日付.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt取得日付.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.txt取得日付.Location = New System.Drawing.Point(165, 32)
+        Me.txt取得日付.Location = New System.Drawing.Point(234, 301)
         Me.txt取得日付.MaxLength = 15
         Me.txt取得日付.Name = "txt取得日付"
         Me.txt取得日付.ReadOnly = True
@@ -334,7 +336,7 @@ Partial Class frm新規建入力
         'lbl取得日付
         '
         Me.lbl取得日付.AutoSize = True
-        Me.lbl取得日付.Location = New System.Drawing.Point(57, 32)
+        Me.lbl取得日付.Location = New System.Drawing.Point(95, 301)
         Me.lbl取得日付.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl取得日付.Name = "lbl取得日付"
         Me.lbl取得日付.Size = New System.Drawing.Size(89, 20)
@@ -344,7 +346,7 @@ Partial Class frm新規建入力
         'btn続けて入力
         '
         Me.btn続けて入力.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.btn続けて入力.Location = New System.Drawing.Point(245, 365)
+        Me.btn続けて入力.Location = New System.Drawing.Point(847, 401)
         Me.btn続けて入力.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.btn続けて入力.Name = "btn続けて入力"
         Me.btn続けて入力.Size = New System.Drawing.Size(138, 37)
@@ -354,7 +356,7 @@ Partial Class frm新規建入力
         '
         'btn銘柄名検索
         '
-        Me.btn銘柄名検索.Location = New System.Drawing.Point(370, 77)
+        Me.btn銘柄名検索.Location = New System.Drawing.Point(453, 35)
         Me.btn銘柄名検索.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.btn銘柄名検索.Name = "btn銘柄名検索"
         Me.btn銘柄名検索.Size = New System.Drawing.Size(35, 27)
@@ -368,7 +370,7 @@ Partial Class frm新規建入力
         Me.txt銘柄コード.Font = New System.Drawing.Font("MS UI Gothic", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt銘柄コード.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt銘柄コード.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.txt銘柄コード.Location = New System.Drawing.Point(161, 76)
+        Me.txt銘柄コード.Location = New System.Drawing.Point(244, 34)
         Me.txt銘柄コード.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txt銘柄コード.MaxLength = 8
         Me.txt銘柄コード.Name = "txt銘柄コード"
@@ -395,16 +397,16 @@ Partial Class frm新規建入力
         Me.Controls.Add(Me.txt残株数)
         Me.Controls.Add(Me.txt取得単価)
         Me.Controls.Add(Me.txt取得株数)
-        Me.Controls.Add(Me.txt取引区分)
+        Me.Controls.Add(Me.txt取引名称)
         Me.Controls.Add(Me.txt銘柄名)
-        Me.Controls.Add(Me.txt取引種別)
+        Me.Controls.Add(Me.txt現況)
         Me.Controls.Add(Me.lbl残株数)
         Me.Controls.Add(Me.lbl取得単価)
         Me.Controls.Add(Me.lbl株数)
-        Me.Controls.Add(Me.lbl取引区分)
+        Me.Controls.Add(Me.lbl取引名称)
         Me.Controls.Add(Me.lbl銘柄名)
         Me.Controls.Add(Me.lblフリガナ)
-        Me.Controls.Add(Me.lbl取引種別)
+        Me.Controls.Add(Me.lbl現況)
         Me.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Name = "frm新規建入力"
         Me.Text = "新規建"
@@ -415,21 +417,21 @@ Partial Class frm新規建入力
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents lbl取引種別 As Label
+    Friend WithEvents lbl現況 As Label
     Friend WithEvents lblフリガナ As Label
     Friend WithEvents lbl銘柄名 As Label
-    Friend WithEvents lbl取引区分 As Label
+    Friend WithEvents lbl取引名称 As Label
     Friend WithEvents lbl株数 As Label
     Friend WithEvents lbl取得単価 As Label
     Friend WithEvents lbl残株数 As Label
-    Friend WithEvents txt取引種別 As TextBox
+    Friend WithEvents txt現況 As TextBox
     Friend WithEvents txt銘柄名 As TextBox
-    Friend WithEvents txt取引区分 As TextBox
+    Friend WithEvents txt取引名称 As TextBox
     Friend WithEvents txt取得株数 As TextBox
     Friend WithEvents txt取得単価 As TextBox
     Friend WithEvents txt残株数 As TextBox
     Friend WithEvents rdo信新買い As RadioButton
-    Friend WithEvents rdo信返売り As RadioButton
+    Friend WithEvents rdo信用新規売 As RadioButton
     Friend WithEvents btn登録 As Button
     Friend WithEvents dgv新規一覧 As DataGridView
     Friend WithEvents btn閉じる As Button

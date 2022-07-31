@@ -74,7 +74,6 @@ Public Class frm新規建入力
         '     txt氏名.Text = "新道 結"
         txt銘柄名.Text = ""
         txt銘柄コード.Text = ""
-        txt業種区分.Text = ""
         txt取得株数.Text = ""
         '  txt取引区分.Text = ""
         txt取得単価.Text = ""
@@ -94,20 +93,20 @@ Public Class frm新規建入力
 
         'If rdo男.Checked = True Then MessageBox.Show("男")
         'If rdo女.Checked = True Then MessageBox.Show("女")
-        Dim msg入力ID As String = ""
+        '  Dim msg入力ID As String = ""
         Dim UorI As Boolean = True  '新規追加
         Dim OorN As Boolean = True  '成功
 
         'Select Case ErrorCheck()
         '    Case 0   'エラーなし
 
-        Dim 銘柄コードText As String = txt銘柄コード.Text
-        Dim 銘柄名Text As String = txt銘柄名.Text
-        Dim 取得株数Text As String = txt取得株数.Text   'msg出力用
-        Dim 取得単価Text As String = txt取得単価.Text   'msg出力用
+        'Dim 銘柄コードText As String = txt銘柄コード.Text
+        'Dim 銘柄名Text As String = txt銘柄名.Text
+        'Dim 取得株数Text As String = txt取得株数.Text   'msg出力用
+        'Dim 取得単価Text As String = txt取得単価.Text   'msg出力用
 
-        Select Case MessageBox.Show("" & 銘柄コードText & 銘柄名Text & "を" _
-                & 取得株数Text & " " & 取得単価Text & "'新規買'で、登録しますか？",
+        Select Case MessageBox.Show("" & txt銘柄コード.Text & txt銘柄名.Text & "を" _
+                & txt取得株数.Text & " " & txt取得単価.Text & txt取引名称.Text & "で、登録しますか？",
                "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             Case Windows.Forms.DialogResult.Yes
@@ -115,7 +114,9 @@ Public Class frm新規建入力
                 txt銘柄コード.Select()
                 Exit Sub
         End Select
-        txt残株数.Text = 取得株数Text
+
+        txt残株数.Text = txt取得株数.Text  'txt残株数=txt取得株数
+
         Dim cDB As New clsDB
         Dim msSQL As String
         Dim myTable As New DataTable
@@ -131,7 +132,7 @@ Public Class frm新規建入力
 
         ''新規追加
         'messagebox用語句登録
-        msg入力ID = txt入力ID.Text
+        '  msg入力ID = txt入力ID.Text
         UorI = True  '新規追加
 
         '追加Dataのセット
@@ -139,22 +140,20 @@ Public Class frm新規建入力
         msSQL += " [入力ID]"
         msSQL += " ,[銘柄コード]"
         msSQL += " ,[銘柄名]"
-        msSQL += " ,[取引種別]"
-        msSQL += " ,[取引区分]"
-        msSQL += " ,[取引株数]"
+        msSQL += " ,[取引名称]"
+        ' msSQL += " ,[取引区分]"
+        msSQL += " ,[取得株数]"
         msSQL += " ,[取得単価]"
         msSQL += " ,[取得日付]"
         msSQL += " ,[残株数]"
+        msSQL += " ,[現況]"
         msSQL += " )"
 
         msSQL += "  VALUES "
         msSQL += " ('" & Trim(txt入力ID.Text) & "'"                        ' <入力ID, nvarchar(10),>
         msSQL += ",'" & txt銘柄コード.Text.Trim & "'"
-
         msSQL += ",'" & txt銘柄名.Text.Trim & " '"
-        msSQL += ",'" & txt取引種別.Text.Trim & " '"
-
-        msSQL += ",'" & txt取引区分.Text.Trim & "'"
+        msSQL += ",'" & txt取引名称.Text.Trim & "'"
         msSQL += ",'" & txt取得株数.Text.Trim & "'"  '
         msSQL += ",'" & txt取得単価.Text.Trim & "'"  '
         'Select Case txt取得日付.Text.Length
@@ -163,7 +162,7 @@ Public Class frm新規建入力
         '    Case Else
         msSQL += ",'" & get日付 + "'"   '取得日付
         msSQL += ",'" & txt残株数.Text + "'"
-
+        msSQL += ",'" & txt現況.Text + "'"
         msSQL += ")"
 
         Try
@@ -205,7 +204,7 @@ Public Class frm新規建入力
         End With
 
         ' 住所は、必須入力項目です
-        With txt取引区分
+        With txt取引名称
             If .Text.Length = 0 Or
                             .Text = "甲府市 上阿原町 417番地 1 スモールワールドオフィスビル４階 B号 99999" Then
                 MessageBox.Show("住所は,必須入力項目です。")
@@ -255,6 +254,9 @@ Public Class frm新規建入力
 
     'End Sub
     Private Sub btn閉じる_Click(sender As Object, e As EventArgs) Handles btn閉じる.Click
+        Me.Close()
+    End Sub
+    Private Sub rdoクリア_CheckedChanged(sender As Object, e As EventArgs) Handles rdoクリア.CheckedChanged
         Me.Close()
     End Sub
 
@@ -310,9 +312,15 @@ Public Class frm新規建入力
 
     End Sub
 
-    Private Sub rdo信返売り_CheckedChanged(sender As Object, e As EventArgs) Handles rdo信返売り.CheckedChanged
+    Private Sub rdo信返売り_CheckedChanged(sender As Object, e As EventArgs) Handles rdo信用新規売.CheckedChanged
+
+        txt取引名称.Text = "信用新規売"
+        txt取引名称.ForeColor = Color.Red
+        txt現況.Text = "売建"
+        txt現況.ForeColor = Color.Red
 
     End Sub
+
 
 
 
