@@ -278,7 +278,7 @@ Public Class frm返済
                 mssql += "'" + txt返済入力ID.Text + "'"          ' ,<入力ID, nvarchar(9),>
                 mssql += ",'" + get日付 + "'"
                 mssql += ",'" + txt返済玉ID.Text + "'"          ' ,<返済元ID, nvarchar(9),>
-                mssql += ", '信用返済売'"          ' ,<取引種別, nvarchar(4),>
+                mssql += ",'" + txt取引名称.Text + "' "
                 mssql += ",'" + txt残株数.Text + "'"          ' ,<返済株数, int,>
                 mssql += ",'" + txt返済単価.Text + "'"          ' ,<返済単価, int,>)
                 mssql += ") "
@@ -343,7 +343,7 @@ Public Class frm返済
         txt返済株数.Text = ""
         'txt取引種別.Text = ""
         'txt取引区分.Text = ""
-        cmb現況.Text = ""
+        txt現況.Text = ""
 
     End Sub
     'txt返済株数_Leave
@@ -424,7 +424,7 @@ Public Class frm返済
     End Sub
 
     Private Sub btn続ける_Click_1(sender As Object, e As EventArgs) Handles btn続ける.Click
-        Dim mCommand As SqlCommand
+        '  Dim mCommand As SqlCommand
         Dim mSDA As New SqlDataAdapter
 
         Call subクリアー()
@@ -450,4 +450,9 @@ Public Class frm返済
 
     End Sub
 
+    Private Sub rdo信用返済買_CheckedChanged(sender As Object, e As EventArgs) Handles rdo信用返済買.CheckedChanged
+
+        txt取引名称.Text = "信用返済買"
+
+    End Sub
 End Class

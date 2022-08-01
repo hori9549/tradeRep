@@ -101,7 +101,7 @@ Public Class frmTradeRepo
         'Dim WB As IWorkbook = WorkbookFactory.Create("f:\data.xls")
         'Dim WS As ISheet = WB.GetSheetAt(0)         ''最初のシート取得
         'Dim iLastRow As Integer = WS.LastRowNum   ''シートの最終行数取得
-        '''最終行まで読込み
+        ''最終行まで読込み
         ''For iCount As Integer = 0 To iLastRow - 1
         ''    Dim getRow As IRow = WS.GetRow(iCount) ''行取得
         ''    '  Dim getCell = getRow.GetCell(0)         ''取得した行のA列取得

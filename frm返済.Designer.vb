@@ -58,14 +58,8 @@ Partial Class frm返済
         Me.txt返済日付 = New System.Windows.Forms.TextBox()
         Me.btn検索日付 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.cmb現況 = New System.Windows.Forms.ComboBox()
         Me.btn次へ = New System.Windows.Forms.Button()
         Me.btn続ける = New System.Windows.Forms.Button()
-        Me.grp取引名称 = New System.Windows.Forms.GroupBox()
-        Me.rdo現引き = New System.Windows.Forms.RadioButton()
-        Me.rdo信用返済売り = New System.Windows.Forms.RadioButton()
-        Me.rdo信用返済買 = New System.Windows.Forms.RadioButton()
-        Me.rdo現物売り = New System.Windows.Forms.RadioButton()
         CType(Me.dgv未返済一覧, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp取引名称.SuspendLayout()
         Me.SuspendLayout()
@@ -75,7 +69,7 @@ Partial Class frm返済
         Me.lblA.AutoSize = True
         Me.lblA.Location = New System.Drawing.Point(101, 126)
         Me.lblA.Name = "lblA"
-        Me.lblA.Size = New System.Drawing.Size(54, 16)
+        Me.lblA.Size = New System.Drawing.Size(57, 17)
         Me.lblA.TabIndex = 3
         Me.lblA.Text = "入力ID"
         '
@@ -83,7 +77,7 @@ Partial Class frm返済
         '
         Me.txt銘柄コード.Location = New System.Drawing.Point(162, 188)
         Me.txt銘柄コード.Name = "txt銘柄コード"
-        Me.txt銘柄コード.Size = New System.Drawing.Size(169, 23)
+        Me.txt銘柄コード.Size = New System.Drawing.Size(169, 24)
         Me.txt銘柄コード.TabIndex = 8
         '
         'dgv未返済一覧
@@ -105,7 +99,7 @@ Partial Class frm返済
         Me.lbl電話.AutoSize = True
         Me.lbl電話.Location = New System.Drawing.Point(739, 161)
         Me.lbl電話.Name = "lbl電話"
-        Me.lbl電話.Size = New System.Drawing.Size(104, 16)
+        Me.lbl電話.Size = New System.Drawing.Size(110, 17)
         Me.lbl電話.TabIndex = 36
         Me.lbl電話.Text = "概算売買差額"
         '
@@ -114,7 +108,7 @@ Partial Class frm返済
         Me.lbl８.AutoSize = True
         Me.lbl８.Location = New System.Drawing.Point(426, 146)
         Me.lbl８.Name = "lbl８"
-        Me.lbl８.Size = New System.Drawing.Size(104, 16)
+        Me.lbl８.Size = New System.Drawing.Size(110, 17)
         Me.lbl８.TabIndex = 22
         Me.lbl８.Text = "返済約定単価"
         '
@@ -123,7 +117,7 @@ Partial Class frm返済
         Me.lblC.AutoSize = True
         Me.lblC.Location = New System.Drawing.Point(83, 191)
         Me.lblC.Name = "lblC"
-        Me.lblC.Size = New System.Drawing.Size(76, 16)
+        Me.lblC.Size = New System.Drawing.Size(80, 17)
         Me.lblC.TabIndex = 7
         Me.lblC.Text = "銘柄コード"
         '
@@ -132,7 +126,7 @@ Partial Class frm返済
         Me.lblB.AutoSize = True
         Me.lblB.Location = New System.Drawing.Point(74, 160)
         Me.lblB.Name = "lblB"
-        Me.lblB.Size = New System.Drawing.Size(70, 16)
+        Me.lblB.Size = New System.Drawing.Size(74, 17)
         Me.lblB.TabIndex = 5
         Me.lblB.Text = "返済玉ID"
         '
@@ -141,7 +135,7 @@ Partial Class frm返済
         Me.lblｘ.AutoSize = True
         Me.lblｘ.Location = New System.Drawing.Point(444, 78)
         Me.lblｘ.Name = "lblｘ"
-        Me.lblｘ.Size = New System.Drawing.Size(86, 16)
+        Me.lblｘ.Size = New System.Drawing.Size(91, 17)
         Me.lblｘ.TabIndex = 18
         Me.lblｘ.Text = "返済入力ID"
         '
@@ -149,35 +143,35 @@ Partial Class frm返済
         '
         Me.txt返済単価.Location = New System.Drawing.Point(543, 143)
         Me.txt返済単価.Name = "txt返済単価"
-        Me.txt返済単価.Size = New System.Drawing.Size(141, 23)
+        Me.txt返済単価.Size = New System.Drawing.Size(141, 24)
         Me.txt返済単価.TabIndex = 23
         '
         'txt返済玉ID
         '
         Me.txt返済玉ID.Location = New System.Drawing.Point(162, 154)
         Me.txt返済玉ID.Name = "txt返済玉ID"
-        Me.txt返済玉ID.Size = New System.Drawing.Size(223, 23)
+        Me.txt返済玉ID.Size = New System.Drawing.Size(223, 24)
         Me.txt返済玉ID.TabIndex = 6
         '
         'txt返済入力ID
         '
         Me.txt返済入力ID.Location = New System.Drawing.Point(541, 71)
         Me.txt返済入力ID.Name = "txt返済入力ID"
-        Me.txt返済入力ID.Size = New System.Drawing.Size(174, 23)
+        Me.txt返済入力ID.Size = New System.Drawing.Size(174, 24)
         Me.txt返済入力ID.TabIndex = 19
         '
         'txtID
         '
         Me.txtID.Location = New System.Drawing.Point(162, 121)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(223, 23)
+        Me.txtID.Size = New System.Drawing.Size(223, 24)
         Me.txtID.TabIndex = 4
         '
         'txt検索日付
         '
         Me.txt検索日付.Location = New System.Drawing.Point(163, 71)
         Me.txt検索日付.Name = "txt検索日付"
-        Me.txt検索日付.Size = New System.Drawing.Size(222, 23)
+        Me.txt検索日付.Size = New System.Drawing.Size(222, 24)
         Me.txt検索日付.TabIndex = 1
         '
         'lb残株数
@@ -185,7 +179,7 @@ Partial Class frm返済
         Me.lb残株数.AutoSize = True
         Me.lb残株数.Location = New System.Drawing.Point(426, 328)
         Me.lb残株数.Name = "lb残株数"
-        Me.lb残株数.Size = New System.Drawing.Size(104, 16)
+        Me.lb残株数.Size = New System.Drawing.Size(110, 17)
         Me.lb残株数.TabIndex = 30
         Me.lb残株数.Text = "返済後残株数"
         '
@@ -194,7 +188,7 @@ Partial Class frm返済
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(88, 262)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(56, 16)
+        Me.Label10.Size = New System.Drawing.Size(59, 17)
         Me.Label10.TabIndex = 11
         Me.Label10.Text = "取得日"
         '
@@ -204,42 +198,42 @@ Partial Class frm返済
         Me.btn登録.Name = "btn登録"
         Me.btn登録.Size = New System.Drawing.Size(96, 40)
         Me.btn登録.TabIndex = 38
-        Me.btn登録.Text = "確認"
+        Me.btn登録.Text = "登録"
         Me.btn登録.UseVisualStyleBackColor = True
         '
         'txt返済株数
         '
         Me.txt返済株数.Location = New System.Drawing.Point(543, 178)
         Me.txt返済株数.Name = "txt返済株数"
-        Me.txt返済株数.Size = New System.Drawing.Size(172, 23)
+        Me.txt返済株数.Size = New System.Drawing.Size(172, 24)
         Me.txt返済株数.TabIndex = 25
         '
         'txt取得単価
         '
         Me.txt取得単価.Location = New System.Drawing.Point(162, 325)
         Me.txt取得単価.Name = "txt取得単価"
-        Me.txt取得単価.Size = New System.Drawing.Size(202, 23)
+        Me.txt取得単価.Size = New System.Drawing.Size(202, 24)
         Me.txt取得単価.TabIndex = 16
         '
         'txt返済後残株数
         '
         Me.txt返済後残株数.Location = New System.Drawing.Point(541, 321)
         Me.txt返済後残株数.Name = "txt返済後残株数"
-        Me.txt返済後残株数.Size = New System.Drawing.Size(157, 23)
+        Me.txt返済後残株数.Size = New System.Drawing.Size(157, 24)
         Me.txt返済後残株数.TabIndex = 31
         '
         'txt売買差額
         '
         Me.txt売買差額.Location = New System.Drawing.Point(735, 180)
         Me.txt売買差額.Name = "txt売買差額"
-        Me.txt売買差額.Size = New System.Drawing.Size(138, 23)
+        Me.txt売買差額.Size = New System.Drawing.Size(138, 24)
         Me.txt売買差額.TabIndex = 37
         '
         'txt取得日
         '
         Me.txt取得日.Location = New System.Drawing.Point(162, 255)
         Me.txt取得日.Name = "txt取得日"
-        Me.txt取得日.Size = New System.Drawing.Size(169, 23)
+        Me.txt取得日.Size = New System.Drawing.Size(169, 24)
         Me.txt取得日.TabIndex = 12
         '
         'lbl取得単価
@@ -247,7 +241,7 @@ Partial Class frm返済
         Me.lbl取得単価.AutoSize = True
         Me.lbl取得単価.Location = New System.Drawing.Point(79, 332)
         Me.lbl取得単価.Name = "lbl取得単価"
-        Me.lbl取得単価.Size = New System.Drawing.Size(72, 16)
+        Me.lbl取得単価.Size = New System.Drawing.Size(76, 17)
         Me.lbl取得単価.TabIndex = 15
         Me.lbl取得単価.Text = "取得単価"
         '
@@ -256,7 +250,7 @@ Partial Class frm返済
         Me.lblD.AutoSize = True
         Me.lblD.Location = New System.Drawing.Point(79, 223)
         Me.lblD.Name = "lblD"
-        Me.lblD.Size = New System.Drawing.Size(56, 16)
+        Me.lblD.Size = New System.Drawing.Size(59, 17)
         Me.lblD.TabIndex = 9
         Me.lblD.Text = "銘柄名"
         '
@@ -264,7 +258,7 @@ Partial Class frm返済
         '
         Me.txt銘柄名.Location = New System.Drawing.Point(162, 221)
         Me.txt銘柄名.Name = "txt銘柄名"
-        Me.txt銘柄名.Size = New System.Drawing.Size(223, 23)
+        Me.txt銘柄名.Size = New System.Drawing.Size(223, 24)
         Me.txt銘柄名.TabIndex = 10
         '
         'lblF
@@ -272,7 +266,7 @@ Partial Class frm返済
         Me.lblF.AutoSize = True
         Me.lblF.Location = New System.Drawing.Point(458, 181)
         Me.lblF.Name = "lblF"
-        Me.lblF.Size = New System.Drawing.Size(72, 16)
+        Me.lblF.Size = New System.Drawing.Size(76, 17)
         Me.lblF.TabIndex = 24
         Me.lblF.Text = "返済株数"
         '
@@ -281,7 +275,7 @@ Partial Class frm返済
         Me.lbl取得株数.AutoSize = True
         Me.lbl取得株数.Location = New System.Drawing.Point(88, 293)
         Me.lbl取得株数.Name = "lbl取得株数"
-        Me.lbl取得株数.Size = New System.Drawing.Size(56, 16)
+        Me.lbl取得株数.Size = New System.Drawing.Size(59, 17)
         Me.lbl取得株数.TabIndex = 13
         Me.lbl取得株数.Text = "残株数"
         '
@@ -289,7 +283,7 @@ Partial Class frm返済
         '
         Me.txt残株数.Location = New System.Drawing.Point(162, 289)
         Me.txt残株数.Name = "txt残株数"
-        Me.txt残株数.Size = New System.Drawing.Size(159, 23)
+        Me.txt残株数.Size = New System.Drawing.Size(159, 24)
         Me.txt残株数.TabIndex = 14
         '
         'lbl定休日
@@ -297,7 +291,7 @@ Partial Class frm返済
         Me.lbl定休日.AutoSize = True
         Me.lbl定休日.Location = New System.Drawing.Point(458, 217)
         Me.lbl定休日.Name = "lbl定休日"
-        Me.lbl定休日.Size = New System.Drawing.Size(72, 16)
+        Me.lbl定休日.Size = New System.Drawing.Size(76, 17)
         Me.lbl定休日.TabIndex = 26
         Me.lbl定休日.Text = "取引名称"
         '
@@ -306,7 +300,7 @@ Partial Class frm返済
         Me.lblE.AutoSize = True
         Me.lblE.Location = New System.Drawing.Point(458, 251)
         Me.lblE.Name = "lblE"
-        Me.lblE.Size = New System.Drawing.Size(72, 16)
+        Me.lblE.Size = New System.Drawing.Size(76, 17)
         Me.lblE.TabIndex = 28
         Me.lblE.Text = "取引区分"
         '
@@ -314,7 +308,7 @@ Partial Class frm返済
         '
         Me.txt取引区分.Location = New System.Drawing.Point(547, 248)
         Me.txt取引区分.Name = "txt取引区分"
-        Me.txt取引区分.Size = New System.Drawing.Size(119, 23)
+        Me.txt取引区分.Size = New System.Drawing.Size(119, 24)
         Me.txt取引区分.TabIndex = 29
         Me.txt取引区分.Text = "信返済売"
         '
@@ -323,15 +317,16 @@ Partial Class frm返済
         Me.txt取引名称.AcceptsReturn = True
         Me.txt取引名称.Location = New System.Drawing.Point(547, 214)
         Me.txt取引名称.Name = "txt取引名称"
-        Me.txt取引名称.Size = New System.Drawing.Size(119, 23)
+        Me.txt取引名称.Size = New System.Drawing.Size(119, 24)
         Me.txt取引名称.TabIndex = 27
+        Me.txt取引名称.Text = "信用返済売"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(458, 112)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(72, 16)
+        Me.Label6.Size = New System.Drawing.Size(76, 17)
         Me.Label6.TabIndex = 20
         Me.Label6.Text = "返済日付"
         '
@@ -339,7 +334,7 @@ Partial Class frm返済
         '
         Me.txt返済日付.Location = New System.Drawing.Point(541, 108)
         Me.txt返済日付.Name = "txt返済日付"
-        Me.txt返済日付.Size = New System.Drawing.Size(174, 23)
+        Me.txt返済日付.Size = New System.Drawing.Size(174, 24)
         Me.txt返済日付.TabIndex = 21
         '
         'btn検索日付
@@ -357,19 +352,9 @@ Partial Class frm返済
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(490, 287)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(40, 16)
+        Me.Label1.Size = New System.Drawing.Size(42, 17)
         Me.Label1.TabIndex = 49
         Me.Label1.Text = "現況"
-        '
-        'cmb現況
-        '
-        Me.cmb現況.FormattingEnabled = True
-        Me.cmb現況.Items.AddRange(New Object() {"", "一部返済", "　現引"})
-        Me.cmb現況.Location = New System.Drawing.Point(543, 280)
-        Me.cmb現況.Margin = New System.Windows.Forms.Padding(2)
-        Me.cmb現況.Name = "cmb現況"
-        Me.cmb現況.Size = New System.Drawing.Size(91, 24)
-        Me.cmb現況.TabIndex = 50
         '
         'btn次へ
         '
@@ -382,6 +367,7 @@ Partial Class frm返済
         '
         'btn続ける
         '
+        Me.btn続ける.Font = New System.Drawing.Font("MS UI Gothic", 9.267326!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.btn続ける.Location = New System.Drawing.Point(735, 211)
         Me.btn続ける.Name = "btn続ける"
         Me.btn続ける.Size = New System.Drawing.Size(96, 40)
@@ -389,73 +375,13 @@ Partial Class frm返済
         Me.btn続ける.Text = "返済の" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "入力を続ける"
         Me.btn続ける.UseVisualStyleBackColor = True
         '
-        'grp取引名称
-        '
-        Me.grp取引名称.Controls.Add(Me.rdo現物売り)
-        Me.grp取引名称.Controls.Add(Me.rdo現引き)
-        Me.grp取引名称.Controls.Add(Me.rdo信用返済売り)
-        Me.grp取引名称.Controls.Add(Me.rdo信用返済買)
-        Me.grp取引名称.Location = New System.Drawing.Point(603, 376)
-        Me.grp取引名称.Name = "grp取引名称"
-        Me.grp取引名称.Size = New System.Drawing.Size(328, 165)
-        Me.grp取引名称.TabIndex = 54
-        Me.grp取引名称.TabStop = False
-        Me.grp取引名称.Text = "取引名称"
-        '
-        'rdo現引き
-        '
-        Me.rdo現引き.AutoSize = True
-        Me.rdo現引き.Location = New System.Drawing.Point(34, 95)
-        Me.rdo現引き.Name = "rdo現引き"
-        Me.rdo現引き.Size = New System.Drawing.Size(70, 20)
-        Me.rdo現引き.TabIndex = 2
-        Me.rdo現引き.Text = "現引き"
-        Me.rdo現引き.UseVisualStyleBackColor = True
-        '
-        'rdo信用返済売り
-        '
-        Me.rdo信用返済売り.AutoSize = True
-        Me.rdo信用返済売り.Checked = True
-        Me.rdo信用返済売り.Location = New System.Drawing.Point(34, 25)
-        Me.rdo信用返済売り.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.rdo信用返済売り.Name = "rdo信用返済売り"
-        Me.rdo信用返済売り.Size = New System.Drawing.Size(106, 20)
-        Me.rdo信用返済売り.TabIndex = 0
-        Me.rdo信用返済売り.TabStop = True
-        Me.rdo信用返済売り.Text = "信用返済売"
-        Me.rdo信用返済売り.UseVisualStyleBackColor = True
-        '
-        'rdo信用返済買
-        '
-        Me.rdo信用返済買.AutoSize = True
-        Me.rdo信用返済買.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rdo信用返済買.Location = New System.Drawing.Point(34, 54)
-        Me.rdo信用返済買.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.rdo信用返済買.Name = "rdo信用返済買"
-        Me.rdo信用返済買.Size = New System.Drawing.Size(106, 20)
-        Me.rdo信用返済買.TabIndex = 1
-        Me.rdo信用返済買.Text = "信用返済買"
-        Me.rdo信用返済買.UseVisualStyleBackColor = True
-        '
-        'rdo現物売り
-        '
-        Me.rdo現物売り.AutoSize = True
-        Me.rdo現物売り.Location = New System.Drawing.Point(34, 130)
-        Me.rdo現物売り.Name = "rdo現物売り"
-        Me.rdo現物売り.Size = New System.Drawing.Size(84, 20)
-        Me.rdo現物売り.TabIndex = 3
-        Me.rdo現物売り.Text = "現物売り"
-        Me.rdo現物売り.UseVisualStyleBackColor = True
-        '
         'frm返済
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 761)
-        Me.Controls.Add(Me.grp取引名称)
         Me.Controls.Add(Me.btn続ける)
         Me.Controls.Add(Me.btn次へ)
-        Me.Controls.Add(Me.cmb現況)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn検索日付)
         Me.Controls.Add(Me.Label6)
@@ -537,12 +463,6 @@ Partial Class frm返済
     Friend WithEvents txt返済日付 As TextBox
     Friend WithEvents btn検索日付 As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents cmb現況 As ComboBox
     Friend WithEvents btn次へ As Button
     Friend WithEvents btn続ける As Button
-    Friend WithEvents grp取引名称 As GroupBox
-    Friend WithEvents rdo現物売り As RadioButton
-    Friend WithEvents rdo現引き As RadioButton
-    Friend WithEvents rdo信用返済売り As RadioButton
-    Friend WithEvents rdo信用返済買 As RadioButton
 End Class
