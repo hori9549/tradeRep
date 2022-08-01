@@ -61,7 +61,13 @@ Partial Class frm返済
         Me.cmb現況 = New System.Windows.Forms.ComboBox()
         Me.btn次へ = New System.Windows.Forms.Button()
         Me.btn続ける = New System.Windows.Forms.Button()
+        Me.grp取引名称 = New System.Windows.Forms.GroupBox()
+        Me.rdo現引き = New System.Windows.Forms.RadioButton()
+        Me.rdo信用返済売り = New System.Windows.Forms.RadioButton()
+        Me.rdo信用返済買 = New System.Windows.Forms.RadioButton()
+        Me.rdo現物売り = New System.Windows.Forms.RadioButton()
         CType(Me.dgv未返済一覧, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grp取引名称.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblA
@@ -85,7 +91,7 @@ Partial Class frm返済
         Me.dgv未返済一覧.AllowUserToAddRows = False
         Me.dgv未返済一覧.AllowUserToDeleteRows = False
         Me.dgv未返済一覧.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv未返済一覧.Location = New System.Drawing.Point(23, 365)
+        Me.dgv未返済一覧.Location = New System.Drawing.Point(23, 547)
         Me.dgv未返済一覧.Name = "dgv未返済一覧"
         Me.dgv未返済一覧.ReadOnly = True
         Me.dgv未返済一覧.RowHeadersWidth = 51
@@ -383,11 +389,70 @@ Partial Class frm返済
         Me.btn続ける.Text = "返済の" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "入力を続ける"
         Me.btn続ける.UseVisualStyleBackColor = True
         '
+        'grp取引名称
+        '
+        Me.grp取引名称.Controls.Add(Me.rdo現物売り)
+        Me.grp取引名称.Controls.Add(Me.rdo現引き)
+        Me.grp取引名称.Controls.Add(Me.rdo信用返済売り)
+        Me.grp取引名称.Controls.Add(Me.rdo信用返済買)
+        Me.grp取引名称.Location = New System.Drawing.Point(603, 376)
+        Me.grp取引名称.Name = "grp取引名称"
+        Me.grp取引名称.Size = New System.Drawing.Size(328, 165)
+        Me.grp取引名称.TabIndex = 54
+        Me.grp取引名称.TabStop = False
+        Me.grp取引名称.Text = "取引名称"
+        '
+        'rdo現引き
+        '
+        Me.rdo現引き.AutoSize = True
+        Me.rdo現引き.Location = New System.Drawing.Point(34, 95)
+        Me.rdo現引き.Name = "rdo現引き"
+        Me.rdo現引き.Size = New System.Drawing.Size(70, 20)
+        Me.rdo現引き.TabIndex = 2
+        Me.rdo現引き.Text = "現引き"
+        Me.rdo現引き.UseVisualStyleBackColor = True
+        '
+        'rdo信用返済売り
+        '
+        Me.rdo信用返済売り.AutoSize = True
+        Me.rdo信用返済売り.Checked = True
+        Me.rdo信用返済売り.Location = New System.Drawing.Point(34, 25)
+        Me.rdo信用返済売り.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.rdo信用返済売り.Name = "rdo信用返済売り"
+        Me.rdo信用返済売り.Size = New System.Drawing.Size(106, 20)
+        Me.rdo信用返済売り.TabIndex = 0
+        Me.rdo信用返済売り.TabStop = True
+        Me.rdo信用返済売り.Text = "信用返済売"
+        Me.rdo信用返済売り.UseVisualStyleBackColor = True
+        '
+        'rdo信用返済買
+        '
+        Me.rdo信用返済買.AutoSize = True
+        Me.rdo信用返済買.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rdo信用返済買.Location = New System.Drawing.Point(34, 54)
+        Me.rdo信用返済買.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.rdo信用返済買.Name = "rdo信用返済買"
+        Me.rdo信用返済買.Size = New System.Drawing.Size(106, 20)
+        Me.rdo信用返済買.TabIndex = 1
+        Me.rdo信用返済買.Text = "信用返済買"
+        Me.rdo信用返済買.UseVisualStyleBackColor = True
+        '
+        'rdo現物売り
+        '
+        Me.rdo現物売り.AutoSize = True
+        Me.rdo現物売り.Location = New System.Drawing.Point(34, 130)
+        Me.rdo現物売り.Name = "rdo現物売り"
+        Me.rdo現物売り.Size = New System.Drawing.Size(84, 20)
+        Me.rdo現物売り.TabIndex = 3
+        Me.rdo現物売り.Text = "現物売り"
+        Me.rdo現物売り.UseVisualStyleBackColor = True
+        '
         'frm返済
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 761)
+        Me.Controls.Add(Me.grp取引名称)
         Me.Controls.Add(Me.btn続ける)
         Me.Controls.Add(Me.btn次へ)
         Me.Controls.Add(Me.cmb現況)
@@ -431,6 +496,8 @@ Partial Class frm返済
         Me.Name = "frm返済"
         Me.Text = "frm返済"
         CType(Me.dgv未返済一覧, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grp取引名称.ResumeLayout(False)
+        Me.grp取引名称.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -473,4 +540,9 @@ Partial Class frm返済
     Friend WithEvents cmb現況 As ComboBox
     Friend WithEvents btn次へ As Button
     Friend WithEvents btn続ける As Button
+    Friend WithEvents grp取引名称 As GroupBox
+    Friend WithEvents rdo現物売り As RadioButton
+    Friend WithEvents rdo現引き As RadioButton
+    Friend WithEvents rdo信用返済売り As RadioButton
+    Friend WithEvents rdo信用返済買 As RadioButton
 End Class
